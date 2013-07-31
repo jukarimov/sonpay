@@ -1,0 +1,91 @@
+
+input[type="text"], input[type="password"] {
+	height: 31px;
+	line-height: 22px;
+	margin-left: 10px;
+}
+
+.chatlogin {
+	color: #333;
+}
+
+#start {
+	width: 190px;
+	height: 50px;
+	margin-top: 20%;
+}
+
+#drop > i {
+	margin-top: 0px;
+	padding: 5px;
+}
+
+#drop {
+	margin-top: 20%;
+	margin-right: -40px;
+	padding-top: 10px;
+	height: 47px;
+}
+
+#welcome {
+	background-color: #fff;
+	padding: 10px 10px 10px;
+	border-radius: 6px;
+	height: 80%;
+	margin-top: 30px;
+}
+
+.content > .inp-entry {
+	margin-top: 5%;
+	margin-left: 3px;
+	margin-bottom: 1px;
+	width: 180px;
+	padding-right: 0px;
+}
+
+.content > .inp-send {
+	margin-top: 5%;
+	height: 18px;
+	width: 40px;
+	margin-left: 0px;
+}
+
+.content > .conversation {
+	background-color: #ECE373;
+	height: 80%;
+	border-radius: 6px;
+	overflow: scroll;
+}
+
+.content > .conversation > .msg {
+	background-color: #fff;
+	color: red;
+	border-radius: 16px;
+	padding: 5px 5px 5px;
+	word-wrap: break-word;
+}
+
+.content a {
+	color: #111;
+}
+
+.chatlogin-admin i {
+	padding: 5px;
+
+}
+#start {
+	width: 90px;
+	height: 40px;
+	font-size: 20px;
+	padding-top: 15px;
+}
+
+.content {
+	background-color: #fff;
+	border-radius: 6px;
+	height: 90%;
+	margin-bottom: 0px;
+}
+.admin-greeter {
+	color: #fff;
+}

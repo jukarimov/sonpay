@@ -1,0 +1,172 @@
+.brand {
+	box-shadow: -1px 1px 14px 0px #E84949;
+	font-size: 27px;
+}
+.navbar .brand {
+	font-size: 27px;
+}
+.navbar-search input {
+	max-width: 120px;
+}
+#page {
+	padding-top: 60px;
+}
+.navbar-inner {
+	width: 100%;
+	background-image: url('/images/carbon.png');
+}
+.navbar-inner ul {
+	background-color: #b9b9b9;
+}
+#myCarousel {
+	max-width:900px;
+	border-radius:6px;
+	max-height:300px;
+	overflow:hidden;
+	margin: 0px auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.carousel-caption > h1 {
+	color: rgba(250, 50, 50, 0.5);
+}
+#content {
+	background-color: #fff;
+	border-radius: 6px;
+	padding: 25px 25px 2px;
+}
+.content {
+	background-color: #fff;
+	border-radius: 6px;
+	padding: 25px 25px 2px;
+}
+.content a {
+	color: gray;
+}
+#services img {
+	margin-left: 30px;
+	width: 110px;
+	padding: 10px;
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+	border-radius: 6px;
+}
+#services img:hover {
+	background-color: #E84949;
+}
+#messages {
+	color: red;
+	border: 1px dashed blue;
+	padding: 3px;
+	max-width: 745px;
+}
+#messages tr {
+	border: 1px solid blue;
+}
+#chkall {
+	margin-left: 3px;
+}
+#messages .bootstrap-select {
+	margin-left: 20px;
+	width: 120px;
+}
+.msg {
+	max-width: 300px;
+	border: 1px solid blue;
+	word-wrap:break-word;
+}
+.sbj {
+	margin-left: 30px;
+}
+.from {
+	font-weight: bold;
+	font-family: cursive;
+	text-align: center;
+}
+#chat {
+	cursor: pointer;
+}
+.chat {
+	position: fixed;
+	bottom: 50px;
+	border-radius: 5px;
+	-webkit-transition: all 0.5s linear 0s;
+	-o-transition: all 0.5s linear 0s;
+	transition: all 0.5s linear 0s;
+	width: 80px;
+	height: 130px;
+	right: -20px;
+	background-image: url('/images/carbon.png');
+}
+.chat img {
+	width: 60px;
+	margin-left: 22px;
+	margin-top: 20px;
+}
+.chat:hover {
+	border: 1px solid red;
+	box-shadow: 3px 3px 30px 2px red;
+	background-color: #fff;
+}
+.chat, .chat a {
+	text-decoration: none;
+	text-shadow: 1px 1px 10px red;
+}
+.chat:hover {
+	text-shadow: 1px 1px 5px #f00;
+}
+.chat:hover > p[class="chatlabel"] {
+	color: #f00;
+}
+p[class="chatlabel"]{
+	-webkit-transform: rotate(90deg);
+	-o-transform: rotate(90deg);
+	transform: rotate(90deg);
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+	margin-bottom: -13px;
+	margin-top: 30px;
+	margin-right: 30px;
+	color: #900;
+}
+p[class="chatlabel"]:hover {
+	color: #f00;
+}
+#chatlab {
+	text-decoration: none;
+}
+.chat > #badge {
+	position: absolute;
+	top: 5px;
+}
+.messenger {
+	visibility: hidden;
+	position: fixed;
+	right: 15px;
+	background-color: rgba(0, 0, 0, 0.5);
+	border-radius: 5px;
+	-webkit-box-shadow: 2px 2px 20px 2px #222;
+	top: 20%;
+	bottom: 20%;
+	height: 420px;
+}
+#iframechat {
+	top: 20%;
+	border-radius: 6px;
+	background-color: #000;
+	border: 1px solid #000;
+}
+#footer {
+	color: gray;
+}
+.chat-alert {
+	position: absolute;
+	margin-left: 0px;
+	margin-top: 0px;
+	background-color: pink;
+	border-radius: 30px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
