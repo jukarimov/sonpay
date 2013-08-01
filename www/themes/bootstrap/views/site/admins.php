@@ -3,6 +3,7 @@
 /* @var $model ContactForm */
 /* @var $form TbActiveForm */
 Yii::app()->user->returnUrl = $this->createUrl('/site/admins');
+require_once('locale.php');
 
 $this->pageTitle=Yii::app()->name . ' - Admins';
 $this->breadcrumbs=array('Admins'=>array('site/admins/'));
@@ -14,7 +15,8 @@ $this->breadcrumbs=array('Admins'=>array('site/admins/'));
 
 <div class="content">
 
-<h1>Admins</h1>
+<h1><?php echo Yii::t('pages', 'admins.title'); ?></h1>
+<h3 class="hero"><?php echo Yii::t('pages', 'admins.info'); ?></h3>
 
 <?php if(Yii::app()->user->hasFlash('admins')): ?>
 
@@ -39,8 +41,8 @@ $this->breadcrumbs=array('Admins'=>array('site/admins/'));
 	<?php echo $form->textField($model,'user_name',array('placeholder'=>'User name')); ?>
 	<?php echo $form->dropDownList($model,'action',
 		array(
-			'create'=>'Create',
-			'delete'=>'Delete'
+			'create'=>Yii::t('pages','admins.create'),
+			'delete'=>Yii::t('pages','admins.delete')
 	)); ?>
 
 

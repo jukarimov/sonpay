@@ -21,13 +21,13 @@ $name = $rows[0]['cname'];
 if (!count($rows))
 {
 	// take one from guest list
-	$s = 'select distinct name from livechat_guests where name not in (select cname from livechat_taken) limit 1;'; 
+	$s = 'select distinct cname from livechat_guests where cname not in (select cname from livechat_taken) limit 1;'; 
 	$query = $db->prepare($s);
 	$query->execute();
 
 	$rows = $query->fetchAll();
 
-	$name = $rows[0]['name'];
+	$name = $rows[0]['cname'];
 
 }
 

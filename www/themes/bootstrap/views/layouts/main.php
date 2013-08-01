@@ -105,9 +105,11 @@ function toLang($ln)
 	        ),
             ),
         ),
-	'<form class="navbar-search pull-right">
-	 <input type="text" class="search-query" placeholder="search">
-	 </form>',
+
+	'<div class="container-fluid"><form class="navbar-search pull-right">
+	 <input id="navsearch" type="text" class="search-query" placeholder="Search...">
+	 </form></div>',
+	 '<a href="https://github.com/jukarimov/sonpay"><img style="position: absolute; top: 0; right: 0; border: 0;margin-top:-10px;margin-right:-10px;width:110px" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>'
     ),
 )); ?>
 
@@ -132,10 +134,10 @@ function toLang($ln)
 </div>
 
 <div class="messenger" id="messenger">
-	<a href="#" onclick="switchChat();window.open('/etc/chat/index.php');">[O]</a>
-	<a style="float:right;" href="#" onclick="switchChat();">[X]</a>
-	<a id="mz" style="float:right;" href="#" onclick="minimzChat();">[-]</a><br>
-	<iframe id="iframechat" height="400" width="300" src=""></iframe>
+<a href="#" title="open" onclick="switchChat();window.open('/etc/chat/index.php');">[O]</a>
+<a style="float:right;" href="#" onclick="switchChat();" title="close">[X]</a>
+<br>
+<iframe id="iframechat" height="440" width="440" src=""></iframe>
 </div>
 
 
@@ -146,20 +148,6 @@ function toLang($ln)
 </div><!-- footer -->
 
 <script>
-
-function minimzChat() {
-	var isMin = false;
-	if ($('#mz').html() == '[+]')
-		isMin = true;
-
-	if (isMin) {
-		$('#iframechat').attr('height', '300px');
-		$('#mz').html('[-]');
-	} else {
-		$('#iframechat').attr('height', '30px');
-		$('#mz').html('[+]');
-	}
-}
 
 function switchChat() {
 
@@ -176,34 +164,37 @@ function switchChat() {
 		$('#chat').css('bottom','100px')
 	}
 }
-
-$(document).ready(function(){
-	$('.navbar-inner').children().attr('class','container-fluid');
-});
-
-</script>
 <?php
-
 // Show guest count on support badge
-if (Yii::app()->user->isGuest == false) {
-
-
-
-
+if (!Yii::app()->user->isGuest) 
+{
 ?>
-<script>
 	function gcountPoll() {
 	
-		$.get('protected/extensions/chat/gcount.php', function(r){
+		$.get('/etc/chat/gcount.php', function(r){
 			var count = JSON.parse(r).count;
 			$('#gcount').text(count);
 		});
+
+		console.log('gcountPoll');
 	}
 	gcountPoll();
 	setInterval('gcountPoll()', 10 * 1000);
-</script>
 <?
 }
 ?>
+$(document).ready(function(){
+	$('.navbar-inner').children().attr('class','container-fluid');
+	$('#navsearch').focus(function(){
+		$('.navbar-search').attr('class','navbar-search pull-left');
+		$('.navbar-search').css('width','20%');
+	});
+	$('#navsearch').blur(function(){
+		$('.navbar-search').attr('class','navbar-search pull-right');
+		$('.navbar-search').css('width','10%');
+	});
+
+});
+</script>
 </body>
 </html>

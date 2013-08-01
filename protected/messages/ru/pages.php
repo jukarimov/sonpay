@@ -19,7 +19,20 @@ return array(
 
 	'loginForm.username' => 'Имя пользователя',
 	'loginForm.password' => 'Пароль',
-	'login.note' => 'Пожалуйста заполните форму для входа'
+	'login.note' => 'Пожалуйста заполните форму для входа',
+
+	'settings.info' => 'Здесь Вы можете изменять настройки Вашего аккаунта',
+	'current_password'=> 'Текущий Пароль',
+	'new_password'=> 'Новый Пароль',
+	'repeat'=>'Повтор',
+	'email'=>'E-мэйл',
+
+	'messages.title'=>'Сообщения',
+
+	'admins.create'=>'Создать',
+	'admins.delete'=>'Удалить',
+	'admins.title'=>'Админы',
+	'admins.info' => 'Здесь Вы можете создавать или удалять аккаунтаы админов сайта',
 );
 
 ?>

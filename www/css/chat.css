@@ -2,11 +2,14 @@
 input[type="text"], input[type="password"] {
 	height: 31px;
 	line-height: 22px;
-	margin-left: 10px;
 }
 
 .chatlogin {
-	color: #333;
+	color: #565656;
+}
+
+h3 {
+	font-size: medium;
 }
 
 #start {
@@ -35,19 +38,19 @@ input[type="text"], input[type="password"] {
 	margin-top: 30px;
 }
 
-.content > .inp-entry {
-	margin-top: 5%;
+.inp-entry {
+	margin-top: 5px;
 	margin-left: 3px;
 	margin-bottom: 1px;
-	width: 180px;
 	padding-right: 0px;
+	width: 60%;
 }
 
-.content > .inp-send {
-	margin-top: 5%;
-	height: 18px;
-	width: 40px;
-	margin-left: 0px;
+.inp-send {
+	margin-top: 5px;
+	margin-left: 10px;
+	margin-right: 0px;
+	margin-bottom: 10px;
 }
 
 .content > .conversation {
@@ -63,6 +66,7 @@ input[type="text"], input[type="password"] {
 	border-radius: 16px;
 	padding: 5px 5px 5px;
 	word-wrap: break-word;
+	margin-right: 20px;
 }
 
 .content a {
@@ -79,12 +83,12 @@ input[type="text"], input[type="password"] {
 	font-size: 20px;
 	padding-top: 15px;
 }
-
 .content {
 	background-color: #fff;
 	border-radius: 6px;
-	height: 90%;
 	margin-bottom: 0px;
+	margin: 5px 5px;
+	color: #565656;
 }
 .admin-greeter {
 	color: #fff;

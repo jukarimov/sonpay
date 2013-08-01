@@ -24,13 +24,13 @@ $this->breadcrumbs=array(
 
 <p>
 <?php
-echo Yii::t('pages', 'contact.blablink');
+//echo Yii::t('pages', 'contact.blablink');
 ?>
-<p>
+<h2 class="hero">
 <?php
 echo Yii::t('pages', 'contact.greeting');
 ?>
-</p>
+</h2>
 
 <div class="form">
 
@@ -53,7 +53,7 @@ echo Yii::t('pages', 'contact.greeting');
 
     <?php echo $form->textFieldRow($model,'email'); ?>
 
-    <?php echo $form->textFieldRow($model,'subject',array('size'=>60,'maxlength'=>128)); ?>
+    <?php echo $form->textFieldRow($model,'subject'); ?>
 
     <?php echo $form->textAreaRow($model,'body',array('rows'=>6, 'class'=>'span8')); ?>
 

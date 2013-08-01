@@ -1,5 +1,7 @@
 <?php
 
+require_once('locale.php');
+
 class SiteController extends Controller
 {
 	/**
@@ -214,7 +216,7 @@ class SiteController extends Controller
 					$model->body
 				);
 
-				Yii::app()->user->setFlash('contact','Thank you for contacting us. We will respond to you as soon as possible.');
+				Yii::app()->user->setFlash('contact',Yii::t('flash', 'thank_for_contact'));
 				$this->refresh();
 			}
 		}

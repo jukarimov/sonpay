@@ -10,7 +10,7 @@
 
 </head>
 
-<body onload="$('#msg').focus();">
+<body>
 
 <?
 
@@ -44,11 +44,11 @@ $TR = array(
 	),
 	'agree' => array(
 		'en'=>'I\'m agree with the
-	       	<a href="http://localhost/home/index.php?r=site/page&view=policy">policy</a>',
+	       	<a target="tab" href="/index.php?r=site/page&view=policy">policy</a>',
 		'ru'=>'Я согласен с 
-	       	<a href="http://localhost/home/index.php?r=site/page&view=policy">политикой</a>',
+	       	<a target="tab" href="/index.php?r=site/page&view=policy">политикой</a>',
 		'tj'=>'Ман бо 
-		<a href="http://localhost/home/index.php?r=site/page&view=policy">сиёсат</a>рози хастам'
+		<a target="tab" href="/index.php?r=site/page&view=policy">сиёсат</a> рози хастам'
 	)
 );
 
@@ -227,6 +227,12 @@ $(function(){
                 }
         });
 
+
+	$('#clear').click(function(){
+		$('#msg').val('');
+	});
+
+
         $('#send').click(function(){
                 if ($('#msg').val() == '') return;
 		
@@ -235,7 +241,10 @@ $(function(){
                 $('.conversation').scrollTop(1000);
         });
 
-       $('#msg').focus();
+	$('#msg').focus(function(){
+		// automatic notification for client
+		$.post('send.php',{msg:'[hi]'});
+	});
 
 
 });
@@ -248,11 +257,17 @@ $(function(){
 </div>
 <div class="content">
 
+<div id="cover1" style="width: 20px; height: 90%; position: absolute; background-color: maroon; right: 20px;"></div>
+
+<div id="cover2" style="top: 80%; width: 100%; height: 25px; position: absolute; background-color: maroon; left: 0px;"></div>
+
 <div class="conversation">
 </div>
 
+<div class="row-fluid">
 <input id="msg" class="inp-entry" name="msg" type="text"/>
 <a id="send" class="inp-send btn btn-primary">send</a>
+</div>
 
 </div>
 
@@ -274,31 +289,39 @@ Guest: <b id="glist">Loading...</b><br>
 <?php
 } else { // this is guest, customer
 
-if (isset($_POST['name']) || isset($_SESSION['user'])) {
+if (isset($_POST['cname']) || isset($_SESSION['user'])) {
 
 	$user = $_SESSION['user'];
 
-	if (isset($_POST['name'])) {
+	if (isset($_POST['cname']) && !isset($_SESSION['user'])) {
+		$user = $_POST['cname'];
 		$user = trim($user);
 		if (strlen($user) >= 2 && $user !== 'admin' && $user !== 'support') {
 		    $_SESSION['user'] = $user;
 		} else
 		    $user = 'Guest_'.rand() % 1000;
-	} else {
+	} else if (!isset($_SESSION['user'])) {
 		$user = 'Guest_'.rand() % 1000;
 	}
 
 	$_SESSION['user'] = $user;
 
-	echo '<font color="#fff">Hello <b>' . $user . '</b></font>';
+	echo '<font color="#fff">Hello <b id="me">' . $user . '</b></font>';
 ?>
 <div class="content">
+
+<div id="cover1" style="width: 40px; height: 92%; position: absolute; background-color: maroon; right: 0px;"></div>
+
+<div id="cover2" style="top: 80%; width: 100%; height: 25px; position: absolute; background-color: maroon; left: 0px;"></div>
 
 <div class="conversation">
 </div>
 
+<div class="row-fluid">
 <input id="msg" class="inp-entry" name="msg" type="text"/>
+<a id="clear" class="inp-send btn btn-danger" title="clear">X</a>
 <a id="send" class="inp-send btn btn-primary">send</a>
+</div>
 
 </div>
 <?
@@ -307,17 +330,23 @@ if (isset($_POST['name']) || isset($_SESSION['user'])) {
 	
 ?>
 <div class="content">
+<div class="container-fluid">
 <center>
+<h1 class="hero">oSonpay</h1>
+<img style="position:absolute;top:10px;right:2px;width:100px;" src="/images/chat.png"/>
 <form action="" method="post" class="chatlogin">
-<?echo tr('note');?>
+<h3 align="left" style="margin-left:5px;" class="hero"><?echo tr('note');?></h3>
 <br>
- <?echo tr('name');?>: <input id="cname" name="name" type="text" placeholder="eg.: Bobin" /><br>
- <?echo tr('email');?>: <input name="email" type="text" placeholder="eg.: bobin@gmail.com"/><br>
- <?echo tr('phone');?>: <input name="phone" type="text" placeholder="eg.: 123 12 34 56"/><br>
- <?echo tr('agree');?>:&nbsp;<input type="checkbox"/><br>
+<div class="row-fluid">
+ <?echo tr('name');?>: <input id="cname" name="cname" type="text" placeholder="Bobin" /><br>
+ <?echo tr('email');?>: <input name="email" type="text" placeholder="bobin@gmail.com"/><br>
+ <?echo tr('phone');?>: <input name="phone" type="text" placeholder="123 12 34 56"/><br>
 <input id="genter" type="submit" class="btn btn-primary" value="Enter"/>
+<span id="policy"><?echo tr('agree');?>:&nbsp;<input type="checkbox"/></span><br>
+</div>
 </form>
 </center>
+</div>
 </div>
 
 <?php 
@@ -335,14 +364,17 @@ if (!isset($_COOKIE['_user']))
 {
 ?>
 <script>
+var me = '<?php echo $_SESSION['user']; ?>';
 var mlist = [];
 var msgPoll;
 var msgPoll_id;
 var getMsg;
+var hi_seen = false;
 
 $(document).ready(function(){
 
 	$('#genter').click(function(){
+		if (!$('#cname').val()) return;
 		$.post('gadd.php', { cname: $('#cname').val() });
 		msgPoll_id = setInterval('msgPoll()', 1500);
 	});
@@ -380,10 +412,21 @@ $(document).ready(function(){
 
 	        console.log('got: ' + msg);
 
-		$('.conversation').append(
-			'<b>support:</b>' +
-			'<p class="msg">' + msg + '</p>'
-		);
+		if (msg == '[hi]') {
+			// this is protocol
+			if (hi_seen == false)
+			{
+				$('.conversation').append(
+					'<b>support joined</b><br>'
+				);
+			}
+			hi_seen = true;
+		} else {
+			$('.conversation').append(
+				'<b>support:</b>' +
+				'<p class="msg">' + msg + '</p>'
+			);
+		}
                 $('.conversation').scrollTop(1000);
 	}
 
@@ -418,6 +461,10 @@ $(document).ready(function(){
 	        }
 	});
 
+	$('#clear').click(function(){
+		$('#msg').val('');
+	});
+
 	$('#send').click(function(){
 		if ($('#msg').val() == '') return;
 
@@ -426,7 +473,9 @@ $(document).ready(function(){
 		$('.conversation').scrollTop(1000);
 	});
 
-	$('#msg').focus();
+	$('#msg').focus(function(){
+		$.post('gadd.php', { cname: (me && me != '') ? me : $('#me').text() });
+	});
 
 <?php if (isset($_SESSION['user'])) { ?>
 

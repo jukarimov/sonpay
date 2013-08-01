@@ -75,8 +75,8 @@ if (isset($_POST['msg'])) {
 
 		$query = $db->prepare($s);
 		$query->execute(array(
-			':aname'  	=> $aname,
 			':cname' 	=> $cname,
+			':aname'  	=> $aname,
 			':msg' 		=> $msg,
 		));
 	}

@@ -13,7 +13,7 @@ $s = 'delete from livechat_taken where cname = :cname';
 $query = $db->prepare($s);
 $query->execute(array(':cname'=>$_POST['cname']));
 
-$s = 'delete from livechat_guests where name = :cname'; 
+$s = 'delete from livechat_guests where cname = :cname'; 
 $query = $db->prepare($s);
 $query->execute(array(':cname'=>$_POST['cname']));
 

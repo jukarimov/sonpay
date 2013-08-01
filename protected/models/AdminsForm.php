@@ -38,7 +38,7 @@ class AdminsForm extends CFormModel
 		$username = $this->user_name;
 
 		if ($this->userExists($username))
-			$this->addError('user_name','Can not create! User exists!');
+			$this->addError('user_name', Yii::t('pages','usernameexists'));
 	
 		if (!preg_match("/^[a-z][a-z]{2,9}[0-9]{0,3}$/", $this->user_name))
 			$this->addError('user_name','Bad user name, try james007 ;)');
@@ -52,7 +52,7 @@ class AdminsForm extends CFormModel
 			$this->addError('user_name','This account can not be deleted!');
 
 		if (!$this->userExists($username))
-			$this->addError('user_name','User does not exist!');
+			$this->addError('user_name',Yii::t('pages','err.usernotexist'));
 	}
 
 	public function passwordValidate()
@@ -69,7 +69,7 @@ class AdminsForm extends CFormModel
 		$goodpass = $goodleng && $hasAlpha && ($hasDigit || $hasALPHA || $hasSymbol);
 
 		if (!$goodpass) {
-			$this->addError('password','Password is too weak.');
+			$this->addError('password',Yii::t('pages', 'err.passweak'));
 		}
 	}
 
@@ -87,6 +87,23 @@ class AdminsForm extends CFormModel
 		$row = $cmd->queryRow();
 
 		return $row['count'] > 0;
+	}
+
+
+	/*
+	 * Declares customized attribute labels.
+	 * If not declared here, an attribute would have a label that is
+	 * the same as its name with the first letter in upper case.
+	 */
+	public function attributeLabels()
+	{
+		return array(
+			'action'=>Yii::t('pages', 'admins.action'),
+			'user_name'=>Yii::t('pages', 'user_name'),
+			'password'=>Yii::t('pages', 'password'),
+			'repeat' => Yii::t('pages', 'repeat'),
+			'email' => Yii::t('pages', 'email'),
+		);
 	}
 }
 

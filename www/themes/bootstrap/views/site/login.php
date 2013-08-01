@@ -2,7 +2,13 @@
 /* @var $this SiteController */
 /* @var $model LoginForm */
 /* @var $form CActiveForm  */
-//Yii::app()->user->returnUrl = $this->createUrl('/site/login');
+if (
+	Yii::app()->user->returnUrl != $this->createUrl('/site/settings') &&
+	Yii::app()->user->returnUrl != $this->createUrl('/site/messages') &&
+	Yii::app()->user->returnUrl != $this->createUrl('/site/admins'))
+   {
+	Yii::app()->user->returnUrl = $this->createUrl('/site/login');
+   }
 require('locale.php');
 
 $this->pageTitle=Yii::app()->name . ' - ' . Yii::t('pages', 'login.title');

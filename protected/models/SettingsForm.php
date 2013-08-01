@@ -97,4 +97,19 @@ class SettingsForm extends CFormModel
 
 		Yii::log($_SERVER['REMOTE_ADDR'], "warning", "SETTINGS::EMAIL UPDATED");
 	}
+
+	/**
+	 * Declares customized attribute labels.
+	 * If not declared here, an attribute would have a label that is
+	 * the same as its name with the first letter in upper case.
+	 */
+	public function attributeLabels()
+	{
+		return array(
+			'password'=>Yii::t('pages', 'current_password'),
+			'new_password'=>Yii::t('pages', 'new_password'),
+			'repeat' => Yii::t('pages', 'repeat'),
+			'email' => Yii::t('pages', 'email'),
+		);
+	}
 }

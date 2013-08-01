@@ -3,6 +3,8 @@
 /* @var $model ContactForm */
 /* @var $form TbActiveForm */
 Yii::app()->user->returnUrl = $this->createUrl('/site/settings');
+require('locale.php');
+
 
 $this->pageTitle=Yii::app()->name . ' - Settings';
 $this->breadcrumbs=array(
@@ -23,9 +25,9 @@ $this->breadcrumbs=array(
 
 <?php else: ?>
 
-<p>
-Here you can change your account settings
-</p>
+<h2 class="hero">
+<?php echo Yii::t('pages', 'settings.info'); ?>
+</h2>
 
 <div class="form">
 
@@ -38,7 +40,9 @@ Here you can change your account settings
 	),
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+<p class="note">
+<?php echo Yii::t('pages', 'contact.requiredNote'); ?>
+</p>
 
 	<?php echo $form->errorSummary($model); ?>
 

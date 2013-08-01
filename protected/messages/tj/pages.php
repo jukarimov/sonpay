@@ -5,6 +5,11 @@ return array(
 	'home.services' => 'Хизматрасониҳои Мо',
 	'about.header' => 'Оиди Мо',
 	'policy.header' => 'Privacy Policy for the www.osonpay.tj',
+	'settings.info' => 'Дар инчо Шумо метавонед аккаунтатона танзимот кардан',
+	'current_password'=> 'Пароли хозира',
+	'new_password'=> 'Пароли нав',
+	'repeat'=>'Такрори пароли нав',
+	'email'=>'E-майл',
 	'contact.header' => 'Алока',
 	'contact.title' => 'Алока бо Мо',
 	'login.title' => 'Вуруд',
@@ -21,7 +26,16 @@ return array(
 
 	'loginForm.username' => 'номи муштари',
 	'loginForm.password' => 'парол',
-	'login.note' => 'Формаи зеринро лутфан пур карда гиред'
+	'password' => 'парол',
+	'login.note' => 'Формаи зеринро лутфан пур карда гиред',
+
+	'messages.title'=>'Паём',
+
+	'admins.create'=>'Эҷод',
+	'admins.delete'=>'Несткуни',
+
+	'admins.title'=>'Админхо',
+	'admins.info' => 'Дар инчо Шумо метавонед эчод ё нест кардани админхои сайт кунед',
 );
 ?>
 

@@ -53,12 +53,8 @@ Yii::app()->user->returnUrl = $this->createUrl('/site/index');
 echo Yii::t('pages', 'home.services');
 ?>
 </h2>
+
 <div id="services">
-<a href="#internet" title="<?php echo Yii::t('titles', 'internet')?>"><img src="images/world.png"/></a>
-<a href="#mobile" title="<?php echo Yii::t('titles', 'mobile')?>"><img src="images/mobile.png"/></a>
-<a href="#comunal" title="<?php echo Yii::t('titles', 'utilities')?>"><img src="images/energy.png"/></a>
-<a href="#shoping" title="<?php echo Yii::t('titles', 'shoping')?>"><img src="images/cart.png"/></a>
-<a href="#money" title="<?php echo Yii::t('titles', 'money')?>"><img src="images/cash.png"/></a>
 </div>
 
 
@@ -67,11 +63,9 @@ echo Yii::t('pages', 'home.services');
 )); ?>
 
 
-<div style="width:300px;height:200px;overflow:hidden;border-radius:6px;">
 <video width="320" height="240" controls>
   <source src="/video/bigbuck.webm" type="video/webm">
 </video>
-</div>
 
 </div><!-- content -->
 

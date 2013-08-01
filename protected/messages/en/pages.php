@@ -20,7 +20,18 @@ return array(
 
 	'loginForm.username' => 'Login',
 	'loginForm.password' => 'Password',
-	'login.note' => 'Please fill out the following form'
+	'login.note' => 'Please fill out the following form',
+
+	'settings.info' => 'Here you can change your account settings',
+	'current_password'=> 'Current password',
+	'new_password'=> 'New password',
+	'repeat'=>'Repeat',
+	'email'=>'E-mail',
+
+	'messages.title'=>'Messages',
+
+	'admins.title'=>'Admins',
+	'admins.info' => 'Here you can add or remove site admins',
 );
 
 ?>

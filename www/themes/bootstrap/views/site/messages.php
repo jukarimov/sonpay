@@ -1,6 +1,7 @@
 <?php
 /* @var $this SiteController */
 Yii::app()->user->returnUrl = $this->createUrl('/site/messages');
+require_once('locale.php');
 
 $this->pageTitle=Yii::app()->name . ' - Messages';
 $this->breadcrumbs=array(
@@ -10,9 +11,9 @@ $this->breadcrumbs=array(
 <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css" />
 <script type="text/javascript" src="js/bootstrap-select.min.js"></script>
 <div class="content">
-<h1>Messages</h1>
+<h1><?php echo Yii::t('pages', 'messages.title'); ?></h1>
 
-<div id="messages">
+<div id="messages" style="margin-bottom: 50px;">
 <?php
 
 	$wc = new MessageManager();
