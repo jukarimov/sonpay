@@ -8,6 +8,16 @@ $LN = $SITELANG;
 $SP = '&nbsp;&nbsp;';
 
 $TR = array(
+	'left' => array(
+		'en'=>'left',
+		'ru'=>'ушел',
+		'tj'=>'рафт'
+	),
+	'support_joined' => array(
+		'en'=>'support joined',
+		'ru'=>'консультант соединился',
+		'tj'=>'консультант пайваст шуд'
+	),
 	'hello' => array(
 		'en'=>'Hello',
 		'ru'=>'Привет',
@@ -228,10 +238,16 @@ $(function(){
 
 	        console.log('got: ' + msg);
 
-		$('.conversation').append(
-			'<b>' + GUEST + ':</b>' +
-			'<p class="msg">' + msg + '</p>'
-		);
+		if (msg == '[bye]') {
+			$('.conversation').append(
+				'<b>' + GUEST + '</b> ' + '<?php echo tr('left'); ?>'
+			);
+		} else {
+			$('.conversation').append(
+				'<b>' + GUEST + ':</b>' +
+				'<p class="msg">' + msg + '</p>'
+			);
+		}
                 $('.conversation').scrollTop(1000);
 	}
 
@@ -287,18 +303,34 @@ $(function(){
 		$.post('send.php',{msg:'[hi]'});
 	});
 
+	$('#gtitle').hover(
+		function() {
+			$('#ud').attr('class','icon-remove icon-white');
+		},
+		function() {
+			$('#ud').attr('class','icon-remove icon-black');
+		}
+	);
+
+	$('#ud').click(function(){
+		y = confirm('Are you sure?');
+		if (y) {
+			$.post('udrop.php', { cname: GUEST }, function() { window.location = ''; });
+		}
+	});
+
 
 });
 </script>
 
 
 <font color="#fff"><? echo tr('hello') . ' <b>' . $user; ?></b></font>
-<font id="gtitle" color="#fff" style="float: right;"><b id="cn"></b></font>
+<font id="gtitle" color="#fff" style="float: right;"><i title="kick" id="ud" class="icon-remove"></i><b id="cn"></b></font>
 <div class="admin-greeter">
 </div>
 <div class="content">
 
-<div id="cover1" style="width: 20px; height: 90%; position: absolute; background-color: maroon; right: 20px;"></div>
+<div id="cover1" style="width: 30px; height: 90%; position: absolute; background-color: maroon; right: 0px;"></div>
 
 <div id="cover2" style="top: 80%; width: 100%; height: 28px; position: absolute; background-color: maroon; left: 0px;"></div>
 
@@ -420,11 +452,12 @@ $(document).ready(function(){
 		$.post('gadd.php', { cname: (me && me != '') ? me : $('#me').text() });
 		msgPoll_id = setInterval('msgPoll()', 1500);
 	});
+
 	$.post('gadd.php', { cname: (me && me != '') ? me : $('#me').text() });
 
 	$('#leave').click(function(){
+		$.post('send.php', { msg: '[bye]' }, function() { window.location = ''; });
 		$.post('gadd.php', { cname: $('#cname').val(), leave: 'y' });
-		window.location = '';
 	});
 
 	msgPoll = function() {
@@ -465,7 +498,7 @@ $(document).ready(function(){
 			if (hi_seen == false)
 			{
 				$('.conversation').append(
-					'<b>support joined</b><br>'
+					'<b><?php echo tr('support_joined'); ?></b><br>'
 				);
 			}
 			hi_seen = true;

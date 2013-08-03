@@ -1,4 +1,6 @@
-
+#ud, #gtitle {
+	cursor: pointer;
+}
 input[type="text"], input[type="password"] {
 	height: 31px;
 	line-height: 22px;
@@ -74,6 +76,7 @@ h3 {
 .content > .conversation {
 	background-color: #ECE373;
 	height: 80%;
+	width: 105%;
 	border-radius: 6px;
 	overflow: scroll;
 }
