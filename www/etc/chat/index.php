@@ -1,17 +1,3 @@
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-<link rel="stylesheet" type="text/css" href="/assets/e3ecaab1/css/bootstrap.css" />
-<link rel="stylesheet" type="text/css" href="/assets/e3ecaab1/css/bootstrap-responsive.css" />
-<link rel="stylesheet" type="text/css" href="/assets/e3ecaab1/css/yii.css" />
-<link rel="stylesheet" type="text/css" href="/css/chat.css" />
-<script type="text/javascript" src="/assets/7e745f75/jquery.js"></script>
-<script type="text/javascript" src="/assets/e3ecaab1/js/bootstrap.js"></script>
-
-</head>
-
-<body>
-
 <?
 
 require_once('sstart.php');
@@ -22,6 +8,31 @@ $LN = $SITELANG;
 $SP = '&nbsp;&nbsp;';
 
 $TR = array(
+	'hello' => array(
+		'en'=>'Hello',
+		'ru'=>'Привет',
+		'tj'=>'Салом'
+	),
+	'welcome' => array(
+		'en'=>'Welcome',
+		'ru'=>'Приветствуем',
+		'tj'=>'Хуш омадед'
+	),
+	'guest' => array(
+		'en'=>'Guest',
+		'ru'=>'Гость',
+		'tj'=>'Мизочон'
+	),
+	'none' => array(
+		'en'=>'None',
+		'ru'=>'Нет',
+		'tj'=>'Нест'
+	),
+	'title' => array(
+			'en'=>'Live Support',
+			'ru'=>'Онлайн Консультация',
+			'tj'=>'Онлайн Машварат',
+	),
 	'name' => array(
 			'en'=>'Name',
 			'ru'=>$SP.'Имя',
@@ -57,13 +68,37 @@ function tr($field) {
 	if (!$SITELANG) $SITELANG = 'en';
 	global $TR;
 	$ret = $TR[$field][$SITELANG];
-	return $ret;
+	return $ret ? $ret : $field;
 }
+?>
 
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<link rel="stylesheet" type="text/css" href="/assets/e3ecaab1/css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="/assets/e3ecaab1/css/bootstrap-responsive.css" />
+<link rel="stylesheet" type="text/css" href="/assets/e3ecaab1/css/yii.css" />
+<link rel="stylesheet" type="text/css" href="/css/chat.css" />
+<!--<link rel="stylesheet" type="text/css" href="/css/font-awesome/css/font-awesome.css" />-->
+<script type="text/javascript" src="/assets/7e745f75/jquery.js"></script>
+<script type="text/javascript" src="/assets/e3ecaab1/js/bootstrap.js"></script>
+<title><?php echo 'Sopnay - ' . tr('title'); ?></title>
+
+</head>
+
+<body>
+<?php
+if (isset($_GET['fs']))
+{
+?>
+<a href="/" title="home"><i class="icon-home icon-white"></i></a>
+<?php
+}
 if (isset($_COOKIE['_user'])) {
 // if this is our employee or admin
 	$user = $_COOKIE['_user'];
 ?>
+
 <script>
 var GUEST;
 var GUEST_SID;
@@ -88,11 +123,12 @@ $(function(){
 
 		if (!GUEST) return;
 
-		$('#glist').html('Loading...');
+		$('#glist').html('<i id="refresh" class="icon-refresh icon-spin"></i>');
 
 		$.post('udrop.php', { cname: GUEST });
 
 	});
+	$('#gtitle').hide();
 
 	$('#start').click(function() {
 
@@ -102,6 +138,7 @@ $(function(){
 	
 		$('#welcome').hide();
 		$('.content').show();
+		$('#gtitle').show();
 
 
 		console.log(GUEST);
@@ -112,7 +149,8 @@ $(function(){
 			}
 		);
 
-		$('#cn').html('<b>Guest: </b>'+GUEST);
+		$('#cn').text(GUEST);
+		$.post('send.php',{msg:'[hi]'});
 
 		fetchGuestMsg_id = setInterval('fetchGuestMsg()', 1500);
 	});
@@ -137,7 +175,10 @@ $(function(){
 				$('#glist').html(guest);
 			}
 			else {
-				$('#glist').html('None');
+				$('#glist').html('<?php echo tr("none"); ?>');
+				setTimeout(function() {
+					$('#glist').html('<i id="refresh" class="icon-refresh icon-spin"></i>');
+				}, 2000);
 			}
 			GUEST = guest;
 		});
@@ -251,15 +292,15 @@ $(function(){
 </script>
 
 
+<font color="#fff"><? echo tr('hello') . ' <b>' . $user; ?></b></font>
+<font id="gtitle" color="#fff" style="float: right;"><b id="cn"></b></font>
 <div class="admin-greeter">
-<font>Hello <b><?php echo $user; ?></b></font>
-<font id="cn" style="float:right;"></font>
 </div>
 <div class="content">
 
 <div id="cover1" style="width: 20px; height: 90%; position: absolute; background-color: maroon; right: 20px;"></div>
 
-<div id="cover2" style="top: 80%; width: 100%; height: 25px; position: absolute; background-color: maroon; left: 0px;"></div>
+<div id="cover2" style="top: 80%; width: 100%; height: 28px; position: absolute; background-color: maroon; left: 0px;"></div>
 
 <div class="conversation">
 </div>
@@ -273,10 +314,10 @@ $(function(){
 
 <div id="welcome">
 <center>
-<h1>Welcome <?php echo $_COOKIE['_user']; ?></h1>
+<h1><?php echo tr('welcome') .' '. $_COOKIE['_user']; ?></h1>
 
 <div class="chatlogin-admin">
-Guest: <b id="glist">Loading...</b><br>
+<?php echo tr('guest');?>: <b id="glist"><i id="refresh" class="icon-refresh icon-spin"></i></b><br>
 <a id="start" class="btn btn-primary"><i id="hp" class="icon-headphones icon-white"></i>Start</a>
 &nbsp;&nbsp;&nbsp;
 <a id="drop" class="btn btn-danger btn-mini"><i id="hp" class="icon-remove icon-white"></i>Drop</a><br>
@@ -308,18 +349,19 @@ if (isset($_POST['cname']) || isset($_SESSION['user'])) {
 
 	echo '<font color="#fff">Hello <b id="me">' . $user . '</b></font>';
 ?>
+<a id="leave" style="float:right;cursor:pointer" title="exit"><i class="icon-user icon-white"></i></a>
 <div class="content">
 
 <div id="cover1" style="width: 40px; height: 92%; position: absolute; background-color: maroon; right: 0px;"></div>
 
-<div id="cover2" style="top: 80%; width: 100%; height: 25px; position: absolute; background-color: maroon; left: 0px;"></div>
+<div id="cover2" style="top: 80%; width: 100%; height: 28px; position: absolute; background-color: maroon; left: 0px;"></div>
 
 <div class="conversation">
 </div>
 
 <div class="row-fluid">
 <input id="msg" class="inp-entry" name="msg" type="text"/>
-<a id="clear" class="inp-send btn btn-danger" title="clear">X</a>
+<a id="clear" class="inp-send btn btn-danger" title="clear"><i class="icon-remove"></i></a>
 <a id="send" class="inp-send btn btn-primary">send</a>
 </div>
 
@@ -375,8 +417,14 @@ $(document).ready(function(){
 
 	$('#genter').click(function(){
 		if (!$('#cname').val()) return;
-		$.post('gadd.php', { cname: $('#cname').val() });
+		$.post('gadd.php', { cname: (me && me != '') ? me : $('#me').text() });
 		msgPoll_id = setInterval('msgPoll()', 1500);
+	});
+	$.post('gadd.php', { cname: (me && me != '') ? me : $('#me').text() });
+
+	$('#leave').click(function(){
+		$.post('gadd.php', { cname: $('#cname').val(), leave: 'y' });
+		window.location = '';
 	});
 
 	msgPoll = function() {

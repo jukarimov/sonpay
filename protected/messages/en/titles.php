@@ -2,6 +2,10 @@
 
 
 return array(
+	'bread.home'=>'Home',
+	'admins' => 'Admins',
+	'settings' => 'Settings',
+	'messages' => 'Messages',
 	'internet' => 'Internet Payment',
 	'mobile' => 'Mobile Payment',
 	'utilities' => 'Utilities Payment',

@@ -6,16 +6,18 @@ Yii::app()->user->returnUrl = $this->createUrl('/site/settings');
 require('locale.php');
 
 
-$this->pageTitle=Yii::app()->name . ' - Settings';
+$this->pageTitle=Yii::app()->name . ' - ' . Yii::t('titles', 'settings');
 $this->breadcrumbs=array(
-	'Settings',
+	Yii::t('titles','settings'),
 );
 
 ?>
 
 <div class="content">
 
-<h1>Settings</h1>
+<h1>
+<?php echo Yii::t('titles', 'settings'); ?>
+</h1>
 
 <?php if(Yii::app()->user->hasFlash('settings')): ?>
 

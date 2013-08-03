@@ -31,6 +31,16 @@ class TbBreadcrumbs extends CBreadcrumbs
 			$this->htmlOptions['class'] = 'breadcrumb';
 	}
 
+	public function hasNext($item) {
+		$c = 0;
+		foreach($this->links as $label => $url) {
+			$c++;	
+			if ($item === $label)
+				break;
+		}
+		return $c < count($this->links);
+	}
+
 	/**
 	 * Renders the content of the widget.
 	 * @throws CException
@@ -53,7 +63,7 @@ class TbBreadcrumbs extends CBreadcrumbs
 
 		foreach ($this->links as $label => $url)
 		{
-			if (is_string($label) || is_array($url))
+			if ((is_string($label) || is_array($url)) && $this->hasNext($label))
 			{
 				$content = CHtml::link($this->encodeLabel ? CHtml::encode($label) : $label, $url);
 				$links[] = $this->renderItem($content);

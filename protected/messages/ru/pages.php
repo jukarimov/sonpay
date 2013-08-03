@@ -27,7 +27,11 @@ return array(
 	'repeat'=>'Повтор',
 	'email'=>'E-мэйл',
 
+	'messages.empty'=>'Нет',
 	'messages.title'=>'Сообщения',
+	'messages.mark_read'=>'Прочтено',
+	'messages.show_all'=>'Показать Все',
+	'messages.delete'=>'Удалить',
 
 	'admins.create'=>'Создать',
 	'admins.delete'=>'Удалить',

@@ -5,8 +5,8 @@
 Yii::app()->user->returnUrl = $this->createUrl('/site/admins');
 require_once('locale.php');
 
-$this->pageTitle=Yii::app()->name . ' - Admins';
-$this->breadcrumbs=array('Admins'=>array('site/admins/'));
+$this->pageTitle=Yii::app()->name . ' - '. Yii::t('titles', 'admins');
+$this->breadcrumbs=array('Admins'=>Yii::t('titles', 'admins'));
 
 ?>
 
@@ -15,7 +15,7 @@ $this->breadcrumbs=array('Admins'=>array('site/admins/'));
 
 <div class="content">
 
-<h1><?php echo Yii::t('pages', 'admins.title'); ?></h1>
+<h1><?php echo Yii::t('titles', 'admins'); ?></h1>
 <h3 class="hero"><?php echo Yii::t('pages', 'admins.info'); ?></h3>
 
 <?php if(Yii::app()->user->hasFlash('admins')): ?>

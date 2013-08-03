@@ -18,4 +18,6 @@ $this->breadcrumbs=array(
 ?>
 <div class="content">
 <h1><?php echo Yii::t('pages', 'about.header'); ?></h1>
+<br>
+<div class="hero">Соати кори: аз 9 то 5 бега</div>
 </div>

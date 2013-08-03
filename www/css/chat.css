@@ -3,6 +3,23 @@ input[type="text"], input[type="password"] {
 	height: 31px;
 	line-height: 22px;
 }
+#refresh {
+	padding: 0px;
+}
+.icon-spin {
+	-webkit-animation-duration: 5s;
+	-webkit-animation-name: iconrotator;
+	-webkit-transition: all 1s linear;
+}
+
+@-webkit-keyframes iconrotator {
+	from {
+		-webkit-transform: rotate(0deg);
+	}
+	to {
+		-webkit-transform: rotate(360deg);
+	}
+}
 
 .chatlogin {
 	color: #565656;
@@ -27,7 +44,8 @@ h3 {
 	margin-top: 20%;
 	margin-right: -40px;
 	padding-top: 10px;
-	height: 47px;
+	height: 30px;
+	width: 60px;
 }
 
 #welcome {

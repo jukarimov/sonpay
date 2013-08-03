@@ -8,9 +8,6 @@ $this->breadcrumbs=array(
 	'Contact',
 );
 
-echo Yii::app()->user->isGuest &%123
-
-	asdfdsfs:w
 
 if (Yii::app()->user->isGuest)
 {

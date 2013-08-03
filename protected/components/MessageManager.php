@@ -124,14 +124,15 @@ class MessageManager
 		$content .= '<input type="checkbox" id="chkall" />';
 
 		$content .= '<select id="msgopt" name="msgopt">';
-		$content .= '<option value="read">Mark read</option>';
-		$content .= '<option value="dump">Show all</option>';
-		$content .= '<option value="delete">Delete</option>';
+		$content .= '<option value="read">'.Yii::t('pages','messages.mark_read').'</option>';
+		$content .= '<option value="dump">'.Yii::t('pages','messages.show_all').'</option>';
+		$content .= '<option value="delete">'.Yii::t('pages','messages.delete').'</option>';
 		$content .= '</select>';
 
 		$content .= '<button name="submit" type="submit" style="float:right;" class="btn btn-small btn-primary">Go</button>';
 
-		$content .= "<table>";
+		$content .= "<table class=\"mail\">";
+		$rc = 0;
 		while (($row = $data->read()) != false) {
 			$content .= '<tr>';
 
@@ -139,11 +140,18 @@ class MessageManager
 
 			$content .= '<td class="from">'.$row['name'].'&nbsp;&#60;'.$row['email'].'&#62</td>';
 			
-			$content .= '<td class="msg"><b class="sbj">'.$row['subject'].'</b><br>'.$row['message'].'</td>';
+			$content .= '<td onclick="bootbox.alert(this.innerHTML)" class="msg"><b class="sbj">'.$row['subject'].'</b><br>'.$row['message'].'</td>';
 			
-			$content .= '<td>'.$row['postedtime'].'</td>';
+			$content .= '<td class="msg-time">'.$row['postedtime'].'</td>';
 			
 			$content .= '</tr>';
+
+			$rc++;
+		}
+		if (!$rc) {
+			$content .= '<h3 class="messages-empty">';
+			$content .= Yii::t('pages', 'messages.empty');
+			$content .= '</h3>';
 		}
 		$content .= "</table>";
 		$content .= '</form>';

@@ -3,9 +3,9 @@
 Yii::app()->user->returnUrl = $this->createUrl('/site/messages');
 require_once('locale.php');
 
-$this->pageTitle=Yii::app()->name . ' - Messages';
+$this->pageTitle=Yii::app()->name . ' - '.Yii::t('titles','messages');
 $this->breadcrumbs=array(
-	'Messages',
+	Yii::t('titles','messages'),
 );
 ?>
 <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css" />
@@ -34,6 +34,7 @@ $this->breadcrumbs=array(
 	$(document).ready(function(){
 
 		$('#msgopt').selectpicker();
+		$('button[class="btn dropdown-toggle"]').addClass('btn-danger');
 
 		$('#chkall').attr('title','All');
 		$('#chkall').click(function(){

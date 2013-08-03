@@ -30,12 +30,17 @@ return array(
 	'login.note' => 'Формаи зеринро лутфан пур карда гиред',
 
 	'messages.title'=>'Паём',
+	'messages.empty'=>'Нест',
 
 	'admins.create'=>'Эҷод',
 	'admins.delete'=>'Несткуни',
 
 	'admins.title'=>'Админхо',
 	'admins.info' => 'Дар инчо Шумо метавонед эчод ё нест кардани админхои сайт кунед',
+	
+	'messages.mark_read'=>'Хонда шуда',
+	'messages.show_all'=>'Паеми хонда шуда',
+	'messages.delete'=>'Нобуд кардан',
 );
 ?>
 

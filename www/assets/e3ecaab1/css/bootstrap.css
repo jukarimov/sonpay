@@ -1199,7 +1199,7 @@ input[type="file"] {
 }
 
 select {
-  width: 220px;
+  width: auto;
   background-color: #ffffff;
   border: 1px solid #cccccc;
 }
@@ -2912,7 +2912,6 @@ table th[class*="span"],
   z-index: 1000;
   display: none;
   float: left;
-  min-width: 160px;
   padding: 5px 0;
   margin: 2px 0 0;
   list-style: none;

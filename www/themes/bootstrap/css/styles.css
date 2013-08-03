@@ -1,12 +1,85 @@
-.brand {
+/*
+.navbar-fixed-top {
+	top: 0px;
+}
+*/
+.navbar .nav {
+	position: absolute;
+}
+.langopts {
+	overflow: hidden;
+	position: absolute;
+	right: -80px;
+	top: 59px;
+	background-image: url('/images/carbon.png');
+	border-radius: 26px;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+	padding: 5px;
+	padding-left: 10px;
+	padding-bottom: 10px;
+	cursor: pointer;
+	-webkit-transition: all 0.4s linear;
+	-o-transition: all 0.4s linear;
+	transition: all 0.4s linear;
+}
+.langopts:hover {
+	background-color: #fff;
+	right: 0px;
+	top: 59px;
+	padding: 15px;
+}
+.langopts:hover > a {
+	color: #f00;
+}
+.langopts a {
+	text-decoration: none;
+	font-family: helvetica;
+	font-weight: bold;
+	border-radius: 6px;
+	padding: 5px;
+	color: #fff;
+	-webkit-transition: all 0.5s linear;
+	-o-transition: all 0.5s linear;
+	transition: all 0.5s linear;
+}
+.langopts a:hover {
+	background-color: red;
+	color: #fff;
 	box-shadow: -1px 1px 14px 0px #E84949;
-	font-size: 27px;
+}
+.dropdown:hover .dropdown-menu {
+	display: block;
+}
+.dropdown-menu {
+	top: 97%;
+}
+.logo {
+	color: #fff;
+	margin-top: 60px;
+	font-size: 50px;
+	/*
+	font-family: helvetica;
+	*/
+	font-family: FontAwesome;
+	src: url(/css/font-awesome/font/fontawesome-webfont.woff);
 }
 .hero {
-	color: #565656;
+	color: #333;
+	font-size: 30px;
+	font-weight: lighter;
+	text-shadow: 2px 2px 2px #333;
+	font-family: FontAwesome;
+	src: url(/css/font-awesome/font/fontawesome-webfont.woff);
 }
-.navbar .brand {
-	font-size: 27px;
+.hero-header {
+	color: #fff;
+	font-size: 30px;
+	font-weight: lighter;
+	text-shadow: 2px 2px 2px #333;
+	font-family: FontAwesome;
+	src: url(/css/font-awesome/font/fontawesome-webfont.woff);
 }
 .navbar-search {
 	width: 10%;
@@ -26,6 +99,7 @@
 .navbar-inner {
 	width: 100%;
 	background-image: url('/images/carbon.png');
+	height: 57px;
 }
 .navbar-inner ul {
 	background-color: #b9b9b9;
@@ -51,6 +125,7 @@
 	background-color: #fff;
 	border-radius: 6px;
 	padding: 25px 25px 2px;
+	padding-bottom: 100px;
 }
 .content a {
 	color: gray;
@@ -67,34 +142,53 @@
 #services img:hover {
 	background-color: #E84949;
 }
+.messages-empty {
+	text-align: center;
+}
 #messages {
-	color: red;
-	border: 1px dashed blue;
+	color: #900;
+	border: 1px dashed red;
 	padding: 3px;
-	max-width: 745px;
 	border-radius: 5px;
 	margin: 10px auto;
 	padding-bottom: 100px;
 }
-#messages tr {
-	border: 1px solid blue;
+#messages tr:hover {
+	background-color: rgba(200, 100, 100, 0.5);
+}
+.mail {
+	width: 100%;
+	margin-top: 20px;
 }
 #chkall {
 	margin-left: 3px;
 }
+input[class="chkbox"] {
+	margin-left: 8px;
+	margin-right: -5px;
+}
 #messages .bootstrap-select {
 	margin-left: 20px;
-	width: 120px;
 }
 .msg {
-	max-width: 300px;
-	border: 1px solid blue;
+	border: 1px solid #999;
 	word-wrap:break-word;
+	padding-left: 5px;
+	width: 60%;
+	cursor: pointer;
+}
+.msg-time {
+	border: 1px solid #999;
+	text-align: center;
 }
 .sbj {
 	margin-left: 30px;
 }
+tr > td {
+	border: 1px solid #999;
+}
 .from {
+	border: 1px solid #999;
 	font-weight: bold;
 	font-family: cursive;
 	text-align: center;
@@ -167,6 +261,9 @@ p[class="chatlabel"]:hover {
 	bottom: 20%;
 	height: 470px;
 }
+.messenger > a {
+	text-decoration: none;
+}
 #iframechat {
 	top: 20%;
 	border-radius: 6px;
@@ -174,8 +271,16 @@ p[class="chatlabel"]:hover {
 	border: 1px solid #000;
 }
 #footer {
-	color: gray;
+	color: rgb(235, 65, 65);
 }
+#footer a:hover {
+	color: red;
+}
+#footer a {
+	text-decoration: none;
+	color: rgb(255, 125, 125);
+}
+
 .chat-alert {
 	position: absolute;
 	margin-left: 1px;

@@ -28,7 +28,11 @@ return array(
 	'repeat'=>'Repeat',
 	'email'=>'E-mail',
 
+	'messages.empty'=>'None',
 	'messages.title'=>'Messages',
+	'messages.mark_read'=>'Mark read',
+	'messages.show_all'=>'Show all',
+	'messages.delete'=>'Delete',
 
 	'admins.title'=>'Admins',
 	'admins.info' => 'Here you can add or remove site admins',
