@@ -4,6 +4,7 @@ return array(
 	'home.welcometo' => 'Добро пожаловать в ',
 	'home.services' => 'Наши Услуги',
 	'about.header' => 'О Нас',
+	'about.workhours' => 'Рабочие часы: 9 до 5 вечера',
 	'policy.header' => 'Privacy Policy for the www.osonpay.tj',
 	'contact.header' => 'Контакты',
 	'contact.title' => 'Свяжитесь с Нами',

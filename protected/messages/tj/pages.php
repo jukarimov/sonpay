@@ -4,6 +4,7 @@ return array(
 	'home.welcometo' => 'Хуш Омадед бо ',
 	'home.services' => 'Хизматрасониҳои Мо',
 	'about.header' => 'Оиди Мо',
+	'about.workhours' => 'Соати кори: аз 9 то 5 бега',
 	'policy.header' => 'Privacy Policy for the www.osonpay.tj',
 	'settings.info' => 'Дар инчо Шумо метавонед аккаунтатона танзимот кардан',
 	'current_password'=> 'Пароли хозира',

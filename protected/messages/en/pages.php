@@ -4,6 +4,7 @@ return array(
 	'home.welcometo' => 'Welcome to ',
 	'home.services' => 'Our Services',
 	'about.header' => 'About',
+	'about.workhours' => 'Working hours: 9am to 5pm',
 	'policy.header' => 'Privacy Policy for the www.osonpay.tj',
 	'contact.header' => 'Contact',
 	'contact.title' => 'Contact Us',

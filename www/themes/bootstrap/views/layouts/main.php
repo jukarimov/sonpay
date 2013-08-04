@@ -1,4 +1,5 @@
 <?php /* @var $this Controller */
+
 ?>
 <?php 
 $app = Yii::app();
@@ -47,9 +48,7 @@ else if (isset($app->request->cookies['_lang'])) {
             'items'=>array(
                 array('label'=>Yii::t('navbar', 'nav.home'), 'url'=>array('/site/index')),
 		array('label'=>Yii::t('navbar', 'nav.about'),
-	       	      'url'=>array('/site/page',
-		      'view'=>'about'),
-		      'visible'=>true
+	       	      'url'=>array('/site/page', 'view'=>'about'), 'visible'=>true
 	        ),
 		array('label'=>Yii::t('navbar', 'nav.admins'), // if this is admin, display users management page
 	       	      'url'=>array('/site/admins'),
@@ -80,26 +79,90 @@ else if (isset($app->request->cookies['_lang'])) {
 		array('label'=>Yii::t('navbar', 'nav.dd1'),
 		      'url'=>array('#'),
 		      'visible'=>true,
-		      'itemOptions'=>array('class'=>'dropdown'),
+		      'itemOptions'=>array('class'=>'dropdown bigtab'),
 		      'items'=>array(
 			      array('label'=>Yii::t('navbar', 'nav.dd1.i1'), 'url'=>array('#')),
 			      array('label'=>Yii::t('navbar', 'nav.dd1.i2'), 'url'=>array('#')),
 			      array('label'=>Yii::t('navbar', 'nav.dd1.i3'), 'url'=>array('#')),
 			      array('label'=>Yii::t('navbar', 'nav.dd1.i4'), 'url'=>array('#')),
+			      array('label'=>Yii::t('navbar', 'nav.dd1.i5'), 'url'=>array('#')),
+			      array('label'=>Yii::t('navbar', 'nav.dd1.i6'), 'url'=>array('#')),
+			      array('label'=>Yii::t('navbar', 'nav.dd1.i7'), 'url'=>array('#')),
+			      array('label'=>Yii::t('navbar', 'nav.dd1.i8'), 'url'=>array('#')),
+			      array('label'=>Yii::t('navbar', 'nav.dd1.i9'), 'url'=>array('#')),
+			      array('label'=>Yii::t('navbar', 'nav.dd1.j1'), 'url'=>array('#')),
+			      array('label'=>Yii::t('navbar', 'nav.dd1.j2'), 'url'=>array('#')),
+			      array('label'=>Yii::t('navbar', 'nav.dd1.j3'), 'url'=>array('#')),
+			      array('label'=>Yii::t('navbar', 'nav.dd1.j4'), 'url'=>array('#')),
+			      array('label'=>Yii::t('navbar', 'nav.dd1.j5'), 'url'=>array('#')),
+			      array('label'=>Yii::t('navbar', 'nav.dd1.j6'), 'url'=>array('#')),
+			      array('label'=>Yii::t('navbar', 'nav.dd1.j7'), 'url'=>array('#')),
+			      array('label'=>Yii::t('navbar', 'nav.dd1.j8'), 'url'=>array('#')),
+			      array('label'=>Yii::t('navbar', 'nav.dd1.j9'), 'url'=>array('#')),
+			      array('label'=>Yii::t('navbar', 'nav.dd1.k1'), 'url'=>array('#')),
+			      array('label'=>Yii::t('navbar', 'nav.dd1.k2'), 'url'=>array('#')),
+			      array('label'=>Yii::t('navbar', 'nav.dd1.k3'), 'url'=>array('#')),
+			      array('label'=>Yii::t('navbar', 'nav.dd1.k4'), 'url'=>array('#')),
+			      array('label'=>Yii::t('navbar', 'nav.dd1.k5'), 'url'=>array('#')),
+			      array('label'=>Yii::t('navbar', 'nav.dd1.k6'), 'url'=>array('#')),
+			      array('label'=>Yii::t('navbar', 'nav.dd1.k7'), 'url'=>array('#')),
+			      array('label'=>Yii::t('navbar', 'nav.dd1.k8'), 'url'=>array('#')),
+			      array('label'=>Yii::t('navbar', 'nav.dd1.k9'), 'url'=>array('#')),
+			      array('label'=>Yii::t('navbar', 'nav.dd1.l1'), 'url'=>array('#')),
+			      array('label'=>Yii::t('navbar', 'nav.dd1.l2'), 'url'=>array('#')),
+			      array('label'=>Yii::t('navbar', 'nav.dd1.l3'), 'url'=>array('#')),
+			      array('label'=>Yii::t('navbar', 'nav.dd1.l4'), 'url'=>array('#')),
+			      array('label'=>Yii::t('navbar', 'nav.dd1.l5'), 'url'=>array('#')),
 		      )
 	        ),
 		// dropdowns
 		array('label'=>Yii::t('navbar', 'nav.dd2'),
 		      'url'=>array('#'),
 		      'visible'=>true,
-		      'itemOptions'=>array('class'=>'dropdown'),
+		      'itemOptions'=>array('class'=>'dropdown bigtab-pics'),
 		      'items'=>array(
-			      array('label'=>Yii::t('navbar', 'nav.dd2.i1'), 'url'=>array('#')),
-			      array('label'=>Yii::t('navbar', 'nav.dd2.i2'), 'url'=>array('#')),
-			      array('label'=>Yii::t('navbar', 'nav.dd2.i3'), 'url'=>array('#')),
-			      array('label'=>Yii::t('navbar', 'nav.dd2.i4'), 'url'=>array('#')),
+			 array('label'=>'', 'url'=>array('#'),
+			       'linkOptions'=>array('style'=>'background-image: url("images/Bugatti.png");background-repeat: no-repeat;'),
+			 ),
+			 array('label'=>'', 'url'=>array('#'),
+			       'linkOptions'=>array('style'=>'background-image: url("images/Bugatti.png");background-repeat: no-repeat;'),
+			 ),
+			 array('label'=>'', 'url'=>array('#'),
+			       'linkOptions'=>array('style'=>'background-image: url("images/Bugatti.png");background-repeat: no-repeat;'),
+			 ),
+			 array('label'=>'', 'url'=>array('#'),
+			       'linkOptions'=>array('style'=>'background-image: url("images/Bugatti.png");background-repeat: no-repeat;'),
+			 ),
+			 array('label'=>'', 'url'=>array('#'),
+			       'linkOptions'=>array('style'=>'background-image: url("images/Bugatti.png");background-repeat: no-repeat;'),
+			 ),
+			 array('label'=>'', 'url'=>array('#'),
+			       'linkOptions'=>array('style'=>'background-image: url("images/Bugatti.png");background-repeat: no-repeat;'),
+			 ),
+			 array('label'=>'', 'url'=>array('#'),
+			       'linkOptions'=>array('style'=>'background-image: url("images/Bugatti.png");background-repeat: no-repeat;'),
+			 ),
+			 array('label'=>'', 'url'=>array('#'),
+			       'linkOptions'=>array('style'=>'background-image: url("images/Bugatti.png");background-repeat: no-repeat;'),
+			 ),
+			 array('label'=>'', 'url'=>array('#'),
+			       'linkOptions'=>array('style'=>'background-image: url("images/Bugatti.png");background-repeat: no-repeat;'),
+			 ),
 		      )
 	        ),
+
+		// dropdowns
+		array('label'=>Yii::t('navbar', 'nav.dd3'),
+		      'url'=>array('#'),
+		      'visible'=>true,
+		      'itemOptions'=>array('class'=>'dropdown'),
+		      'items'=>array(
+			      array('label'=>Yii::t('navbar', 'nav.dd3.j2'), 'url'=>array('#')),
+			      array('label'=>Yii::t('navbar', 'nav.dd3.j3'), 'url'=>array('#')),
+			      array('label'=>Yii::t('navbar', 'nav.dd3.j4'), 'url'=>array('#')),
+		      )
+	        ),
+
             ),
         ),
 		'<div class="container-fluid"><form class="navbar-search pull-right">

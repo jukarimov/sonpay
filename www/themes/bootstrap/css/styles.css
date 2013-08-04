@@ -1,11 +1,65 @@
-/*
-.navbar-fixed-top {
-	top: 0px;
-}
-*/
 .navbar .nav {
 	position: absolute;
 }
+.bigtab-pics > ul {
+	width: 645px;
+	height: 300px;
+}
+.bigtab-pics > ul > li {
+	width: 200px;
+	height: 100px;
+	position: relative;
+	float: left;
+	margin: 0 auto;
+	padding-right: 5px;
+	padding-left: 10px;
+}
+.bigtab-pics > ul > li:hover {
+	background-color: rgba(255,255,255,0.3);
+}
+.bigtab-pics > ul > li a {
+	width: 180px;
+	height: 150px;
+	padding-bottom: 50px;
+}
+.bigtab-pics > ul > li a:hover {
+	background-color: rgba(0,0,0,0);
+}
+
+.bigtab > ul {
+	width: 530px;
+	height: 210px;
+	-webkit-transition: opacity .9s ease-in;
+	-o-transition: all 1.4s linear;
+	transition: all 1.4s linear;
+}
+.bigtab > ul > li {
+	width: 100px;
+	position: relative;
+	float: left;
+	margin: 0 auto;
+	padding-right: 30px;
+	-webkit-transition: all .4s ease-in;
+	-o-transition: all .4s linear;
+	transition: all .4s linear;
+}
+.bigtab > ul > li > a {
+	width: 100px;
+	-webkit-transition: all .4s ease-out;
+	-o-transition: all .4s ease-out;
+	transition: all .4s ease-out;
+}
+.bigtab-pics > ul {
+  margin-left: -450px;
+}
+
+.dropdown.bigtab-pics.dropdown ul:before {
+	left: 72%;
+}
+.dropdown.bigtab-pics.dropdown ul:after {
+	left: 72%;
+}
+
 .langopts {
 	overflow: hidden;
 	position: absolute;
