@@ -50,14 +50,15 @@
 	transition: all .4s ease-out;
 }
 .bigtab-pics > ul {
-  margin-left: -450px;
+  margin-left: -275px;
 }
 
 .dropdown.bigtab-pics.dropdown ul:before {
-	left: 72%;
+	left: 45%;
 }
 .dropdown.bigtab-pics.dropdown ul:after {
-	left: 72%;
+	left: 45%;
+	padding-right: 1px;
 }
 
 .langopts {
