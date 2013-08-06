@@ -162,11 +162,11 @@ if (!Yii::app()->user->isGuest) {
 		array('label'=>Yii::t('navbar', 'nav.dd3'),
 		      'url'=>array('#'),
 		      'visible'=>true,
-		      'itemOptions'=>array('class'=>'dropdown'),
+		      'itemOptions'=>array('class'=>'dropdown default'),
 		      'items'=>array(
-			      array('label'=>Yii::t('navbar', 'nav.dd3.j2'), 'url'=>array('#')),
-			      array('label'=>Yii::t('navbar', 'nav.dd3.j3'), 'url'=>array('#')),
-			      array('label'=>Yii::t('navbar', 'nav.dd3.j4'), 'url'=>array('#')),
+			      array('label'=>Yii::t('navbar', 'nav.dd3.a'), 'url'=>array('#')),
+			      array('label'=>Yii::t('navbar', 'nav.dd3.b'), 'url'=>array('#')),
+			      array('label'=>Yii::t('navbar', 'nav.dd3.c'), 'url'=>array('#')),
 		      )
 	        ),
 
@@ -182,7 +182,19 @@ if (!Yii::app()->user->isGuest) {
 <a href="?r=site/locale/tj">tj</a>
 <a href="?r=site/locale/ru">ru</a>
 </div>
-		'
+		',
+'
+<div title="Вход" class="main-login"><i class="icon-user icon-white" id="mloginhandle" href="#"></i>
+<div class="main-login-box">
+<input type="text" id="MainLoginName" />
+<br>
+<input type="password" id="MainLoginPass" />
+<br>
+<a class="btn btn-primary">Enter</a>
+<!--&nbsp;<a class="btn btn-danger">Cancel</a>-->
+</div>
+</div>
+'
     ),
 )); ?>
 
