@@ -58,11 +58,6 @@ class MessageManager
 		$cmd->execute();
 	}
 
-	function __toString() {
-		$val = $this->messageCount();
-		return (string)$val;
-	}
-
 	function setUserEmail($username, $email)
 	{
 		if (!isset($username) || $username == '')

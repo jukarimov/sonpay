@@ -1,3 +1,7 @@
+.navbar-fixed-top {
+	top: -8px;
+	position: fixed;
+}
 .navbar .nav {
 	position: absolute;
 }

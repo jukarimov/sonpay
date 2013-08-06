@@ -9,6 +9,12 @@ else if (isset($app->request->cookies['_lang'])) {
 	$app->language = Yii::app()->request->cookies['_lang']->value;
 }
 
+if (!Yii::app()->user->isGuest) {
+	$mm = new MessageManager();
+	$messageCount = $mm->messageCount();
+} else
+	$messageCount = "err";
+
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -41,6 +47,7 @@ else if (isset($app->request->cookies['_lang'])) {
 	/*
 	'brand'=>'<img src="images/logo.png" style="height:29px;margin-left:20px;margin-bottom:8px;padding-right:-10px;" /><i style="font-weight: bold;text-shadow: 1px 1px 5px red;">sonpay</i>',
 	 */
+    'collapse'=>false,
     'fluid'=>true,
     'items'=>array(
         array(
@@ -70,7 +77,7 @@ else if (isset($app->request->cookies['_lang'])) {
 	       	      'url'=>array('/site/logout'),
 		      'visible'=>!Yii::app()->user->isGuest
 		),
-		array('label'=>Yii::t('navbar', 'nav.messages').'('.new MessageManager().')',
+		array('label'=>Yii::t('navbar', 'nav.messages').'('.$messageCount.')',
 		      'url'=>array('/site/messages'),
 		      'visible'=>!Yii::app()->user->isGuest,
 		      'itemOptions'=>array('class'=>'msgcnt'),
