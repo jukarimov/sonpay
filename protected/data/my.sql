@@ -1,5 +1,12 @@
+/*
 drop table siteadmins;
 drop table sitemessages;
+drop table livechat_guests_left;
+drop table livechat_guests;
+drop table livechat_taken;
+drop table livechat_clientinbox;
+drop table livechat_admininbox;
+*/
 create table siteadmins(
 	id	 int primary key auto_increment,
 	username varchar(40) NOT NULL,
@@ -18,23 +25,19 @@ create table sitemessages(
        	unread BOOL DEFAULT TRUE
 );
 
-drop table livechat_guests_left;
 create table livechat_guests_left(
 	cname	varchar(30) NOT NULL UNIQUE
 );
 
-drop table livechat_guests;
 create table livechat_guests(
 	cname	varchar(30) NOT NULL UNIQUE
 );
 
-drop table livechat_taken;
 create table livechat_taken(
 	cname	varchar(30) collate utf8_general_ci NOT NULL,
 	aname	varchar(30) collate utf8_general_ci NOT NULL
 );
 
-drop table livechat_clientinbox;
 create table livechat_clientinbox(
 	id	int primary key auto_increment,
 	cname	varchar(30) collate utf8_general_ci NOT NULL,
@@ -42,7 +45,6 @@ create table livechat_clientinbox(
 	msg	varchar(300) collate utf8_general_ci NOT NULL
 );
 
-drop table livechat_admininbox;
 create table livechat_admininbox(
 	id	int primary key auto_increment,
 	aname	varchar(30) collate utf8_general_ci NOT NULL,
