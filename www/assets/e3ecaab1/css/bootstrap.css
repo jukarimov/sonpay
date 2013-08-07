@@ -2929,6 +2929,7 @@ table th[class*="span"],
   -webkit-background-clip: padding-box;
      -moz-background-clip: padding;
           background-clip: padding-box;
+
 }
 
 .dropdown-menu.pull-right {

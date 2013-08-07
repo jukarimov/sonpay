@@ -1,5 +1,6 @@
 <?php /* @var $this Controller */
 
+
 ?>
 <?php 
 $app = Yii::app();
@@ -100,26 +101,6 @@ if (!Yii::app()->user->isGuest) {
 			      array('label'=>Yii::t('navbar', 'nav.dd1.j1'), 'url'=>array('#')),
 			      array('label'=>Yii::t('navbar', 'nav.dd1.j2'), 'url'=>array('#')),
 			      array('label'=>Yii::t('navbar', 'nav.dd1.j3'), 'url'=>array('#')),
-			      array('label'=>Yii::t('navbar', 'nav.dd1.j4'), 'url'=>array('#')),
-			      array('label'=>Yii::t('navbar', 'nav.dd1.j5'), 'url'=>array('#')),
-			      array('label'=>Yii::t('navbar', 'nav.dd1.j6'), 'url'=>array('#')),
-			      array('label'=>Yii::t('navbar', 'nav.dd1.j7'), 'url'=>array('#')),
-			      array('label'=>Yii::t('navbar', 'nav.dd1.j8'), 'url'=>array('#')),
-			      array('label'=>Yii::t('navbar', 'nav.dd1.j9'), 'url'=>array('#')),
-			      array('label'=>Yii::t('navbar', 'nav.dd1.k1'), 'url'=>array('#')),
-			      array('label'=>Yii::t('navbar', 'nav.dd1.k2'), 'url'=>array('#')),
-			      array('label'=>Yii::t('navbar', 'nav.dd1.k3'), 'url'=>array('#')),
-			      array('label'=>Yii::t('navbar', 'nav.dd1.k4'), 'url'=>array('#')),
-			      array('label'=>Yii::t('navbar', 'nav.dd1.k5'), 'url'=>array('#')),
-			      array('label'=>Yii::t('navbar', 'nav.dd1.k6'), 'url'=>array('#')),
-			      array('label'=>Yii::t('navbar', 'nav.dd1.k7'), 'url'=>array('#')),
-			      array('label'=>Yii::t('navbar', 'nav.dd1.k8'), 'url'=>array('#')),
-			      array('label'=>Yii::t('navbar', 'nav.dd1.k9'), 'url'=>array('#')),
-			      array('label'=>Yii::t('navbar', 'nav.dd1.l1'), 'url'=>array('#')),
-			      array('label'=>Yii::t('navbar', 'nav.dd1.l2'), 'url'=>array('#')),
-			      array('label'=>Yii::t('navbar', 'nav.dd1.l3'), 'url'=>array('#')),
-			      array('label'=>Yii::t('navbar', 'nav.dd1.l4'), 'url'=>array('#')),
-			      array('label'=>Yii::t('navbar', 'nav.dd1.l5'), 'url'=>array('#')),
 		      )
 	        ),
 		// dropdowns
@@ -128,21 +109,6 @@ if (!Yii::app()->user->isGuest) {
 		      'visible'=>true,
 		      'itemOptions'=>array('class'=>'dropdown bigtab-pics'),
 		      'items'=>array(
-			 array('label'=>'', 'url'=>array('#'),
-			       'linkOptions'=>array('style'=>'background-image: url("images/Bugatti.png");background-repeat: no-repeat;'),
-			 ),
-			 array('label'=>'', 'url'=>array('#'),
-			       'linkOptions'=>array('style'=>'background-image: url("images/Bugatti.png");background-repeat: no-repeat;'),
-			 ),
-			 array('label'=>'', 'url'=>array('#'),
-			       'linkOptions'=>array('style'=>'background-image: url("images/Bugatti.png");background-repeat: no-repeat;'),
-			 ),
-			 array('label'=>'', 'url'=>array('#'),
-			       'linkOptions'=>array('style'=>'background-image: url("images/Bugatti.png");background-repeat: no-repeat;'),
-			 ),
-			 array('label'=>'', 'url'=>array('#'),
-			       'linkOptions'=>array('style'=>'background-image: url("images/Bugatti.png");background-repeat: no-repeat;'),
-			 ),
 			 array('label'=>'', 'url'=>array('#'),
 			       'linkOptions'=>array('style'=>'background-image: url("images/Bugatti.png");background-repeat: no-repeat;'),
 			 ),
@@ -172,6 +138,14 @@ if (!Yii::app()->user->isGuest) {
 
             ),
         ),
+
+	'<select id="langset" class="input-medium bfh-languages">
+		<option value="ru">Язык</option>
+		<option value="ru">Русский</option>
+		<option value="tj">Точики</option>
+		<option value="en">English</option>
+	</select>',
+
 		'<div class="container-fluid"><form class="navbar-search pull-right">
 			 <input id="navsearch" type="text" class="search-query" placeholder="Search...">
 		 </form></div>',
@@ -209,11 +183,10 @@ var LOGIN_FORM2 = '<center>Вход yyy</center><div title="Вход" class="mai
 
 <h1 class="logo">
 <img src="images/mitsu_logo.png" width="100" style=""/>
-Osonpay is real cool
+Oson
 </h1>
-<p class="hero" style="color:#fff;">Lots of easy ways to use Font Awesome</p>
 
-<div style="float:right; margin-right: 60px; margin-top: -110px;">
+<div style="float:right; margin-right: 60px; margin-top: -80px;">
 
 <div class="btn-group">
 <a id="dealer_entry1" class="btn btn-danger btn-large dropdown-toggle" data-toggle="dropdown">
@@ -226,6 +199,7 @@ Osonpay is real cool
 </div>
 
 </div>
+
 
 <div class="container-fluid" id="page">
 
@@ -260,9 +234,9 @@ Osonpay is real cool
 
 
 <div id="footer">
-	Copyright &copy; <?php echo date('Y'); ?> by OSonpay.<br/>
-	All Rights Reserved.<br/>
-	<?php echo Yii::powered(); ?>
+	Copyright &copy; <?php echo date('Y'); ?> by Oson.
+	All Rights Reserved.
+	<i style="float:right;"><?php echo Yii::powered(); ?></i>
 </div><!-- footer -->
 
 <script>
@@ -317,6 +291,11 @@ $(document).ready(function(){
 		}
 	);
 	$('.brand').remove();
+
+	$('#langset').change(function(){
+		var ln = $('#langset').val();
+		window.location = "?r=site/locale/" + ln;
+	});
 
 });
 </script>

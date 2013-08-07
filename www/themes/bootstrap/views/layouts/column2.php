@@ -6,8 +6,23 @@
             <?php echo $content; ?>
         </div><!-- content -->
     </div>
-    <div class="span3">
+    <div class="span3 content-sidebar">
         <div id="sidebar">
+	  <div class="news"> 
+	    <p class="hero">Font Awesome</p>
+	    <br>
+	    <div>News hello world авыаодл цуктуцбьтываывлдоадл</div>
+	  </div><!-- news -->
+	  <div class="news"> 
+	    <p class="hero">Some Cool News</p>
+	    <br>
+	    <div>News hello world авыаодл цуктуцбьтываывлдоадл</div>
+	  </div><!-- news -->
+	  <div class="news"> 
+	    <p class="hero">More News</p>
+	    <br>
+	    <div>News hello world авыаодл цуктуцбьтываывлдоадл</div>
+	  </div><!-- news -->
         <?php
             $this->beginWidget('zii.widgets.CPortlet', array(
                 'title'=>'Operations',

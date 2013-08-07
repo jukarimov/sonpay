@@ -47,27 +47,28 @@ Yii::app()->user->returnUrl = $this->createUrl('/site/index');
   <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
 </div>
 
+<?php $this->layout = 'column2'; ?>
+
 <div class="content">
-<h2>
-<?php
-echo Yii::t('pages', 'home.services');
-?>
-</h2>
-
-<div id="services">
-</div>
-
 
 <?php $this->beginWidget('bootstrap.widgets.TbHeroUnit',array(
     'heading'=>Yii::t('pages', 'home.welcometo').CHtml::encode(Yii::app()->name),
 )); ?>
+<br>
+<p class="hero" style="">Lots of easy ways to use Font Awesome</p>
 
-
+<!--
 <video width="320" height="240" controls>
   <source src="/video/bigbuck.webm" type="video/webm">
 </video>
+-->
 
 </div><!-- content -->
 
 <?php $this->endWidget(); ?>
 
+<script>
+$(function(){
+    $('.carousel').carousel({ interval: 2000 });
+});
+</script>
