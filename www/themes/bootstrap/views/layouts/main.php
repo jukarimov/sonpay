@@ -184,7 +184,7 @@ if (!Yii::app()->user->isGuest) {
 </div>
 		',
 '
-<div title="Вход" class="main-login"><i class="icon-user icon-white" id="mloginhandle" href="#"></i>
+<div title="Вход" class="main-login"><i class="icon-user icon-white" id="mloginhandle" href="#"></i><a class="title">Вход</a>
 <div class="main-login-box">
 <input type="text" id="MainLoginName" />
 <br>
@@ -197,6 +197,14 @@ if (!Yii::app()->user->isGuest) {
 '
     ),
 )); ?>
+<script>
+
+var LOGIN_FORM1 = '<center>Вход xxx</center><div title="Вход" class="main1-login"><i class="icon-user icon-white" id="mloginhandle1" href="#"></i><div class="main-login-box"><input type="text" id="MainLoginName" /><br><input type="password" id="MainLoginPass" /><br><a class="btn btn-primary">Enter</a><!--&nbsp;<a class="btn btn-danger">Cancel</a>--></div></div>';
+
+
+var LOGIN_FORM2 = '<center>Вход yyy</center><div title="Вход" class="main1-login"><i class="icon-user icon-white" id="mloginhandle1" href="#"></i><div class="main-login-box"><input type="text" id="MainLoginName" /><br><input type="password" id="MainLoginPass" /><br><a class="btn btn-primary">Enter</a><!--&nbsp;<a class="btn btn-danger">Cancel</a>--></div></div>';
+
+</script>
 
 
 <h1 class="logo">
@@ -205,6 +213,19 @@ Osonpay is real cool
 </h1>
 <p class="hero" style="color:#fff;">Lots of easy ways to use Font Awesome</p>
 
+<div style="float:right; margin-right: 60px; margin-top: -110px;">
+
+<div class="btn-group">
+<a id="dealer_entry1" class="btn btn-danger btn-large dropdown-toggle" data-toggle="dropdown">
+Вход для диллеров<span class="caret"></span>
+</a>
+<ul class="dropdown-menu" style="width:100%;">
+<li><a onclick="bootbox.alert(LOGIN_FORM1);" href="#" tabindex="-1">Вход xxx</a></li>
+<li><a onclick="bootbox.alert(LOGIN_FORM2);" href="#" tabindex="-1">Вход yyy</a></li>
+</ul>
+</div>
+
+</div>
 
 <div class="container-fluid" id="page">
 
