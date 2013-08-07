@@ -31,6 +31,7 @@
 .bigtab-pics > ul > li {
 	width: 200px;
 	height: 100px;
+	overflow:hidden;
 	position: relative;
 	float: left;
 	margin: 0 auto;
@@ -191,9 +192,21 @@
 .dropdown:hover .dropdown-menu {
 	display: block;
 }
+.dropdown-menu .sub-menu {
+	left: 100%:
+	position: absolute;
+	top: 0;
+	visibility: hidden;
+	margin-top: -1px;
+}
+.dropdown-menu li:hover .sub-menu {
+	visibility: visible;
+}
+/*
 .dropdown-menu {
 	top: 97%;
 }
+*/
 .logo {
 	color: #fff;
 	margin-top: 60px;
@@ -417,14 +430,16 @@ p[class="chatlabel"]:hover {
 	border: 1px solid #000;
 }
 #footer {
-	color: rgb(235, 65, 65);
+	color: #555;
+	margin-top: 130px;
+	bottom: 0;
 }
 #footer a:hover {
 	color: red;
 }
 #footer a {
 	text-decoration: none;
-	color: rgb(255, 125, 125);
+	color: #333;
 }
 
 .chat-alert {
