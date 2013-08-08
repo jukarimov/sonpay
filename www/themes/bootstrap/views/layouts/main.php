@@ -45,9 +45,7 @@ if (!Yii::app()->user->isGuest) {
 <body>
 
 <?php $this->widget('bootstrap.widgets.TbNavbar',array(
-	/*
-	'brand'=>'<img src="images/logo.png" style="height:29px;margin-left:20px;margin-bottom:8px;padding-right:-10px;" /><i style="font-weight: bold;text-shadow: 1px 1px 5px red;">sonpay</i>',
-	 */
+    'brand'=>'<img src="images/logo.png" />',
     'collapse'=>false,
     'fluid'=>true,
     'items'=>array(
@@ -146,12 +144,13 @@ if (!Yii::app()->user->isGuest) {
 		<option value="en">English</option>
 	</select>',
 
+	Yii::app()->user->isGuest ? 
 		'<div class="container-fluid"><form class="navbar-search pull-right">
 			 <input id="navsearch" type="text" class="search-query" placeholder="Search...">
-		 </form></div>',
-		'
+		 </form></div>' : null,
+'
 <div class="langopts">
-<i id="flag" class="icon-flag icon-white"></i>
+<i id="flag" class="icon-flag icon-black"></i>
 <a href="?r=site/locale/en">en</a>
 <a href="?r=site/locale/tj">tj</a>
 <a href="?r=site/locale/ru">ru</a>
@@ -179,12 +178,6 @@ var LOGIN_FORM1 = '<center>Вход xxx</center><div title="Вход" class="mai
 var LOGIN_FORM2 = '<center>Вход yyy</center><div title="Вход" class="main1-login"><i class="icon-user icon-white" id="mloginhandle1" href="#"></i><div class="main-login-box"><input type="text" id="MainLoginName" /><br><input type="password" id="MainLoginPass" /><br><a class="btn btn-primary">Enter</a><!--&nbsp;<a class="btn btn-danger">Cancel</a>--></div></div>';
 
 </script>
-
-
-<h1 class="logo">
-<img src="images/mitsu_logo.png" width="100" style=""/>
-Oson
-</h1>
 
 <div style="float:right; margin-right: 60px; margin-top: -80px;">
 
@@ -282,15 +275,6 @@ $(document).ready(function(){
 	$('#navsearch').blur(function(){
 		$('.navbar-search').css('width','10%');
 	});
-	$('.langopts').hover(
-		function() {
-			$('#flag').attr('class','icon-flag icon-black');
-		},
-		function() {
-			$('#flag').attr('class','icon-flag icon-white');
-		}
-	);
-	$('.brand').remove();
 
 	$('#langset').change(function(){
 		var ln = $('#langset').val();

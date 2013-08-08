@@ -4423,13 +4423,7 @@ input[type="submit"].btn.btn-mini {
 .navbar .brand {
   display: block;
   float: left;
-  padding: 10px 20px 10px;
   margin-left: -30px;
-  font-size: 20px;
-  font-weight: 200;
-  color: #fff;
-  background-color: #E84949;
-  text-shadow: 0 1px 0 #ffffff;
 }
 
 .navbar .brand:hover,
@@ -4838,7 +4832,7 @@ input[type="submit"].btn.btn-mini {
 }
 
 .navbar-inverse .brand {
-  color: #999999;
+  color: transparent;
 }
 
 .navbar-inverse .navbar-text {

@@ -11,15 +11,19 @@ $this->pageTitle=Yii::app()->name;
 Yii::app()->user->returnUrl = $this->createUrl('/site/index');
 ?>
 
-<div id="myCarousel" class="carousel slide" style="max-width:900px;border-radius:6px;max-height:300px;overflow:hidden;">
+<div class="container-fluid">
+
+<div class="content">
+
+<div id="myCarousel" class="carousel slide">
   <ol class="carousel-indicators">
     <li data-target="#myCarousel" data-slide-to="0" class></li>
     <li data-target="#myCarousel" data-slide-to="1" class></li>
     <li data-target="#myCarousel" data-slide-to="2" class></li>
   </ol>
   <div class="carousel-inner">
-    <div class="item active">
-      <img src="images/pic1.jpg">
+    <div class="item active" id="sim">
+    <img src="images/purchase_sim.png" title="<?php echo Yii::t('titles', 'cap1'); ?>">
       <div class="container">
         <div class="carousel-caption">
 	  <h1><?php echo Yii::t('titles', 'cap1'); ?></h1> 
@@ -27,15 +31,15 @@ Yii::app()->user->returnUrl = $this->createUrl('/site/index');
       </div>
     </div>
     <div class="item">
-      <img src="images/pic2.jpg" title="test">
+    <img src="images/mobile_payments.png" title="<?php echo Yii::t('titles', 'cap2'); ?>">
       <div class="container">
         <div class="carousel-caption">
 	  <h1><?php echo Yii::t('titles', 'cap2'); ?></h1> 
         </div>
       </div>
     </div>
-    <div class="item">
-      <img src="images/pic3.jpg">
+    <div class="item" id="airplane">
+    <img src="images/purchase_tickets.png" title="<?php echo Yii::t('titles', 'cap3'); ?>">
       <div class="container">
         <div class="carousel-caption">
 	  <h1><?php echo Yii::t('titles', 'cap3'); ?></h1> 
@@ -49,7 +53,6 @@ Yii::app()->user->returnUrl = $this->createUrl('/site/index');
 
 <?php $this->layout = 'column2'; ?>
 
-<div class="content">
 
 <?php $this->beginWidget('bootstrap.widgets.TbHeroUnit',array(
     'heading'=>Yii::t('pages', 'home.welcometo').CHtml::encode(Yii::app()->name),
@@ -63,6 +66,7 @@ Yii::app()->user->returnUrl = $this->createUrl('/site/index');
 </video>
 -->
 
+</div><!-- content -->
 </div><!-- content -->
 
 <?php $this->endWidget(); ?>

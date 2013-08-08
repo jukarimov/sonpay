@@ -1,6 +1,9 @@
 .span3.content-sidebar {
-	position: absolute;
-	right: 15px;
+}
+.brand img {
+	width: 95px;
+	padding-left: 10px;
+	margin-top: 8px;
 }
 .news {
 	padding-bottom: 10px;
@@ -234,10 +237,11 @@
 	src: url(/css/font-awesome/font/fontawesome-webfont.woff);
 }
 .navbar-search {
-	width: 10%;
+	width: 5%;
 	-webkit-transition: all 0.5s;
 	-o-transition: all 0.5s;
 	transition: all 0.5s;
+	padding-left: 5px;
 }
 .navbar-search input {
 	width: 100%;
@@ -256,17 +260,25 @@
 .navbar-inner ul {
 	background-color: #b9b9b9;
 }
+#airplane h1 {
+	height: 95px;
+}
+#sim h1 {
+	height: 38px;
+}
 #myCarousel {
-	max-width:900px;
-	border-radius:6px;
-	max-height:300px;
+	width: 500px;
+	height: 300px;
 	overflow:hidden;
 	margin: 0px auto;
 	margin-top: 20px;
 	margin-bottom: 20px;
+	font-size: 20px;
 }
 .carousel-caption > h1 {
 	color: rgba(250, 50, 50, 0.5);
+	font-size: 25px;
+	height: 50px;
 }
 #content {
 	background-color: #fff;
@@ -274,11 +286,12 @@
 	padding: 25px 25px 2px;
 }
 .content-sidebar {
-	float: right;
 	background-color: #fff;
 	border-radius: 6px;
-	padding: 15px 15px;
+	padding: 5px 14px;
 	padding-bottom: 50px;
+	padding-top: 15px;
+	margin-top: 5px;
 }
 .content {
 	background-color: #fff;
