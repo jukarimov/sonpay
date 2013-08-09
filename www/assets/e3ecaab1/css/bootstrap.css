@@ -4621,7 +4621,7 @@ input[type="submit"].btn.btn-mini {
   float: none;
   padding: 10px 15px 10px;
   /* @hack my change link color at top navbar, was 777777 */
-  color: #3a3a3a;
+  color: #490808;
   text-decoration: none;
   text-shadow: 1px 3px 10px #000;
   /* background-color: rgba(240, 240, 240, 0.7); */
@@ -4640,6 +4640,7 @@ input[type="submit"].btn.btn-mini {
   text-shadow: 1px 1px 10px #fff;
   text-decoration: none;
   background-color: #555;
+  transition: all 0.3s ease-out;
 }
 
 .navbar .nav > .active > a,

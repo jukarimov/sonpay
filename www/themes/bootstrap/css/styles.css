@@ -20,6 +20,7 @@
 	border-radius: 10px;
 	color: #fff;
 	box-shadow: -1px 1px 5px 0px #000;
+	text-shadow: 1px 1px 2px #000;
 }
 .news > .hero {
 	color: darkred;
@@ -34,8 +35,9 @@
 	margin-left: -10px;
 }
 .bigtab-pics > ul {
-	width: 445px;
+	width: 430px;
 	height: 200px;
+	left: -335px;
 }
 .bigtab-pics > ul > li {
 	width: 200px;
@@ -60,8 +62,9 @@
 }
 
 .bigtab > ul {
-	width: 530px;
+	width: 400px;
 	height: auto;
+	left: -305px;
 }
 .bigtab > ul > li {
 	width: 100px;
@@ -74,16 +77,28 @@
 	width: 100px;
 	background-color: #555;
 }
-.bigtab-pics > ul {
-  margin-left: -95px;
-}
-
 .dropdown.bigtab-pics.dropdown ul:before {
-	left: 23%;
+	left: 405px;
 }
 .dropdown.bigtab-pics.dropdown ul:after {
-	left: 23%;
+	left: 405px;
 	padding-right: 1px;
+}
+.dropdown.bigtab.dropdown ul:before {
+	left: 375px;
+}
+.dropdown.bigtab.dropdown ul:after {
+	left: 375px;
+}
+.dropdown.default.dropdown ul:before {
+	left: 75px;
+}
+.dropdown.default.dropdown ul:after {
+	left: 75px;
+}
+.dropdown.default.dropdown ul {
+	margin-left: -7px;
+
 }
 
 .dropdown.default.dropdown ul li {
@@ -303,7 +318,8 @@
 	padding-bottom: 10px;
 	margin-top: -10px;
 	border-radius: 6px;
-	box-shadow: 3px 3px 30px 2px red;
+	box-shadow: -1px 1px 10px 3px #f00;
+	text-shadow: 3px 3px 15px red;
 }
 .content-sidebar {
 	background-color: #fff;

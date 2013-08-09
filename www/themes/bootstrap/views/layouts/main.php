@@ -98,9 +98,6 @@ if (!Yii::app()->user->isGuest) {
 			      array('label'=>Yii::t('navbar', 'nav.dd1.i7'), 'url'=>array('#')),
 			      array('label'=>Yii::t('navbar', 'nav.dd1.i8'), 'url'=>array('#')),
 			      array('label'=>Yii::t('navbar', 'nav.dd1.i9'), 'url'=>array('#')),
-			      array('label'=>Yii::t('navbar', 'nav.dd1.j1'), 'url'=>array('#')),
-			      array('label'=>Yii::t('navbar', 'nav.dd1.j2'), 'url'=>array('#')),
-			      array('label'=>Yii::t('navbar', 'nav.dd1.j3'), 'url'=>array('#')),
 		      )
 	        ),
 		// dropdowns
