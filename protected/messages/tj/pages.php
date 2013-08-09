@@ -18,10 +18,15 @@ return array(
 	'contact.requiredNote' => 'Хатхои бо <span class="required">*</span> хатман пурра кардан лозим аст.',
 
 
+	'contactForm.type' => 'Намуди Паём',
+	'contactForm.msgtype' => 'Намуди Паём',
+	'contactForm.msgtype.prop' => 'Пешниҳод',
+	'contactForm.msgtype.comp' => 'Шикоят',
 	'contactForm.name' => 'Ному насаб',
 	'contactForm.email' => 'E-mail',
 	'contactForm.subject' => 'Маъвзу',
 	'contactForm.body' => 'Паёми матнӣ',
+	'contactForm.verifyCode' => 'Ман инсон хастам',
 	'contact.greeting' => 'Агар Шумо савол ва ё дигар сабаби кори дошта бошед бо мо алока кунед. Ташакур.',
 
 
@@ -42,6 +47,8 @@ return array(
 	'messages.mark_read'=>'Хонда шуда',
 	'messages.show_all'=>'Паеми хонда шуда',
 	'messages.delete'=>'Нобуд кардан',
+
+	'sidebar.title' => 'Навигари',
 );
 ?>
 

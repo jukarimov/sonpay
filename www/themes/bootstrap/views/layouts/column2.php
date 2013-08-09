@@ -8,6 +8,7 @@
     </div>
     <div class="span3 content-sidebar">
         <div id="sidebar">
+	  <center><h3 class="news-title"><?php echo Yii::t('pages', 'sidebar.title'); ?></h3></center>
 	  <div class="news"> 
 	    <p class="hero">Font Awesome</p>
 	    <br>

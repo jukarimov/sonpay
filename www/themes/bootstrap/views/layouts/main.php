@@ -44,6 +44,8 @@ if (!Yii::app()->user->isGuest) {
 
 <body>
 
+<center><img class="banner" src="images/logo.png" /></center>
+
 <?php $this->widget('bootstrap.widgets.TbNavbar',array(
     'brand'=>'<img src="images/logo.png" />',
     'collapse'=>false,
@@ -156,6 +158,7 @@ if (!Yii::app()->user->isGuest) {
 <a href="?r=site/locale/ru">ru</a>
 </div>
 		',
+/*
 '
 <div title="Вход" class="main-login"><i class="icon-user icon-white" id="mloginhandle" href="#"></i><a class="title">Вход</a>
 <div class="main-login-box">
@@ -168,6 +171,7 @@ if (!Yii::app()->user->isGuest) {
 </div>
 </div>
 '
+*/
     ),
 )); ?>
 <script>
@@ -179,15 +183,15 @@ var LOGIN_FORM2 = '<center>Вход yyy</center><div title="Вход" class="mai
 
 </script>
 
-<div style="float:right; margin-right: 60px; margin-top: -80px;">
+<div style="float:right; margin-top: 3%; margin-right: 3%;">
 
 <div class="btn-group">
-<a id="dealer_entry1" class="btn btn-danger btn-large dropdown-toggle" data-toggle="dropdown">
+<a id="dealer_entry1" class="btn btn-danger btn-medium dropdown-toggle" data-toggle="dropdown">
 Вход для диллеров<span class="caret"></span>
 </a>
 <ul class="dropdown-menu" style="width:100%;">
-<li><a onclick="bootbox.alert(LOGIN_FORM1);" href="#" tabindex="-1">Вход xxx</a></li>
-<li><a onclick="bootbox.alert(LOGIN_FORM2);" href="#" tabindex="-1">Вход yyy</a></li>
+<li><a onclick="bootbox.alert(LOGIN_FORM1);" href="#" tabindex="-1"><i class="icon-wrench"></i>&nbsp;В портал</a></li>
+<li><a onclick="bootbox.alert(LOGIN_FORM2);" href="#" tabindex="-1"><i class="icon-group"></i>&nbsp;Web терминал</a></li>
 </ul>
 </div>
 
@@ -219,8 +223,10 @@ var LOGIN_FORM2 = '<center>Вход yyy</center><div title="Вход" class="mai
 </div>
 
 <div class="messenger" id="messenger">
-<a href="#" title="open" onclick="switchChat();window.open('/etc/chat/index.php?fs=1');">[O]</a>
-<a style="float:right;" href="#" onclick="switchChat();" title="close">[X]</a>
+<a href="#" title="open" onclick="switchChat();window.open('/etc/chat/index.php?fs=1');">
+<i class="icon-plus-sign"></i></a>
+<a style="float:right;" href="#" onclick="switchChat();" title="close">
+<i class="icon-remove-sign"></i></a>
 <br>
 <iframe id="iframechat" height="440" width="440" src=""></iframe>
 </div>
@@ -243,10 +249,14 @@ function switchChat() {
 		$('#chat').css('visibility','hidden')
 		$('#chat').css('bottom','-100px')
 
+		$.post('/etc/chat/win.php', { state: 'open' });
+
 	} else {
 		$('#messenger').css('visibility','hidden')
 		$('#chat').css('visibility','visible')
 		$('#chat').css('bottom','100px')
+
+		$.post('/etc/chat/win.php', { state: 'close' });
 	}
 }
 <?php
@@ -273,12 +283,17 @@ $(document).ready(function(){
 		$('.navbar-search').css('width','20%');
 	});
 	$('#navsearch').blur(function(){
-		$('.navbar-search').css('width','10%');
+		$('.navbar-search').css('width','5%');
 	});
 
 	$('#langset').change(function(){
 		var ln = $('#langset').val();
 		window.location = "?r=site/locale/" + ln;
+	});
+
+	$.get('/etc/chat/win.php?state=wat', function(r){
+		if (r == 'open')
+			switchChat();
 	});
 
 });

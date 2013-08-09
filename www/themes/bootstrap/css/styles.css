@@ -1,7 +1,13 @@
 .span3.content-sidebar {
 }
+.banner {
+	border-radius: 6px;
+	margin-top: 75px;
+	width: 40%;
+	box-shadow: 0px 1px 5px 1px #000;
+}
 .brand img {
-	width: 95px;
+	width: 104px;
 	padding-left: 10px;
 	margin-top: 8px;
 }
@@ -147,6 +153,13 @@
 	position: absolute;
 	margin-top: 10px;
 	font-size: 10px;
+	background-color: #888;
+	border: 0px;
+}
+
+.bigtab > .caret {
+	color: #000;
+	background-color: #000;
 }
 
 .langopts {
@@ -166,15 +179,13 @@
 	-webkit-transition: all 0.4s linear;
 	-o-transition: all 0.4s linear;
 	transition: all 0.4s linear;
+	box-shadow: -1px 1px 10px 0px #222;
 }
 .langopts:hover {
 	background-color: #fff;
 	right: 0px;
 	top: 59px;
 	padding: 15px;
-}
-.langopts:hover > a {
-	color: #f00;
 }
 .langopts a {
 	text-decoration: none;
@@ -188,8 +199,7 @@
 	transition: all 0.5s linear;
 }
 .langopts a:hover {
-	background-color: red;
-	color: #fff;
+	color: #f00;
 	box-shadow: -1px 1px 14px 0px #E84949;
 }
 .dropdown:hover .dropdown-menu {
@@ -258,7 +268,8 @@
 	height: 57px;
 }
 .navbar-inner ul {
-	background-color: #b9b9b9;
+	background-color: #777;
+	margin-top: -5px;
 }
 #airplane h1 {
 	height: 95px;
@@ -284,6 +295,15 @@
 	background-color: #fff;
 	border-radius: 6px;
 	padding: 25px 25px 2px;
+}
+.news-title {
+	color: #E90000;
+	background-image: url('/images/carbon.png');
+	padding-top: 20px;
+	padding-bottom: 10px;
+	margin-top: -10px;
+	border-radius: 6px;
+	box-shadow: 3px 3px 30px 2px red;
 }
 .content-sidebar {
 	background-color: #fff;

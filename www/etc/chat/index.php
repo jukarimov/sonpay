@@ -2,8 +2,13 @@
 
 require_once('sstart.php');
 
+$SITELANG_DEFAULT = 'ru';
+
 
 $SITELANG = $_COOKIE['_lang'];
+if (!$SITELANG)
+	$SITELANG = $SITELANG_DEFAULT;
+
 $LN = $SITELANG;
 $SP = '&nbsp;&nbsp;';
 
@@ -89,6 +94,7 @@ function tr($field) {
 <link rel="stylesheet" type="text/css" href="/assets/e3ecaab1/css/bootstrap-responsive.css" />
 <link rel="stylesheet" type="text/css" href="/assets/e3ecaab1/css/yii.css" />
 <link rel="stylesheet" type="text/css" href="/css/chat.css" />
+<link href='http://fonts.googleapis.com/css?family=Caesar+Dressing' rel='stylesheet' type='text/css'>
 <!--<link rel="stylesheet" type="text/css" href="/css/font-awesome/css/font-awesome.css" />-->
 <script type="text/javascript" src="/assets/7e745f75/jquery.js"></script>
 <script type="text/javascript" src="/assets/e3ecaab1/js/bootstrap.js"></script>
@@ -406,7 +412,7 @@ if (isset($_POST['cname']) || isset($_SESSION['user'])) {
 <div class="content">
 <div class="container-fluid">
 <center>
-<h1 class="hero">oSonpay</h1>
+<h1 class="hero" style="font-family: 'Caesar Dressing', cursive;color:e90000;">Oson</h1>
 <img style="position:absolute;top:10px;right:2px;width:100px;" src="/images/chat.png"/>
 <form action="" method="post" class="chatlogin">
 <h3 align="left" style="margin-left:5px;" class="hero"><?echo tr('note');?></h3>

@@ -14,8 +14,12 @@ return array(
 
 	'contactForm.name' => 'Name',
 	'contactForm.email' => 'Email',
+	'contactForm.msgtype' => 'Message type',
+	'contactForm.msgtype.prop' => 'Proposal',
+	'contactForm.msgtype.comp' => 'Complaint',
 	'contactForm.subject' => 'Subject',
 	'contactForm.body' => 'Message',
+	'contactForm.verifyCode' => 'I\'m human',
 	'contact.greeting' => 'If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.',
 
 
@@ -37,6 +41,9 @@ return array(
 
 	'admins.title'=>'Admins',
 	'admins.info' => 'Here you can add or remove site admins',
+
+	'sidebar.title' => 'News',
+
 );
 
 ?>

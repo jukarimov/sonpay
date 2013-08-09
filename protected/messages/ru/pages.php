@@ -13,8 +13,12 @@ return array(
 	'contact.requiredNote' => 'Поля со <span class="required">*</span> обязательны.',
 	'contactForm.name' => 'Имя',
 	'contactForm.email' => 'Почта',
+	'contactForm.msgtype' => 'Вид сообщения',
+	'contactForm.msgtype.prop' => 'Предложение',
+	'contactForm.msgtype.comp' => 'Жалоба',
 	'contactForm.subject' => 'Тема',
 	'contactForm.body' => 'Сообщение',
+	'contactForm.verifyCode' => 'Я человек',
 	'contact.greeting' => 'Если у Вас имеются бизнес-запросы или другие вопросы, пожалуйста, заполните следующую форму, чтобы связаться с нами. Спасибо.',
 
 
@@ -38,6 +42,8 @@ return array(
 	'admins.delete'=>'Удалить',
 	'admins.title'=>'Админы',
 	'admins.info' => 'Здесь Вы можете создавать или удалять аккаунтаы админов сайта',
+
+	'sidebar.title' => 'Новости',
 );
 
 ?>

@@ -22,7 +22,8 @@ class LoginForm extends CFormModel
 	{
 		return array(
 			// username and password are required
-			array('username, password', 'required'),
+			array('username, password', 'required',
+				 'message'=>'{attribute} '.Yii::t('flash','isempty')),
 			array('username, password', 'loginformValidate'),
 			// rememberMe needs to be a boolean
 			array('rememberMe', 'boolean'),

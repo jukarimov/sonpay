@@ -49,9 +49,22 @@ echo Yii::t('pages', 'contact.greeting');
 
 	<?php echo $form->errorSummary($model); ?>
 
+
     <?php echo $form->textFieldRow($model,'name'); ?>
 
     <?php echo $form->textFieldRow($model,'email'); ?>
+
+    <div class="control-group">
+	    <div class="controls">
+    <?php echo $form->dropDownList($model,'message_type',
+	 array(
+		'comp'=>Yii::t('pages','contactForm.msgtype.comp'),
+		'prop'=>Yii::t('pages', 'contactForm.msgtype.prop'),
+	 ),
+	 array('prompt' => Yii::t('pages','contactForm.msgtype'))
+    ); ?>
+	    </div>
+    </div>
 
     <?php echo $form->textFieldRow($model,'subject'); ?>
 
