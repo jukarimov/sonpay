@@ -73,6 +73,7 @@
 	margin: 0 auto;
 	padding-right: 30px;
 }
+
 .bigtab > ul > li > a {
 	width: 100px;
 	background-color: #555;
@@ -165,7 +166,6 @@
 #langset {
 	width: 65px;
 	height: 25px;
-	position: absolute;
 	margin-top: 10px;
 	font-size: 10px;
 	background-color: #888;
@@ -202,6 +202,13 @@
 	top: 59px;
 	padding: 15px;
 }
+.langopts:focus {
+	background-color: #fff;
+	right: 0px;
+	top: 59px;
+	padding: 15px;
+}
+
 .langopts a {
 	text-decoration: none;
 	font-family: helvetica;
@@ -267,6 +274,9 @@
 	-o-transition: all 0.5s;
 	transition: all 0.5s;
 	padding-left: 5px;
+	position: absolute;
+	top: 3px;
+	right: 30px;
 }
 .navbar-search input {
 	width: 100%;

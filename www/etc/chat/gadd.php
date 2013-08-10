@@ -16,16 +16,17 @@ $cname = $_POST['cname'];
 if (!$cname) $cname = $_SESSION['user'];
 
 if (!isset($cname))
-	die('Hacking attempt');
+	die('error');
 
 if ($cname == '')
-	die('Hacking attempt');
+	die('error');
 
 if (!preg_match("/^([A-Z]|[a-z]|[0-9]|[_]){2,9}$/", $cname))
-	die('Hacking attempt');
+	die('error');
 
+// reserved nick names
 if ($cname == 'admin' || $cname == 'support')
-	die('Hacking attempt');
+	die('error');
 
 if ($leave)
 {
@@ -42,11 +43,16 @@ if ($leave)
 
 	$_SESSION['user'] = $cname;
 
-	$s = 'insert into livechat_guests values (:cname)'; 
-	$query = $db->prepare($s);
-	$query->execute(array(
-		':cname' => $cname
-	));
+	try {
+		$s = 'insert into livechat_guests values (:cname)'; 
+		$query = $db->prepare($s);
+		$query->execute(array(
+			':cname' => $cname
+		));
+
+	} catch (Exception $e) {
+		echo 'error';
+	}
 
 }
 

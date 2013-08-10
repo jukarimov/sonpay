@@ -43,6 +43,7 @@ input[type="text"], input[type="password"] {
 
 .chatlogin {
 	color: #565656;
+	margin-bottom: 20px;
 }
 
 h3 {

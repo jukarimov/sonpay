@@ -293,6 +293,63 @@ $(document).ready(function(){
 			switchChat();
 	});
 
+	$('.langopts a').focus(function(){
+		$('.langopts').css('right', '0px');
+	})
+
+	$('.langopts a').blur(function(){
+		$('.langopts').css('right', '-80px');
+	})
+
+	$('.nav > .dropdown > a').each(function(k, v) {
+		$(v).focus(function() {
+			console.log($(v).next());
+			$(v).next().toggle();
+		});
+
+		$(v).keydown(function(e) {
+			console.log(e.keyCode);
+			if (e.keyCode == 40) {
+				$($($(v).next().children()[0]).children()).focus();
+				//console.log($($(v).next().children()[0]).children());
+				return false;
+			}
+			if (e.keyCode == 9) {
+				$(v).next().toggle();
+			}
+		});
+	});
+
+	var lindex = 0;
+	$('.nav > .dropdown > ul > li > a').each(function(k, v) {
+
+		$(v).keydown(function(e) {
+
+			console.log(e.keyCode);
+
+			if (e.keyCode == 116) return;
+
+			if (e.keyCode == 40) {
+				// go down
+				$(v).parent().next().children().focus();
+			}
+			if (e.keyCode == 38) {
+				// go up 
+				$(v).parent().prev().children().focus();
+			}
+
+			// jump to next tab
+			if (e.keyCode == 27 || e.keyCode == 9) {
+				$(v).parent().parent().toggle();
+				$(v).parent().parent().parent().children().focus();
+			}
+			
+
+
+			return false;
+		});
+	});
+
 });
 </script>
 </body>

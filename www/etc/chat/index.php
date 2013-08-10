@@ -13,15 +13,30 @@ $LN = $SITELANG;
 $SP = '&nbsp;&nbsp;';
 
 $TR = array(
+	'taken' => array(
+		'en'=>'taken',
+		'ru'=>'занято',
+		'tj'=>'гирифтаги'
+	),
+	'blank' => array(
+		'en'=>'is blank',
+		'ru'=>'не заполнено',
+		'tj'=>'но пурра'
+	),
 	'left' => array(
 		'en'=>'left',
 		'ru'=>'ушел',
 		'tj'=>'рафт'
 	),
-	'support_joined' => array(
-		'en'=>'support joined',
-		'ru'=>'консультант соединился',
-		'tj'=>'консультант пайваст шуд'
+	'support' => array(
+		'en'=>'support',
+		'ru'=>'консультант',
+		'tj'=>'консультант'
+	),
+	'joined' => array(
+		'en'=>'joined',
+		'ru'=>'соединился',
+		'tj'=>'пайваст шуд'
 	),
 	'hello' => array(
 		'en'=>'Hello',
@@ -246,7 +261,11 @@ $(function(){
 
 		if (msg == '[bye]') {
 			$('.conversation').append(
-				'<b>' + GUEST + '</b> ' + '<?php echo tr('left'); ?>'
+				'<b>' + GUEST + '</b> ' + '<?php echo tr('left'); ?><br>'
+			);
+		} else if (msg == '[hi]') {
+			$('.conversation').append(
+				'<b>' + GUEST + '</b> ' + '<?php echo tr('joined'); ?><br>'
 			);
 		} else {
 			$('.conversation').append(
@@ -306,7 +325,7 @@ $(function(){
 
 	$('#msg').focus(function(){
 		// automatic notification for client
-		$.post('send.php',{msg:'[hi]'});
+		//$.post('send.php',{msg:'[hi]'});
 	});
 
 	$('#gtitle').hover(
@@ -326,6 +345,7 @@ $(function(){
 	});
 
 
+
 });
 </script>
 
@@ -336,9 +356,9 @@ $(function(){
 </div>
 <div class="content">
 
-<div id="cover1" style="width: 30px; height: 90%; position: absolute; background-color: maroon; right: 0px;"></div>
+<div id="cover1" style="width: 30px; height: 90%; position: absolute; background-color: #DB0000; right: 0px;"></div>
 
-<div id="cover2" style="top: 80%; width: 100%; height: 28px; position: absolute; background-color: maroon; left: 0px;"></div>
+<div id="cover2" style="top: 80%; width: 100%; height: 28px; position: absolute; background-color: #DB0000; left: 0px;"></div>
 
 <div class="conversation">
 </div>
@@ -385,14 +405,14 @@ if (isset($_POST['cname']) || isset($_SESSION['user'])) {
 
 	$_SESSION['user'] = $user;
 
-	echo '<font color="#fff">Hello <b id="me">' . $user . '</b></font>';
+	echo '<font color="#fff">'.tr('hello').' <b id="me">' . $user . '</b></font>';
 ?>
-<a id="leave" style="float:right;cursor:pointer" title="exit"><i class="icon-user icon-white"></i></a>
+<a id="leave" style="float:right;cursor:pointer" title="exit"><i class="icon-remove icon-white"></i></a>
 <div class="content">
 
-<div id="cover1" style="width: 40px; height: 92%; position: absolute; background-color: maroon; right: 0px;"></div>
+<div id="cover1" style="width: 40px; height: 92%; position: absolute; background-color: #DB0000; right: 0px;"></div>
 
-<div id="cover2" style="top: 80%; width: 100%; height: 28px; position: absolute; background-color: maroon; left: 0px;"></div>
+<div id="cover2" style="top: 80%; width: 100%; height: 28px; position: absolute; background-color: #DB0000; left: 0px;"></div>
 
 <div class="conversation">
 </div>
@@ -414,17 +434,17 @@ if (isset($_POST['cname']) || isset($_SESSION['user'])) {
 <center>
 <h1 class="hero" style="font-family: 'Caesar Dressing', cursive;color:e90000;">Oson</h1>
 <img style="position:absolute;top:10px;right:2px;width:100px;" src="/images/chat.png"/>
-<form action="" method="post" class="chatlogin">
 <h3 align="left" style="margin-left:5px;" class="hero"><?echo tr('note');?></h3>
 <br>
+<div class="chatlogin">
 <div class="row-fluid">
- <?echo tr('name');?>: <input id="cname" name="cname" type="text" placeholder="Bobin" /><br>
- <?echo tr('email');?>: <input name="email" type="text" placeholder="bobin@gmail.com"/><br>
- <?echo tr('phone');?>: <input name="phone" type="text" placeholder="123 12 34 56"/><br>
+<i id="cname_err" style="position:absolute;left:70px;top:190px;font-size:12px;color:red;"></i><?echo tr('name');?>: <input id="cname" name="cname" type="text" placeholder="Bobin" /><br>
+ <?echo tr('email');?>: <input id="cemail" name="email" type="text" placeholder="bobin@gmail.com"/><br>
+ <?echo tr('phone');?>: <input id="cphone" name="phone" type="text" placeholder="123 12 34 56"/><br>
 <input id="genter" type="submit" class="btn btn-primary" value="Enter"/>
 <span id="policy"><?echo tr('agree');?>:&nbsp;<input type="checkbox"/></span><br>
 </div>
-</form>
+</div>
 </center>
 </div>
 </div>
@@ -454,9 +474,36 @@ var hi_seen = false;
 $(document).ready(function(){
 
 	$('#genter').click(function(){
-		if (!$('#cname').val()) return;
-		$.post('gadd.php', { cname: (me && me != '') ? me : $('#me').text() });
-		msgPoll_id = setInterval('msgPoll()', 1500);
+
+		var elts = [$('#cname'), $('#cemail'), $('#cphone')];
+
+		var errs = false;
+		for (i=0; i < elts.length; i++) {
+			var v = elts[i];
+			if (!$(v).val()) {
+				$(v).css('border-color', 'red');
+				$(v).attr('placeholder', '<?php echo tr('blank'); ?>');
+				errs = true;
+			}
+			console.log(elts[i]);
+		}
+		if (errs) return;
+
+		var post_cname = $('#cname').val();
+
+		$.post('gadd.php', { cname: post_cname }, function(resp) {
+			if (resp == 'error') {
+				console.log('error');
+				$('#cname').css('border-color', 'red');
+				$('#cname_err').html('<?php echo tr('taken'); ?>');
+			} else {
+				$.post('index.php', { cname: post_cname }, function() {
+					window.location='';
+				});
+			}
+		});
+		$.post('send.php', { msg: '[hi]'});
+
 	});
 
 	$.post('gadd.php', { cname: (me && me != '') ? me : $('#me').text() });
@@ -504,7 +551,7 @@ $(document).ready(function(){
 			if (hi_seen == false)
 			{
 				$('.conversation').append(
-					'<b><?php echo tr('support_joined'); ?></b><br>'
+					'<?php echo tr('support');?> <b><?php echo tr('joined'); ?></b><br>'
 				);
 			}
 			hi_seen = true;
@@ -563,6 +610,7 @@ $(document).ready(function(){
 	$('#msg').focus(function(){
 		$.post('gadd.php', { cname: (me && me != '') ? me : $('#me').text() });
 	});
+
 
 <?php if (isset($_SESSION['user'])) { ?>
 
