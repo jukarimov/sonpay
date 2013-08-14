@@ -12,4 +12,8 @@ return array (
 	'nav.sitelang' => 'Eng',
 	'nav.lang.first' => 'Тоҷ',
 	'nav.lang.second' => 'Рус',
+	'nav.service' => 'Service',
+	'nav.partners' => 'Partners',
+	'nav.more' => 'More',
+	'nav.links' => 'Links',
 );

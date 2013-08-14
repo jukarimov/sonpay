@@ -12,4 +12,12 @@ return array(
 	'nav.sitelang' => 'Eng',
 	'nav.lang.first' => 'Тоҷ',
 	'nav.lang.second' => 'Рус',
+	'nav.wrw' => 'О Компании',
+	'nav.tickets' => 'Авиабилеты',
+	'nav.simcard' => 'Сим Карты',
+	'nav.mobiles' => 'Мобильные Телефоны',
+	'nav.service' => 'Наши Услуги',
+	'nav.partners' => 'Партнеры',
+	'nav.more' => 'Больше',
+	'nav.links' => 'Ссылки',
 );

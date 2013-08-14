@@ -46,23 +46,36 @@ if (!Yii::app()->user->isGuest) {
 
 <div class="nav navbar span12">
   <ul>
-  <li><a href=""><?php echo Yii::t('navbar', 'nav.home'); ?></a></li>
-  <li><a href="#"><?php echo Yii::t('navbar', 'nav.about'); ?></a>
+  <li><a href="/"><?php echo Yii::t('navbar', 'nav.home'); ?></a></li>
+  <li><a href="?r=site/page&view=about"><?php echo Yii::t('navbar', 'nav.about'); ?></a>
 	<ul>
 	  <li><a href="#"><?php echo Yii::t('navbar', 'nav.wrw'); ?></a></li>
-	  <li><a href="#"><?php echo Yii::t('navbar', 'nav.contact'); ?></a></li>
-	  <li><a href="#"><?echo Yii::t('widgets', 'live_chat');?></a></li>
+	  <li><a href="?r=site/contact"><?php echo Yii::t('navbar', 'nav.contact'); ?></a></li>
+	  <li><a href="/etc/chat/"><?echo Yii::t('widgets', 'live_chat');?></a></li>
 	</ul>
     </li>
-    <li><a href="#">Service</a>
+    <li><a href="#"><?php echo Yii::t('navbar', 'nav.service'); ?></a>
 	<ul>
-	  <li><a href="#">Tickets</a></li>
+	  <li><a href="#"><?php echo Yii::t('navbar', 'nav.tickets'); ?></a></li>
+	  <li><a href="#"><?php echo Yii::t('navbar', 'nav.payment'); ?></a></li>
 	</ul>
     </li>
-    <li>Partners</li>
-    <li>Contact</li>
-    <li>More</li>
-    <li>Links</li>
+    <li><?php echo Yii::t('navbar', 'nav.partners'); ?>
+	<ul class="tab-wide partner-logo">
+	  <li><a href="http://babilon-m.tj"><img src="images/babilon.png"></a></li>
+	  <li><a href="http://tcell.tj"><img src="images/tcell.png"></a></li>
+	  <li><a href="http://beeline.tj"><img src="images/beeline.png"></a></li>
+	  <li><a href="http://megafon.tj"><img src="images/megafon.png"></a></li>
+	</ul>
+    </li>
+    <li><a href="?r=site/contact"><?php echo Yii::t('navbar', 'nav.contact'); ?></a></li>
+    <li><?php echo Yii::t('navbar', 'nav.more'); ?>
+	<ul>
+	  <li><a href="#"><?php echo Yii::t('navbar', 'nav.mobiles'); ?></a></li>
+	  <li><a href="#"><?php echo Yii::t('navbar', 'nav.simcard'); ?></a></li>
+	</ul>
+    </li>
+    <li><?php echo Yii::t('navbar', 'nav.links'); ?></li>
   </ul>
 </div>
 
@@ -72,9 +85,17 @@ if (!Yii::app()->user->isGuest) {
 	<select id="langset" class="input-medium bfh-languages">
 		<option value="ru">Язык</option>
 		<option value="ru">Русский</option>
-		<option value="tj">Точики</option>
+		<option value="tj">Тоҷики</option>
 		<option value="en">English</option>
 	</select>
+</div>
+
+<div class="loginpan">
+  <ul>
+    <li><?php echo Yii::t('links', 'login1'); ?></li>
+    <li><?php echo Yii::t('links', 'login2'); ?></li>
+    <li><?php echo Yii::t('links', 'login3'); ?></li>
+  </ul>
 </div>
 
 <div class="container-fluid" id="page">
@@ -90,7 +111,7 @@ if (!Yii::app()->user->isGuest) {
 </div><!-- page -->
 
 <div id="chat" class="chat" onclick="javascript:switchChat()">
-<a href="#" id="gcount" class="chat-alert">?</a>
+<a href="#" id="gcount" class="chat-alert"><i class="icon-circle"></i></a>
 <p class="chatlabel" id="chatlab"><?echo Yii::t('widgets', 'live_chat');?></p>
 <img src="images/chat.png">
 </div>
