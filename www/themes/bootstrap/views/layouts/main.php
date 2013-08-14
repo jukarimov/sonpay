@@ -44,170 +44,46 @@ if (!Yii::app()->user->isGuest) {
 
 <body>
 
+<div class="nav navbar span12">
+  <ul>
+  <li><a href=""><?php echo Yii::t('navbar', 'nav.home'); ?></a></li>
+  <li><a href="#"><?php echo Yii::t('navbar', 'nav.about'); ?></a>
+	<ul>
+	  <li><a href="#"><?php echo Yii::t('navbar', 'nav.wrw'); ?></a></li>
+	  <li><a href="#"><?php echo Yii::t('navbar', 'nav.contact'); ?></a></li>
+	  <li><a href="#"><?echo Yii::t('widgets', 'live_chat');?></a></li>
+	</ul>
+    </li>
+    <li><a href="#">Service</a>
+	<ul>
+	  <li><a href="#">Tickets</a></li>
+	</ul>
+    </li>
+    <li>Partners</li>
+    <li>Contact</li>
+    <li>More</li>
+    <li>Links</li>
+  </ul>
+</div>
+
 <center><img class="banner" src="images/logo.png" /></center>
 
-<?php $this->widget('bootstrap.widgets.TbNavbar',array(
-    'brand'=>'<img src="images/logo.png" />',
-    'collapse'=>false,
-    'fluid'=>true,
-    'items'=>array(
-        array(
-            'class'=>'bootstrap.widgets.TbMenu',
-            'items'=>array(
-                array('label'=>Yii::t('navbar', 'nav.home'), 'url'=>array('/site/index')),
-		array('label'=>Yii::t('navbar', 'nav.about'),
-	       	      'url'=>array('/site/page', 'view'=>'about'), 'visible'=>true
-	        ),
-		array('label'=>Yii::t('navbar', 'nav.admins'), // if this is admin, display users management page
-	       	      'url'=>array('/site/admins'),
-		      'visible'=>!Yii::app()->user->isGuest
-	        ),
-		array('label'=>Yii::t('navbar', 'nav.contact'),
-	       	      'url'=>array('/site/contact'),
-		      'visible'=>Yii::app()->user->isGuest
-	        ),
-		array('label'=>Yii::t('navbar','nav.settings'),
-	       	      'url'=>array('/site/settings'),
-		      'visible'=>!Yii::app()->user->isGuest
-	        ),
-		array('label'=>Yii::t('navbar', 'nav.login'),
-	       	      'url'=>array('/site/login'),
-		      'visible'=>Yii::app()->user->isGuest
-		),
-		array('label'=>Yii::t('navbar', 'nav.logout').'('.Yii::app()->user->name.')',
-	       	      'url'=>array('/site/logout'),
-		      'visible'=>!Yii::app()->user->isGuest
-		),
-		array('label'=>Yii::t('navbar', 'nav.messages').'('.$messageCount.')',
-		      'url'=>array('/site/messages'),
-		      'visible'=>!Yii::app()->user->isGuest,
-		      'itemOptions'=>array('class'=>'msgcnt'),
-		),
-		// dropdowns
-		array('label'=>Yii::t('navbar', 'nav.dd1'),
-		      'url'=>array('#'),
-		      'visible'=>true,
-		      'itemOptions'=>array('class'=>'dropdown bigtab'),
-		      'items'=>array(
-			      array('label'=>Yii::t('navbar', 'nav.dd1.i1'), 'url'=>array('#')),
-			      array('label'=>Yii::t('navbar', 'nav.dd1.i2'), 'url'=>array('#')),
-			      array('label'=>Yii::t('navbar', 'nav.dd1.i3'), 'url'=>array('#')),
-			      array('label'=>Yii::t('navbar', 'nav.dd1.i4'), 'url'=>array('#')),
-			      array('label'=>Yii::t('navbar', 'nav.dd1.i5'), 'url'=>array('#')),
-			      array('label'=>Yii::t('navbar', 'nav.dd1.i6'), 'url'=>array('#')),
-			      array('label'=>Yii::t('navbar', 'nav.dd1.i7'), 'url'=>array('#')),
-			      array('label'=>Yii::t('navbar', 'nav.dd1.i8'), 'url'=>array('#')),
-			      array('label'=>Yii::t('navbar', 'nav.dd1.i9'), 'url'=>array('#')),
-		      )
-	        ),
-		// dropdowns
-		array('label'=>Yii::t('navbar', 'nav.dd2'),
-		      'url'=>array('#'),
-		      'visible'=>true,
-		      'itemOptions'=>array('class'=>'dropdown bigtab-pics'),
-		      'items'=>array(
-			 array('label'=>'', 'url'=>array('#'),
-			       'linkOptions'=>array('style'=>'background-image: url("images/Bugatti.png");background-repeat: no-repeat;'),
-			 ),
-			 array('label'=>'', 'url'=>array('#'),
-			       'linkOptions'=>array('style'=>'background-image: url("images/Bugatti.png");background-repeat: no-repeat;'),
-			 ),
-			 array('label'=>'', 'url'=>array('#'),
-			       'linkOptions'=>array('style'=>'background-image: url("images/Bugatti.png");background-repeat: no-repeat;'),
-			 ),
-			 array('label'=>'', 'url'=>array('#'),
-			       'linkOptions'=>array('style'=>'background-image: url("images/Bugatti.png");background-repeat: no-repeat;'),
-			 ),
-		      )
-	        ),
-
-		// dropdowns
-		array('label'=>Yii::t('navbar', 'nav.dd3'),
-		      'url'=>array('#'),
-		      'visible'=>true,
-		      'itemOptions'=>array('class'=>'dropdown default'),
-		      'items'=>array(
-			      array('label'=>Yii::t('navbar', 'nav.dd3.a'), 'url'=>array('#')),
-			      array('label'=>Yii::t('navbar', 'nav.dd3.b'), 'url'=>array('#')),
-			      array('label'=>Yii::t('navbar', 'nav.dd3.c'), 'url'=>array('#')),
-		      )
-	        ),
-
-            ),
-        ),
-
-	'<select id="langset" class="input-medium bfh-languages">
+<div class="langbar">
+	<select id="langset" class="input-medium bfh-languages">
 		<option value="ru">Язык</option>
 		<option value="ru">Русский</option>
 		<option value="tj">Точики</option>
 		<option value="en">English</option>
-	</select>',
-
-	Yii::app()->user->isGuest ? 
-		'<div class="container-fluid"><form class="navbar-search pull-right">
-			 <input id="navsearch" type="text" class="search-query" placeholder="Search...">
-		 </form></div>' : null,
-'
-<div class="langopts">
-<i id="flag" class="icon-flag icon-black"></i>
-<a href="?r=site/locale/en">en</a>
-<a href="?r=site/locale/tj">tj</a>
-<a href="?r=site/locale/ru">ru</a>
+	</select>
 </div>
-		',
-/*
-'
-<div title="Вход" class="main-login"><i class="icon-user icon-white" id="mloginhandle" href="#"></i><a class="title">Вход</a>
-<div class="main-login-box">
-<input type="text" id="MainLoginName" />
-<br>
-<input type="password" id="MainLoginPass" />
-<br>
-<a class="btn btn-primary">Enter</a>
-<!--&nbsp;<a class="btn btn-danger">Cancel</a>-->
-</div>
-</div>
-'
-*/
-    ),
-)); ?>
-<script>
-
-var LOGIN_FORM1 = '<center>Вход xxx</center><div title="Вход" class="main1-login"><i class="icon-user icon-white" id="mloginhandle1" href="#"></i><div class="main-login-box"><input type="text" id="MainLoginName" /><br><input type="password" id="MainLoginPass" /><br><a class="btn btn-primary">Enter</a><!--&nbsp;<a class="btn btn-danger">Cancel</a>--></div></div>';
-
-
-var LOGIN_FORM2 = '<center>Вход yyy</center><div title="Вход" class="main1-login"><i class="icon-user icon-white" id="mloginhandle1" href="#"></i><div class="main-login-box"><input type="text" id="MainLoginName" /><br><input type="password" id="MainLoginPass" /><br><a class="btn btn-primary">Enter</a><!--&nbsp;<a class="btn btn-danger">Cancel</a>--></div></div>';
-
-</script>
-
-<div style="float:right; margin-top: 3%; margin-right: 3%;">
-
-<div class="btn-group">
-<a id="dealer_entry1" class="btn btn-danger btn-medium dropdown-toggle" data-toggle="dropdown">
-Вход для диллеров<span class="caret"></span>
-</a>
-<ul class="dropdown-menu" style="width:100%;">
-<li><a onclick="bootbox.alert(LOGIN_FORM1);" href="#" tabindex="-1"><i class="icon-wrench"></i>&nbsp;В портал</a></li>
-<li><a onclick="bootbox.alert(LOGIN_FORM2);" href="#" tabindex="-1"><i class="icon-group"></i>&nbsp;Web терминал</a></li>
-</ul>
-</div>
-
-</div>
-
 
 <div class="container-fluid" id="page">
 
-	<?php if(isset($this->breadcrumbs)):?>
-		<?php $this->widget('bootstrap.widgets.TbBreadcrumbs', array(
-			'links'=>$this->breadcrumbs,
-			'homeLink' => CHtml::link(Yii::t('titles','bread.home'), Yii::app()->homeUrl),
-			/*
-			'messagesLink' => CHtml::link(Yii::t('titles','bread.messages'),
-				$this->createUrl('site/messages')),*/
-		)); ?><!-- breadcrumbs -->
-	<?php endif?>
+	<div class="content-wrap">
 
 	<?php echo $content; ?>
+
+	</div>
 
 	<div class="clear"></div>
 
@@ -230,13 +106,9 @@ var LOGIN_FORM2 = '<center>Вход yyy</center><div title="Вход" class="mai
 
 
 <div id="footer">
-	Copyright &copy; <?php echo date('Y'); ?> by Oson.
-	All Rights Reserved.
-	<i style="float:right;"><?php echo Yii::powered(); ?></i>
 </div><!-- footer -->
 
 <script>
-
 function switchChat() {
 
 	if ($('#messenger').css('visibility') != 'visible') {
@@ -276,13 +148,6 @@ if (!Yii::app()->user->isGuest)
 }
 ?>
 $(document).ready(function(){
-	$('#navsearch').focus(function(){
-		$('.navbar-search').css('width','20%');
-	});
-	$('#navsearch').blur(function(){
-		$('.navbar-search').css('width','5%');
-	});
-
 	$('#langset').change(function(){
 		var ln = $('#langset').val();
 		window.location = "?r=site/locale/" + ln;
@@ -291,63 +156,6 @@ $(document).ready(function(){
 	$.get('/etc/chat/win.php?state=wat', function(r){
 		if (r == 'open')
 			switchChat();
-	});
-
-	$('.langopts a').focus(function(){
-		$('.langopts').css('right', '0px');
-	})
-
-	$('.langopts a').blur(function(){
-		$('.langopts').css('right', '-80px');
-	})
-
-	$('.nav > .dropdown > a').each(function(k, v) {
-		$(v).focus(function() {
-			console.log($(v).next());
-			$(v).next().toggle();
-		});
-
-		$(v).keydown(function(e) {
-			console.log(e.keyCode);
-			if (e.keyCode == 40) {
-				$($($(v).next().children()[0]).children()).focus();
-				//console.log($($(v).next().children()[0]).children());
-				return false;
-			}
-			if (e.keyCode == 9) {
-				$(v).next().toggle();
-			}
-		});
-	});
-
-	var lindex = 0;
-	$('.nav > .dropdown > ul > li > a').each(function(k, v) {
-
-		$(v).keydown(function(e) {
-
-			console.log(e.keyCode);
-
-			if (e.keyCode == 116) return;
-
-			if (e.keyCode == 40) {
-				// go down
-				$(v).parent().next().children().focus();
-			}
-			if (e.keyCode == 38) {
-				// go up 
-				$(v).parent().prev().children().focus();
-			}
-
-			// jump to next tab
-			if (e.keyCode == 27 || e.keyCode == 9) {
-				$(v).parent().parent().toggle();
-				$(v).parent().parent().parent().children().focus();
-			}
-			
-
-
-			return false;
-		});
 	});
 
 });

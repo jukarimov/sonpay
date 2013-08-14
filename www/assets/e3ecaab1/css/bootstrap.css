@@ -4375,7 +4375,7 @@ input[type="submit"].btn.btn-mini {
   *z-index: 2;
   margin-bottom: 20px;
   overflow: visible;
-  box-shadow: -3px 3px 6px #333;
+  box-shadow: 1px 1px 5px #333;
 }
 
 .navbar-inner {

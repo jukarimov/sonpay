@@ -11,54 +11,15 @@ $this->pageTitle=Yii::app()->name;
 Yii::app()->user->returnUrl = $this->createUrl('/site/index');
 ?>
 
-<div class="container-fluid">
 
 <div class="content">
-
-<div id="myCarousel" class="carousel slide">
-  <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class></li>
-    <li data-target="#myCarousel" data-slide-to="1" class></li>
-    <li data-target="#myCarousel" data-slide-to="2" class></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="item active" id="sim">
-    <img src="images/purchase_sim.png" title="<?php echo Yii::t('titles', 'cap1'); ?>">
-      <div class="container">
-        <div class="carousel-caption">
-	  <h1><?php echo Yii::t('titles', 'cap1'); ?></h1> 
-        </div>
-      </div>
-    </div>
-    <div class="item">
-    <img src="images/mobile_payments.png" title="<?php echo Yii::t('titles', 'cap2'); ?>">
-      <div class="container">
-        <div class="carousel-caption">
-	  <h1><?php echo Yii::t('titles', 'cap2'); ?></h1> 
-        </div>
-      </div>
-    </div>
-    <div class="item" id="airplane">
-    <img src="images/purchase_tickets.png" title="<?php echo Yii::t('titles', 'cap3'); ?>">
-      <div class="container">
-        <div class="carousel-caption">
-	  <h1><?php echo Yii::t('titles', 'cap3'); ?></h1> 
-        </div>
-      </div>
-    </div>
-  </div>
-  <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
-  <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
-</div>
-
-<?php $this->layout = 'column2'; ?>
 
 
 <?php $this->beginWidget('bootstrap.widgets.TbHeroUnit',array(
     'heading'=>Yii::t('pages', 'home.welcometo').CHtml::encode(Yii::app()->name),
 )); ?>
 <br>
-<p class="hero" style="">Lots of easy ways to use Font Awesome</p>
+<p class="hero" style=""></p>
 
 <!--
 <video width="320" height="240" controls>
