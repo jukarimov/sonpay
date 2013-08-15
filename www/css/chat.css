@@ -1,3 +1,8 @@
+.controls {
+	position: absolute;
+	top: 200px;
+	left: 100px;
+}
 #ud, #gtitle {
 	cursor: pointer;
 }

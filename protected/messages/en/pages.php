@@ -41,6 +41,8 @@ return array(
 
 	'admins.title'=>'Admins',
 	'admins.info' => 'Here you can add or remove site admins',
+	'admins.create'=>'Create',
+	'admins.delete'=>'Delete',
 
 	'sidebar.title' => 'News',
 

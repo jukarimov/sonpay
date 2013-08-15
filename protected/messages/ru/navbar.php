@@ -14,6 +14,7 @@ return array(
 	'nav.lang.second' => 'Рус',
 	'nav.wrw' => 'О Компании',
 	'nav.tickets' => 'Авиабилеты',
+	'nav.payment' => 'Платежи',
 	'nav.simcard' => 'Сим Карты',
 	'nav.mobiles' => 'Мобильные Телефоны',
 	'nav.service' => 'Наши Услуги',

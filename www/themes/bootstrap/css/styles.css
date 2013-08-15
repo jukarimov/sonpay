@@ -118,6 +118,16 @@ ul.tab-wide {
 	margin-top: -170px;
 	z-index: 1;
 }
+
+.loginpan a {
+	text-decoration: none;
+	color: #900;
+}
+
+.loginpan a:hover {
+	color: #000;
+}
+
 .loginpan ul {
 	list-style: none;
 }
@@ -387,10 +397,7 @@ p[class="chatlabel"]:hover {
 #chatlab {
 	text-decoration: none;
 }
-.chat > #badge {
-	position: absolute;
-	top: 5px;
-}
+
 .messenger {
 	visibility: hidden;
 	position: fixed;
@@ -426,6 +433,23 @@ p[class="chatlabel"]:hover {
 
 .chat-alert > i {
 	color: #f00;
+}
+
+.chat-alert-green > i {
+	color: #0f0;
+}
+
+.chat-alert-green {
+	text-decoration: none;
+	text-shadow: 1px 1px 10px #0f0;
+	position: absolute;
+	margin-left: 1px;
+	margin-top: 1px;
+	background-color: #555;
+	border-radius: 30px;
+	padding-left: 7px;
+	padding-right: 7px;
+	padding-top: 2px;
 }
 
 .chat-alert {

@@ -16,4 +16,11 @@ return array (
 	'nav.partners' => 'Partners',
 	'nav.more' => 'More',
 	'nav.links' => 'Links',
+
+	'nav.wrw' => 'About Us',
+	'nav.tickets' => 'Tickets',
+	'nav.payment' => 'Payments',
+	'nav.simcard' => 'Sim Cards',
+	'nav.mobiles' => 'Mobile phones',
+	'nav.service' => 'Our Services',
 );

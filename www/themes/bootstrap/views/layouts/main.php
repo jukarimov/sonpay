@@ -11,6 +11,7 @@ else if (isset($app->request->cookies['_lang'])) {
 }
 
 if (!Yii::app()->user->isGuest) {
+	$ME = Yii::app()->user->name;
 	$mm = new MessageManager();
 	$messageCount = $mm->messageCount();
 } else
@@ -75,7 +76,18 @@ if (!Yii::app()->user->isGuest) {
 	  <li><a href="#"><?php echo Yii::t('navbar', 'nav.simcard'); ?></a></li>
 	</ul>
     </li>
-    <li><?php echo Yii::t('navbar', 'nav.links'); ?></li>
+    <li><?php echo Yii::t('navbar', 'nav.links'); ?>
+	<ul>
+<?php if (!Yii::app()->user->isGuest) { ?>
+	  <li><a href="?r=site/settings"><?php echo Yii::t('navbar', 'nav.settings'); ?></a></li>
+	  <li><a href="?r=site/admins"><?php echo Yii::t('navbar', 'nav.admins'); ?></a></li>
+	  <li><a href="?r=site/messages"><?php echo Yii::t('navbar', 'nav.messages'); ?></a></li>
+	  <li><a href="?r=site/logout"><?php echo Yii::t('navbar', 'nav.logout'); ?></a></li>
+<?php } else { ?>
+	<li><a href="?r=site/login"><?php echo Yii::t('links', 'login3'); ?></a></li>
+<?php } ?>
+     </ul>
+   </li>
   </ul>
 </div>
 
@@ -92,9 +104,13 @@ if (!Yii::app()->user->isGuest) {
 
 <div class="loginpan">
   <ul>
-    <li><?php echo Yii::t('links', 'login1'); ?></li>
-    <li><?php echo Yii::t('links', 'login2'); ?></li>
-    <li><?php echo Yii::t('links', 'login3'); ?></li>
+    <li><a href="#"><?php echo Yii::t('links', 'login1'); ?></a></li>
+    <li><a href="#"><?php echo Yii::t('links', 'login2'); ?></a></li>
+<?php if (Yii::app()->user->isGuest) { ?>
+	<li><a href="?r=site/login"><?php echo Yii::t('links', 'login3'); ?></a></li>
+<?php } else { ?>
+	<li><a href="?r=site/logout"><?php echo Yii::t('links', 'logout')."($ME)"; ?></a></li>
+<?php } ?>
   </ul>
 </div>
 
@@ -179,6 +195,29 @@ $(document).ready(function(){
 			switchChat();
 	});
 
+
+	// try kicking admin see if he is really up online
+	function kickAdmin() {
+		$.get('/etc/chat/notify.php?state=kick', function(resp) {
+			console.log('notify:' + resp);
+		});
+	}
+	setInterval(kickAdmin, 60 * 1000);
+
+	function adminState() {
+		$.get('/etc/chat/opready.php', function(resp) {
+			console.log('opready:' + resp);
+			if (resp > 0) {
+				$('#gcount').attr('class','chat-alert-green');
+				$('#gcount').css('text-shadow','1px 1px 10px #0f0');
+			} else {
+				$('#gcount').attr('class','chat-alert');
+				$('#gcount').css('text-shadow','1px 1px 10px #f00');
+			}
+		});
+	}
+	
+	setInterval(adminState, 10 * 1000);
 });
 </script>
 </body>

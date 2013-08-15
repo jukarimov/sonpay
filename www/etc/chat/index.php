@@ -109,7 +109,6 @@ function tr($field) {
 <link rel="stylesheet" type="text/css" href="/assets/e3ecaab1/css/bootstrap-responsive.css" />
 <link rel="stylesheet" type="text/css" href="/assets/e3ecaab1/css/yii.css" />
 <link rel="stylesheet" type="text/css" href="/css/chat.css" />
-<link href='http://fonts.googleapis.com/css?family=Caesar+Dressing' rel='stylesheet' type='text/css'>
 <!--<link rel="stylesheet" type="text/css" href="/css/font-awesome/css/font-awesome.css" />-->
 <script type="text/javascript" src="/assets/7e745f75/jquery.js"></script>
 <script type="text/javascript" src="/assets/e3ecaab1/js/bootstrap.js"></script>
@@ -141,6 +140,13 @@ var postMsg;
 var getMsg;
 var mlist = [];
 $(function(){
+
+	// tell guests we are up online
+	$.get('notify.php?state=up');
+	setInterval(function() {
+		$.get('notify.php?state=up');
+	}, 10 * 1000);
+
 
 	$('#stop').click(function() {
 		
@@ -375,10 +381,12 @@ $(function(){
 <h1><?php echo tr('welcome') .' '. $_COOKIE['_user']; ?></h1>
 
 <div class="chatlogin-admin">
-<?php echo tr('guest');?>: <b id="glist"><i id="refresh" class="icon-refresh icon-spin"></i></b><br>
+<font style="position:absolute;left:150px;"><?php echo tr('guest');?>:</font><b id="glist"><i id="refresh" class="icon-refresh icon-spin"></i></b><br>
+<div class="controls">
 <a id="start" class="btn btn-primary"><i id="hp" class="icon-headphones icon-white"></i>Start</a>
 &nbsp;&nbsp;&nbsp;
 <a id="drop" class="btn btn-danger btn-mini"><i id="hp" class="icon-remove icon-white"></i>Drop</a><br>
+</div><!-- controls -->
 </div>
 
 </div>
@@ -432,7 +440,7 @@ if (isset($_POST['cname']) || isset($_SESSION['user'])) {
 <div class="content">
 <div class="container-fluid">
 <center>
-<h1 class="hero" style="font-family: 'Caesar Dressing', cursive;color:e90000;">Oson</h1>
+<h1 class="hero" style="cursive;color:e90000;">Oson</h1>
 <img style="position:absolute;top:10px;right:2px;width:100px;" src="/images/chat.png"/>
 <h3 align="left" style="margin-left:5px;" class="hero"><?echo tr('note');?></h3>
 <br>

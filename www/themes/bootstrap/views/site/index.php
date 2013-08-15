@@ -33,7 +33,9 @@ Yii::app()->user->returnUrl = $this->createUrl('/site/index');
 <?php $this->endWidget(); ?>
 
 <script>
+/*
 $(function(){
     $('.carousel').carousel({ interval: 2000 });
 });
+*/
 </script>
