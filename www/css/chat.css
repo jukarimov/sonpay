@@ -1,3 +1,12 @@
+.inp-send.btn.btn-danger {
+	width: 6px;
+	margin-left: 1px;
+	padding-left: 3px;
+}
+
+#typing {
+	visibility: hidden;
+}
 .controls {
 	position: absolute;
 	top: 200px;
@@ -110,6 +119,15 @@ h3 {
 	color: red;
 	border-radius: 16px;
 	padding: 5px 5px 5px;
+	word-wrap: break-word;
+	margin-right: 20px;
+}
+
+.msg-sys {
+	background-color: #fff;
+	color: red;
+	border-radius: 36px;
+	padding: 5px 10px 5px;
 	word-wrap: break-word;
 	margin-right: 20px;
 }

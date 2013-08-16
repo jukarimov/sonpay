@@ -199,7 +199,7 @@ $(document).ready(function(){
 	// try kicking admin see if he is really up online
 	function kickAdmin() {
 		$.get('/etc/chat/notify.php?state=kick', function(resp) {
-			console.log('notify:' + resp);
+			//console.log('notify:' + resp);
 		});
 	}
 	setInterval(kickAdmin, 60 * 1000);
@@ -217,7 +217,7 @@ $(document).ready(function(){
 		});
 	}
 	
-	setInterval(adminState, 10 * 1000);
+	setInterval(adminState, 5 * 1000);
 });
 </script>
 </body>

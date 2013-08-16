@@ -28,6 +28,16 @@ $TR = array(
 		'ru'=>'ушел',
 		'tj'=>'рафт'
 	),
+	'support_is_offline' => array(
+		'en'=>'All operators are busy, please await or use '.
+			'<a href="http://oson.lc/?r=site/contact">contact form</a> to leave a message, thank you.',
+
+		'ru'=>'Все операторы заняты, пожалуйста подождите или оставьте свое сообщение через '.
+			'<a href="http://oson.lc/?r=site/contact">контакт форму</a>, спасибо.',
+
+		'tj'=>'Хамаи операторхо банд хастанд, лутфан баъдтар озмоиш кунед ё Шумо метавонед '.
+			'<a href="http://oson.lc/?r=site/contact">формаи контакт-ро</a> истифода бареду паёматон-ро бо мо монед, ташакур.'
+	),
 	'support' => array(
 		'en'=>'support',
 		'ru'=>'консультант',
@@ -98,9 +108,14 @@ function tr($field) {
 	if (!$SITELANG) $SITELANG = 'en';
 	global $TR;
 	$ret = $TR[$field][$SITELANG];
+	if (!$ret)
+		$ret = $TR[$field]['en'];
+
 	return $ret ? $ret : $field;
 }
+
 ?>
+
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -121,6 +136,9 @@ function tr($field) {
 if (isset($_GET['fs']))
 {
 ?>
+<script>
+var FIX_SCREEN = true;
+</script>
 <a href="/" title="home"><i class="icon-home icon-white"></i></a>
 <?php
 }
@@ -139,13 +157,24 @@ var getGuestList_id;
 var postMsg;
 var getMsg;
 var mlist = [];
+var hi_seen = false;
+
+var clear_conversation = false;
+var messages_counter = 0;
+var conversation_size = 0;
+
 $(function(){
+
+	if (FIX_SCREEN) {
+		$('.conversation').css('width','100%');
+		//$('.conversation').css('overflow','hidden');
+	}
 
 	// tell guests we are up online
 	$.get('notify.php?state=up');
 	setInterval(function() {
 		$.get('notify.php?state=up');
-	}, 10 * 1000);
+	}, 5 * 1000);
 
 
 	$('#stop').click(function() {
@@ -183,13 +212,18 @@ $(function(){
 		$.post('utaken.php', { cname: GUEST },
 			function(resp) {
 				console.log('UTAKEN:' + resp);
+				$.post('send.php', { msg:'[hi]' });
 			}
 		);
 
 		$('#cn').text(GUEST);
-		$.post('send.php',{msg:'[hi]'});
 
 		fetchGuestMsg_id = setInterval('fetchGuestMsg()', 1500);
+		/*
+		setTimeout(function(){
+			$.post('send.php',{msg:'[hi]'});
+		}, 1500);
+		*/
 	});
 
 	$('.content').hide();
@@ -270,15 +304,24 @@ $(function(){
 				'<b>' + GUEST + '</b> ' + '<?php echo tr('left'); ?><br>'
 			);
 		} else if (msg == '[hi]') {
-			$('.conversation').append(
+			if (hi_seen == false) {
+			  $('.conversation').append(
 				'<b>' + GUEST + '</b> ' + '<?php echo tr('joined'); ?><br>'
-			);
+			  );
+			  hi_seen = true;
+			}
+		} else if (msg == '[typing]') {
+			$('#typing').css('visibility','visible');
+			setTimeout(function(){
+				$('#typing').css('visibility','hidden');
+			}, 2000);
 		} else {
 			$('.conversation').append(
 				'<b>' + GUEST + ':</b>' +
 				'<p class="msg">' + msg + '</p>'
 			);
 		}
+
                 $('.conversation').scrollTop(1000);
 	}
 
@@ -289,6 +332,25 @@ $(function(){
 		msg = msg.replace('<','\\<');
 		msg = msg.replace('>','\\>');
 		msg = msg.replace('\\','');
+
+		if (!msg.length) return;
+
+		conversation_size += msg.length;
+
+		if (conversation_size >= 1000) {
+			clear_conversation = true;
+			conversation_size = 0;
+		}
+
+		if (++messages_counter >= 6) {
+			clear_conversation = true;
+			messages_counter = 0;
+		}
+
+		if (clear_conversation) {
+			//$('.conversation').html('');
+		}
+		
 
 	        console.log('send: ' + msg);
 
@@ -306,12 +368,19 @@ $(function(){
 	if (!fetchGuestMsg_id)
 		fetchGuestMsg_id = setInterval('fetchGuestMsg()', 1500);
 
-        $('#msg').keyup(function(e){
-	            if (e.keyCode == 13) {
-	                      if (this.value == '') return;
-                      postMsg(this.value);
-                      this.value = '';
-                      $('.conversation').scrollTop(1000);
+	$('#msg').keyup(function(e){
+		$.post('send.php',{msg:'[typing]'});
+	        if (e.keyCode == 13) {
+	          if (this.value == '') return;
+
+		  if ($('#msg').val().length >= 300) {
+			alert('You text is too long, please edit and send again');
+		  	return;
+		  }
+
+                  postMsg(this.value);
+                  this.value = '';
+                  $('.conversation').scrollTop(1000);
                 }
         });
 
@@ -323,6 +392,11 @@ $(function(){
 
         $('#send').click(function(){
                 if ($('#msg').val() == '') return;
+
+		if ($('#msg').val().length >= 300) {
+			alert('You text is too long, please edit and send again');
+			return;
+		}
 		
                 postMsg($('#msg').val());
                 $('#msg').val('');
@@ -333,6 +407,7 @@ $(function(){
 		// automatic notification for client
 		//$.post('send.php',{msg:'[hi]'});
 	});
+
 
 	$('#gtitle').hover(
 		function() {
@@ -349,8 +424,7 @@ $(function(){
 			$.post('udrop.php', { cname: GUEST }, function() { window.location = ''; });
 		}
 	});
-
-
+	
 
 });
 </script>
@@ -372,6 +446,8 @@ $(function(){
 <div class="row-fluid">
 <input id="msg" class="inp-entry" name="msg" type="text"/>
 <a id="send" class="inp-send btn btn-primary">send</a>
+<a id="clear" class="inp-send btn btn-danger" title="clear conversation" onclick="$('.conversation').html('');"><i class="icon-remove"></i></a>	
+&nbsp;&nbsp;<font id="typing">...<i class="icon-pencil"></i></font>
 </div>
 
 </div>
@@ -429,6 +505,7 @@ if (isset($_POST['cname']) || isset($_SESSION['user'])) {
 <input id="msg" class="inp-entry" name="msg" type="text"/>
 <a id="clear" class="inp-send btn btn-danger" title="clear"><i class="icon-remove"></i></a>
 <a id="send" class="inp-send btn btn-primary">send</a>
+&nbsp;&nbsp;<font id="typing">...<i class="icon-pencil"></i></font>
 </div>
 
 </div>
@@ -478,8 +555,14 @@ var msgPoll;
 var msgPoll_id;
 var getMsg;
 var hi_seen = false;
+var off_seen = false;
 
 $(document).ready(function(){
+
+	if (FIX_SCREEN) {
+		$('.conversation').css('width','100%');
+	//	$('.conversation').css('overflow','hidden');
+	}
 
 	$('#genter').click(function(){
 
@@ -505,12 +588,15 @@ $(document).ready(function(){
 				$('#cname').css('border-color', 'red');
 				$('#cname_err').html('<?php echo tr('taken'); ?>');
 			} else {
+				$.post('send.php', { msg: '[hi]'});
 				$.post('index.php', { cname: post_cname }, function() {
 					window.location='';
 				});
 			}
 		});
-		$.post('send.php', { msg: '[hi]'});
+		setTimeout(function(){
+			$.post('send.php', { msg: '[hi]'});
+		}, 1500);
 
 	});
 
@@ -545,6 +631,19 @@ $(document).ready(function(){
 
 	getMsg = function(msg) {
 		console.log('getMsg:' + msg);
+
+		if (off_seen == false) {
+			$.get('opready.php', function(resp) {
+				console.log('off_seen:' + parseInt(resp));
+				if (!parseInt(resp)) {
+					$('.conversation').append(
+						'<font class="msg-sys"><?php echo tr('support_is_offline');?></font><br>'
+					);
+				}
+			});
+			off_seen = true;
+		}
+
 		if (!msg) return;
 		if (!msg.length) return;
 
@@ -561,8 +660,13 @@ $(document).ready(function(){
 				$('.conversation').append(
 					'<?php echo tr('support');?> <b><?php echo tr('joined'); ?></b><br>'
 				);
+				hi_seen = true;
 			}
-			hi_seen = true;
+		} else if (msg == '[typing]') {
+			$('#typing').css('visibility','visible');
+			setTimeout(function(){
+				$('#typing').css('visibility','hidden');
+			}, 2000);
 		} else {
 			$('.conversation').append(
 				'<b>support:</b>' +
@@ -595,8 +699,15 @@ $(document).ready(function(){
 	}
 
 	$('#msg').keyup(function(e){
+	    $.post('send.php',{msg:'[typing]'});
 	    if (e.keyCode == 13) {
 	          if (this.value == '') return;
+
+		  if ($('#msg').val().length >= 300) {
+			alert('You text is too long, please edit and send again');
+		  	return;
+		  }
+
 		  postMsg(this.value);
 	          this.value = '';
 		  $('.conversation').scrollTop(1000);
@@ -610,6 +721,11 @@ $(document).ready(function(){
 	$('#send').click(function(){
 		if ($('#msg').val() == '') return;
 
+		if ($('#msg').val().length >= 300) {
+			alert('You text is too long, please edit and send again');
+			return;
+		}
+
 		postMsg($('#msg').val());
 	        $('#msg').val('');
 		$('.conversation').scrollTop(1000);
@@ -617,6 +733,7 @@ $(document).ready(function(){
 
 	$('#msg').focus(function(){
 		$.post('gadd.php', { cname: (me && me != '') ? me : $('#me').text() });
+		//$.post('send.php',{msg:'[hi]'});
 	});
 
 
@@ -624,6 +741,12 @@ $(document).ready(function(){
 
 	if (!msgPoll_id)
 		msgPoll_id = setInterval('msgPoll()', 1500);
+
+	/*
+	setTimeout(function(){
+		$.post('send.php',{msg:'[hi]'});
+	}, 1500)
+	*/
 
 <?php } ?>
 
