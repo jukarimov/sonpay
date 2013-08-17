@@ -1,3 +1,4 @@
+
 drop table siteadmins;
 drop table sitemessages;
 drop table livechat_guests_left;
@@ -6,6 +7,8 @@ drop table livechat_taken;
 drop table livechat_clientinbox;
 drop table livechat_admininbox;
 drop table livechat_online_admins;
+drop table livechat_conversation_log;
+
 create table siteadmins(
 	id	 int primary key auto_increment,
 	username varchar(40) NOT NULL,
@@ -24,16 +27,25 @@ create table sitemessages(
        	unread BOOL DEFAULT TRUE
 );
 
+create table livechat_conversation_log(
+	id int primary key auto_increment,
+	tms	TIMESTAMP DEFAULT NOW(),
+	aname	varchar(30) collate utf8_general_ci NOT NULL,
+	cname	varchar(30) collate utf8_general_ci NOT NULL,
+	msg	varchar(300) collate utf8_general_ci NOT NULL,
+	saidAdmin BOOL
+);
+
 create table livechat_online_admins(
-	aname	varchar(30) NOT NULL UNIQUE
+	aname	varchar(30) collate utf8_general_ci NOT NULL UNIQUE
 );
 
 create table livechat_guests_left(
-	cname	varchar(30) NOT NULL UNIQUE
+	cname	varchar(30) collate utf8_general_ci NOT NULL UNIQUE
 );
 
 create table livechat_guests(
-	cname	varchar(30) NOT NULL UNIQUE
+	cname	varchar(30) collate utf8_general_ci NOT NULL UNIQUE
 );
 
 create table livechat_taken(

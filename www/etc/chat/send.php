@@ -8,18 +8,25 @@
 require_once('dbcon.php');
 session_start();
 
+
+$aname = null;
+$cname = null;
+$msg = null;
+
+$who = null;
+$oponent = null;
+$isGuest = null;
+$oponent = null;
+
 if (isset($_POST['msg'])) {
 
 	$msg = $_POST['msg'];
-
-	$isGuest = true;
-	$oponent = null;
 
 	// who is this?
 	if ($_COOKIE['_user']) { // if online support
 
 		$who = $_COOKIE['_user'];
-		if (!isset($who))
+		if (!isset($who) || empty($who))
 			die('{err: "Livechat Hacking attempt!"}');
 
 		$isGuest = false;
@@ -34,6 +41,8 @@ if (isset($_POST['msg'])) {
 		$oponent = $rows['cname'];
 
 	} else {  // this is guest
+
+		$isGuest = true;
 	
 		$who = $_SESSION['user'];
 		if (!isset($who))
@@ -82,6 +91,20 @@ if (isset($_POST['msg'])) {
 	}
 
 	echo $db->lastInsertId();
+
+	// log everything now
+	// except system messages like [typing]*
+	if ($msg != '[typing]') {
+		$s = 'insert into livechat_conversation_log(aname, cname, msg, saidAdmin)';
+		$s .=' values(:aname, :cname, :msg, :saidAdmin)';
+		$query = $db->prepare($s);
+		$query->execute(array(
+			':aname' 	=> $aname,
+			':cname'  	=> $cname,
+			':msg' 		=> $msg,
+			':saidAdmin'	=> ($isGuest == false)
+		));
+	}
 }
 
 

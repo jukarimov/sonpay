@@ -128,6 +128,9 @@ function tr($field) {
 <script type="text/javascript" src="/assets/7e745f75/jquery.js"></script>
 <script type="text/javascript" src="/assets/e3ecaab1/js/bootstrap.js"></script>
 <title><?php echo 'Sopnay - ' . tr('title'); ?></title>
+<script>
+var FIX_SCREEN = false;
+</script>
 
 </head>
 
@@ -137,7 +140,7 @@ if (isset($_GET['fs']))
 {
 ?>
 <script>
-var FIX_SCREEN = true;
+FIX_SCREEN = true;
 </script>
 <a href="/" title="home"><i class="icon-home icon-white"></i></a>
 <?php

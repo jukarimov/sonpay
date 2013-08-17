@@ -21,8 +21,11 @@ if (!isset($cname))
 if ($cname == '')
 	die('error');
 
-if (!preg_match("/^([A-Z]|[a-z]|[0-9]|[_]){2,9}$/", $cname))
-	die('error');
+if (!preg_match("/^([A-Z]|[a-z]|[0-9]|[_]){2,9}$/", $cname)) {
+	// check if that's rusky
+	if (!preg_match("/^([А-Я]|[а-я]|[0-9]|[_]){2,9}$/u", $cname))
+		die('error');
+}
 
 // reserved nick names
 if ($cname == 'admin' || $cname == 'support')
