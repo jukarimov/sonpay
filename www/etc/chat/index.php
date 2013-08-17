@@ -30,13 +30,13 @@ $TR = array(
 	),
 	'support_is_offline' => array(
 		'en'=>'All operators are busy, please await or use '.
-			'<a href="http://oson.lc/?r=site/contact">contact form</a> to leave a message, thank you.',
+			'<a target="_tab" href="http://oson.lc/?r=site/contact">contact form</a> to leave a message, thank you.',
 
 		'ru'=>'Все операторы заняты, пожалуйста подождите или оставьте свое сообщение через '.
-			'<a href="http://oson.lc/?r=site/contact">контакт форму</a>, спасибо.',
+			'<a target="_tab" href="http://oson.lc/?r=site/contact">контакт форму</a>, спасибо.',
 
 		'tj'=>'Хамаи операторхо банд хастанд, лутфан баъдтар озмоиш кунед ё Шумо метавонед '.
-			'<a href="http://oson.lc/?r=site/contact">формаи контакт-ро</a> истифода бареду паёматон-ро бо мо монед, ташакур.'
+			'<a target="_tab" href="http://oson.lc/?r=site/contact">формаи контакт-ро</a> истифода бареду паёматон-ро бо мо монед, ташакур.'
 	),
 	'support' => array(
 		'en'=>'support',
@@ -640,7 +640,7 @@ $(document).ready(function(){
 				console.log('off_seen:' + parseInt(resp));
 				if (!parseInt(resp)) {
 					$('.conversation').append(
-						'<font class="msg-sys"><?php echo tr('support_is_offline');?></font><br>'
+						'<div class="msg-sys"><?php echo tr('support_is_offline');?></div>'
 					);
 				}
 			});

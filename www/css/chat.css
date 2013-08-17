@@ -127,9 +127,10 @@ h3 {
 	background-color: #fff;
 	color: red;
 	border-radius: 36px;
-	padding: 5px 10px 5px;
+	padding: 5px 20px 5px;
 	word-wrap: break-word;
 	margin-right: 20px;
+	margin-top: 5px;
 }
 
 .content a {
