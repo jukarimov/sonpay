@@ -30,13 +30,13 @@ $TR = array(
 	),
 	'support_is_offline' => array(
 		'en'=>'All operators are busy, please await or use '.
-			'<a target="_tab" href="http://oson.lc/?r=site/contact">contact form</a> to leave a message, thank you.',
+			'<a target="_tab" href="/?r=site/contact">contact form</a> to leave a message, thank you.',
 
 		'ru'=>'Все операторы заняты, пожалуйста подождите или оставьте свое сообщение через '.
-			'<a target="_tab" href="http://oson.lc/?r=site/contact">контакт форму</a>, спасибо.',
+			'<a target="_tab" href="/?r=site/contact">контакт форму</a>, спасибо.',
 
 		'tj'=>'Хамаи операторхо банд хастанд, лутфан баъдтар озмоиш кунед ё Шумо метавонед '.
-			'<a target="_tab" href="http://oson.lc/?r=site/contact">формаи контакт-ро</a> истифода бареду паёматон-ро бо мо монед, ташакур.'
+			'<a target="_tab" href="/?r=site/contact">формаи контакт-ро</a> истифода бареду паёматон-ро бо мо монед, ташакур.'
 	),
 	'support' => array(
 		'en'=>'support',
@@ -434,6 +434,7 @@ $(function(){
 
 
 <font color="#fff"><? echo tr('hello') . ' <b>' . $user; ?></b></font>
+<a style="float:right;" href="#" onclick="$.get('/?r=site/logout',function(){window.location='';});"><i class="icon-remove icon-white"></i></a>
 <font id="gtitle" color="#fff" style="float: right;"><i title="kick" id="ud" class="icon-remove"></i><b id="cn"></b></font>
 <div class="admin-greeter">
 </div>
@@ -460,7 +461,7 @@ $(function(){
 <h1><?php echo tr('welcome') .' '. $_COOKIE['_user']; ?></h1>
 
 <div class="chatlogin-admin">
-<font style="position:absolute;left:150px;"><?php echo tr('guest');?>:</font><b id="glist"><i id="refresh" class="icon-refresh icon-spin"></i></b><br>
+<font style="position:absolute;left:130px;"><?php echo tr('guest');?>:</font><b id="glist"><i id="refresh" class="icon-refresh icon-spin"></i></b><br>
 <div class="controls">
 <a id="start" class="btn btn-primary"><i id="hp" class="icon-headphones icon-white"></i>Start</a>
 &nbsp;&nbsp;&nbsp;

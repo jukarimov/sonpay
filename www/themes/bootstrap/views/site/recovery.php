@@ -1,16 +1,15 @@
 <?php
 Yii::app()->user->returnUrl = $this->createUrl('/site/recovery');
 
-$this->pageTitle=Yii::app()->name . ' - Recovery';
-$this->breadcrumbs=array(
-	'Recovery',
-);
+$this->pageTitle=Yii::app()->name . ' - '. Yii::t('pages','recovery.title');
 
 ?>
 
 <div class="content">
 
-<h1>Recovery</h1>
+<h1>
+<?php echo Yii::t('pages', 'recovery.title'); ?>
+</h1>
 
 <?php if(Yii::app()->user->hasFlash('recovery')): ?>
 
@@ -20,9 +19,9 @@ $this->breadcrumbs=array(
 
 <?php else: ?>
 
-<p>
-Here you can recover your account 
-</p>
+<h2 class="hero">
+<?php echo Yii::t('pages', 'recovery.info'); ?>
+</h2>
 
 <div class="form">
 
@@ -35,7 +34,9 @@ Here you can recover your account
 	),
 )); ?>
 
-    <p class="note">Fields with <span class="required">*</span> are required.</p>
+<p class="note">
+<?php echo Yii::t('pages', 'contact.requiredNote'); ?>
+</p>
 
     <?php echo $form->errorSummary($model); ?>
 

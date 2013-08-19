@@ -1,4 +1,3 @@
-
 drop table siteadmins;
 drop table sitemessages;
 drop table livechat_guests_left;

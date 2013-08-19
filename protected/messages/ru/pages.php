@@ -27,9 +27,12 @@ return array(
 	'login.note' => 'Пожалуйста заполните форму для входа',
 
 	'settings.info' => 'Здесь Вы можете изменять настройки Вашего аккаунта',
+	'recovery.title' => 'Восстановление пароля',
+	'recovery.info' => 'Здесь Вы можете восстановить Ваш пароль',
 	'current_password'=> 'Текущий Пароль',
 	'new_password'=> 'Новый Пароль',
 	'repeat'=>'Повтор',
+	'email.repeat'=>'Повторите',
 	'email'=>'E-мэйл',
 
 	'messages.empty'=>'Нет',
@@ -44,6 +47,13 @@ return array(
 	'admins.info' => 'Здесь Вы можете создавать или удалять аккаунтаы админов сайта',
 
 	'sidebar.title' => 'Новости',
+
+	'password.weak' => 'Пароль слабый',
+	'password.tooshort' => 'Пароль короткий',
+	'password.matchesold' => 'Пароль совпадает со старым',
+	'password.dontmatch' => 'Пароль не совпадает с повтором',
+	'password.incorrect' => 'Пароль неверный',
+
 );
 
 ?>

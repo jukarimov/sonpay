@@ -21,12 +21,17 @@ class SettingsForm extends CFormModel
 	{
 		return array(
 			// name, email, subject and body are required
-			array('password', 'required'),
+			array('password', 'required',
+		       		'message'=>Yii::t('flash', 'password.isempty'),
+			),
 			array('password', 'authenticate'),
 			array('new_password', 'passwordValidate'),
-			array('new_password', 'length', 'min'=>8, 'max'=>40),
+			array('new_password', 'length', 'min'=>8, 'max'=>40,
+				'message'=>Yii::t('pages','password.tooshort')
+			),
 			array('repeat', 'compare', 'compareAttribute'=>'new_password',
-		       		'message'=>'Passwords don\'t match'),
+		       		'message'=>Yii::t('pages', 'password.dontmatch'),
+			),
 			array('email', 'email'),
 		);
 	}
@@ -38,7 +43,7 @@ class SettingsForm extends CFormModel
 			$this->username = Yii::app()->user->name;
 			$this->_identity=new UserIdentity($this->username,$this->password);
 			if(!$this->_identity->authenticate())
-				$this->addError('password','Incorrect password.');
+				$this->addError('password',Yii::t('pages','password.incorrect'));
 		}
 	}
 
@@ -47,10 +52,10 @@ class SettingsForm extends CFormModel
 		if ($this->new_password == '') return; // not updating
 
 		if ($this->password === $this->new_password) {
-			$this->addError('password','Password matches old password.');
+			$this->addError('password',Yii::t('pages','password.matchesold'));
 		}
 		if ($this->repeat !== $this->new_password) {
-			$this->addError('repeat','New password does not match repeated.');
+			$this->addError('repeat',Yii::t('pages','password.notmatched'));
 		}
 		$goodpass = false;
 
@@ -64,7 +69,7 @@ class SettingsForm extends CFormModel
 		$goodpass = $goodleng && $hasAlpha && ($hasDigit || $hasALPHA || $hasSymbol);
 
 		if (!$goodpass) {
-			$this->addError('new_password','Password is too weak.');
+			$this->addError('new_password',Yii::t('pages','password.weak'));
 		}
 	}
 

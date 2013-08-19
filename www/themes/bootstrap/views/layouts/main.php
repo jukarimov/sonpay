@@ -81,7 +81,7 @@ if (!Yii::app()->user->isGuest) {
 <?php if (!Yii::app()->user->isGuest) { ?>
 	  <li><a href="?r=site/settings"><?php echo Yii::t('navbar', 'nav.settings'); ?></a></li>
 	  <li><a href="?r=site/admins"><?php echo Yii::t('navbar', 'nav.admins'); ?></a></li>
-	  <li><a href="?r=site/messages"><?php echo Yii::t('navbar', 'nav.messages'); ?></a></li>
+	  <li><a href="?r=site/messages"><?php echo Yii::t('navbar', 'nav.messages')."($messageCount)"; ?></a></li>
 	  <li><a href="?r=site/logout"><?php echo Yii::t('navbar', 'nav.logout'); ?></a></li>
 <?php } else { ?>
 	<li><a href="?r=site/login"><?php echo Yii::t('links', 'login3'); ?></a></li>
@@ -91,7 +91,7 @@ if (!Yii::app()->user->isGuest) {
   </ul>
 </div>
 
-<center><img class="banner" src="images/logo.png" /></center>
+<center><a href="/"><img class="banner" src="images/logo.png" /></a></center>
 
 <div class="langbar">
 	<select id="langset" class="input-medium bfh-languages">

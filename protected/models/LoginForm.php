@@ -54,7 +54,7 @@ class LoginForm extends CFormModel
 			$fail = true;
 		}
 
-		if (!preg_match("/^[a-z][a-z]{2,9}[0-9]{0,3}$/i", $this->password)) {
+		if (!preg_match("/^[\w]+$/", $this->password)) {
 			$this->addError('password','');
 			$fail = true;
 		}
@@ -67,7 +67,7 @@ class LoginForm extends CFormModel
 	public function authenticate($attribute,$params)
 	{
 		$u = '?r=site/recovery';
-		$l = 'forgot?';
+		$l = Yii::t('flash','login.hint.forgot');
 
 		if(!$this->hasErrors())
 		{
@@ -76,14 +76,14 @@ class LoginForm extends CFormModel
 				$this->addError('username', '');
 				$this->addError('password', '');
 				$this->addError('',
-					'Incorrect username or password.'.
+					Yii::t('flash','login_fail').
 					'<br><a href="'.$u.'">'.$l.'</a>');
 			}
 		}
 		else
 		{
 			$this->addError('',
-				'Incorrect username or password.'.
+				Yii::t('flash','login_fail').
 				'<br><a href="'.$u.'">'.$l.'</a>');
 		}
 	}

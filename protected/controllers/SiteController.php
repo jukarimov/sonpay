@@ -178,7 +178,7 @@ class SiteController extends Controller
 				  	$model->updateEmail();
 				  }
 
-				  Yii::app()->user->setFlash('settings','Account updated.');
+				  Yii::app()->user->setFlash('settings',Yii::t('flash','settings.updated'));
 				}
 				$this->refresh();
 			}
@@ -330,9 +330,8 @@ class SiteController extends Controller
 				Yii::log($emailMessage, "warning", "RecoveryForm:emailMessage");
 				Yii::log($headers, "warning", "RecoveryForm:headers");
 
-				$flash= 'The recovery email has been sent.<br>'.
-					'Please check your email (might be in spam) '.
-					'and <a href="?r=site/login">login</a> back';
+				$flash = Yii::t('flash', 'recovery.sent');
+
 				Yii::app()->user->setFlash('recovery', $flash);
 				$this->refresh();
 			}

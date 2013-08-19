@@ -28,9 +28,13 @@ return array(
 	'login.note' => 'Please fill out the following form',
 
 	'settings.info' => 'Here you can change your account settings',
+	'recovery.info' => 'Here you can recover your account password',
+
+	'recovery.title' => 'Password recovery',
 	'current_password'=> 'Current password',
 	'new_password'=> 'New password',
 	'repeat'=>'Repeat',
+	'email.repeat'=>'Repeat',
 	'email'=>'E-mail',
 
 	'messages.empty'=>'None',

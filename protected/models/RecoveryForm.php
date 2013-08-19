@@ -81,6 +81,17 @@ class RecoveryForm extends CFormModel
 
 		Yii::log($_SERVER['REMOTE_ADDR'], "warning", "Recovery::PASSWORD UPDATED");
 	}
+
+
+	public function attributeLabels()
+	{
+		return array(
+			'password'=>Yii::t('pages', 'email'),
+			'repeat' => Yii::t('pages', 'email.repeat'),
+			'email' => Yii::t('pages', 'email'),
+			'verifyCode' => Yii::t('pages', 'contactForm.verifyCode'),
+		);
+	}
 }
 
 ?>
