@@ -17,7 +17,22 @@ if (!Yii::app()->user->isGuest) {
 } else
 	$messageCount = "err";
 
+if (isset($_GET['r'])):
+
+if ($_GET['r'] == 'site/simcards') {
+       
+	/* This is special page */
+
+	Yii::app()->bootstrap->register();
+	echo $content;
+
+	return;
+}
+
+endif;
+
 ?>
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -59,6 +74,7 @@ if (!Yii::app()->user->isGuest) {
 	<ul>
 	  <li><a href="#"><?php echo Yii::t('navbar', 'nav.tickets'); ?></a></li>
 	  <li><a href="#"><?php echo Yii::t('navbar', 'nav.payment'); ?></a></li>
+	  <li><a href="#"><?php echo Yii::t('navbar', 'nav.mobiles'); ?></a></li>
 	</ul>
     </li>
     <li><?php echo Yii::t('navbar', 'nav.partners'); ?>
@@ -70,12 +86,7 @@ if (!Yii::app()->user->isGuest) {
 	</ul>
     </li>
     <li><a href="?r=site/contact"><?php echo Yii::t('navbar', 'nav.contact'); ?></a></li>
-    <li><?php echo Yii::t('navbar', 'nav.more'); ?>
-	<ul>
-	  <li><a href="#"><?php echo Yii::t('navbar', 'nav.mobiles'); ?></a></li>
-	  <li><a href="#"><?php echo Yii::t('navbar', 'nav.simcard'); ?></a></li>
-	</ul>
-    </li>
+    <li><a href="?r=site/simcards"><?php echo Yii::t('navbar', 'nav.simcard'); ?></a></li>
     <li><?php echo Yii::t('navbar', 'nav.links'); ?>
 	<ul>
 <?php if (!Yii::app()->user->isGuest) { ?>

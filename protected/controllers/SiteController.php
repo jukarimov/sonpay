@@ -371,4 +371,10 @@ class SiteController extends Controller
 			$this->render('messages');
 		}
 	}
+
+	public function actionSimcards()
+       	{
+		$this->render('simcards');
+	}
+
 }
