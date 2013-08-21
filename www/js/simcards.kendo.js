@@ -106,7 +106,11 @@ $(document).ready(function (){
     navigatable: true,
     pageable: {
 	refresh: true,
-	pageSizes: [10,20,50,100]
+	pageSizes: [10,20,50,100],
+	messages: {
+	  display: "{0} - {1} "+tr('pager.of')+" {2} "+tr('pager.items'),
+	  itemsPerPage: tr('pager.itemsPerPage'),
+	},
     },
     //height: 500,
     editable: 'popup',
@@ -119,7 +123,16 @@ $(document).ready(function (){
           startswith: tr('filter.startswith'),
           endswith: tr('filter.endswith'),
           contains: tr('filter.contains'),
-        }
+        },
+	number: {
+          eq: tr('filter.eq'),
+          neq: tr('filter.neq'),
+
+          gte: '>=',
+          gt:  '>',
+          lte: '<=',
+          lt:  '<',
+	},
       },
       messages: {
 	      info: tr('show items with value that:'),
@@ -137,9 +150,9 @@ $(document).ready(function (){
     ],
     columns: [
       { field: "id", title: "ID", width: 50 },
-      { field: "operator", title: tr("Operator"), width: 60,  },
-      { field: "category", title: tr("Category"), width: 60, },
-      { field: "tarif",    title: tr("Tarif"),    width: 150 },
+      { field: "operator", title: tr("Operator"), width: 60, filterable: false },
+      { field: "category", title: tr("Category"), width: 60, filterable: false },
+      { field: "tarif",    title: tr("Tarif"),    width: 150, filterable: false },
       { field: "number",   title: tr("Number"),   width: 60 },
     ],
   });
@@ -217,11 +230,20 @@ $(document).ready(function (){
       $("#category_list").data("kendoDropDownList").dataSource.read()
     }
   });/* category_list dropdown */
-})
+  
+  setTimeout(onResize, 1500);
+
+}); /* document.ready */
+
+function onResize() {
+  var height = $(window).height();
+  $('#grid').height(height - (height/9));
+  $('#grid').find(".k-grid-content").height(height - height/9 - 115);
+  console.log('resize');
+}
+
 $(window).resize(function(){
-  var height = $(window).height()
-  $('#grid').height(height - (height/9))
-  $('#grid').find(".k-grid-content").height(height - (height/9) - 90)
+	onResize();
 })
 function objunpack(o){
   if (o.field && o.operator && o.value) {

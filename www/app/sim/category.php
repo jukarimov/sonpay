@@ -11,7 +11,7 @@ $RU = array(
 $myrows = array();
 
 if (isset($_COOKIE['_lang'])) {
-	if ($_COOKIE['_lang'] == 'ru') {
+	if ($_COOKIE['_lang'] == 'ru' || $_COOKIE['_lang'] == 'tj') {
 		$myrows []= array('name'=>$RU['normal'],   'id'=>0);
 		$myrows []= array('name'=>$RU['golden'],   'id'=>1);
 		$myrows []= array('name'=>$RU['silver'],   'id'=>2);

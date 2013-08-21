@@ -15,6 +15,9 @@
 	color: #fff;
 	background-color: #BE1F0A;
 }
+#grid {
+	margin-top: 30px;
+}
 #grid a {
 	text-decoration: none;
 }
@@ -32,9 +35,12 @@
 	color: #fff;
 	background-color: #BE1F0A;
 }
+body {
+	background-color: maroon;
+}
 </style>
 </head>
-<body onload="$(window).resize();">
+<body>
   <div id="grid">
   </div>
 </body>

@@ -16,6 +16,10 @@ if (!$val) die('novalue');
 
 
 $TJ = array(
+
+	'pager.items' => 'сатр',
+	'pager.of' => 'аз',
+
 	'select operator' => 'Интихоби оператор',
 	'select category' => 'Интихоби категория',
 
@@ -24,6 +28,7 @@ $TJ = array(
 	'filter.startswith' => 'Дар аввал',
 	'filter.endswith' => 'Дар охир',
 	'filter.contains' => 'Иборат',
+
 
 	'and' => 'Ва',
 	'or' => 'Ё',
@@ -37,9 +42,15 @@ $TJ = array(
 	'Category' => 'Категория',
 	'Tarif' => 'Тариф',
 	'Number' => 'Номер',
+
+	'pager.itemsPerPage' => 'сатр дар сахфа',
 );
 
 $RU = array(
+
+	'pager.items' => 'строк',
+	'pager.of' => 'из',
+
 	'select operator' => 'Выберите оператор',
 	'select category' => 'Выберите категорию',
 
@@ -61,9 +72,16 @@ $RU = array(
 	'Tarif' => 'Тариф',
 	'Number' => 'Номер',
 
+	'pager.itemsPerPage' => 'строк на странице',
 );
 
 $EN = array(
+
+	'pager.items' => 'items',
+	'pager.of' => 'of',
+
+	'pager.itemsPerPage' => 'items per page',
+
 	'select operator' => 'Select operator',
 	'select category' => 'Select category',
 
