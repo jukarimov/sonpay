@@ -1,6 +1,20 @@
 <?php
 
 return array(
+
+	'layout.exrate' => '<a href="http://nbt.tj">Обменый курс</a>',
+	'layout.exrate.on' => ' на ',
+	'layout.weather' => 'Прогноз погоды',
+	'sitepoll' => 'Сайт опросник',
+
+	'sitepoll1.subject' => 'Что Вам нравится на нашем сайте?',
+
+	'sitepoll1.option1' => 'Всё',
+	'sitepoll1.option2' => 'Дизайн',
+	'sitepoll1.option3' => 'Контент',
+
+	'voted.thank' => 'Спасибо за участие!',
+
 	'home.welcometo' => 'Добро пожаловать в ',
 	'home.services' => 'Наши Услуги',
 	'about.header' => 'О Нас',

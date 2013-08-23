@@ -1,6 +1,20 @@
 <?php
 
 return array(
+
+	'layout.exrate' => '<a href="http://nbt.tj">Exchange rate</a>',
+	'layout.exrate.on' => ' on ',
+	'layout.weather' => 'Weather forecast',
+	'sitepoll' => 'Site poll',
+
+	'sitepoll1.subject' => 'What do you like most at our site?',
+
+	'sitepoll1.option1' => 'Everything',
+	'sitepoll1.option2' => 'Design',
+	'sitepoll1.option3' => 'Content',
+
+	'voted.thank' => 'Thanks for voting!',
+
 	'home.welcometo' => 'Welcome to ',
 	'home.services' => 'Our Services',
 	'about.header' => 'About',

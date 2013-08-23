@@ -1,7 +1,4 @@
-<?php /* @var $this Controller */
-
-
-?>
+<?php /* @var $this Controller */ ?>
 <?php 
 $app = Yii::app();
 if ($app->user->hasState('_lang'))
@@ -63,10 +60,10 @@ endif;
 <div class="nav navbar span12">
   <ul>
   <li><a href="/"><?php echo Yii::t('navbar', 'nav.home'); ?></a></li>
-  <li><a href="?r=site/page&view=about"><?php echo Yii::t('navbar', 'nav.about'); ?></a>
+  <li><a href="?r=site/page&view=about#content"><?php echo Yii::t('navbar', 'nav.about'); ?></a>
 	<ul>
 	  <li><a href="#"><?php echo Yii::t('navbar', 'nav.wrw'); ?></a></li>
-	  <li><a href="?r=site/contact"><?php echo Yii::t('navbar', 'nav.contact'); ?></a></li>
+	  <li><a href="?r=site/contact#content"><?php echo Yii::t('navbar', 'nav.contact'); ?></a></li>
 	  <li><a href="/etc/chat/"><?echo Yii::t('widgets', 'live_chat');?></a></li>
 	</ul>
     </li>
@@ -85,17 +82,17 @@ endif;
 	  <li><a href="http://megafon.tj"><img src="images/megafon.png"></a></li>
 	</ul>
     </li>
-    <li><a href="?r=site/contact"><?php echo Yii::t('navbar', 'nav.contact'); ?></a></li>
+    <li><a href="?r=site/contact#content"><?php echo Yii::t('navbar', 'nav.contact'); ?></a></li>
     <li><a href="?r=site/simcards"><?php echo Yii::t('navbar', 'nav.simcard'); ?></a></li>
     <li><?php echo Yii::t('navbar', 'nav.links'); ?>
 	<ul>
 <?php if (!Yii::app()->user->isGuest) { ?>
-	  <li><a href="?r=site/settings"><?php echo Yii::t('navbar', 'nav.settings'); ?></a></li>
-	  <li><a href="?r=site/admins"><?php echo Yii::t('navbar', 'nav.admins'); ?></a></li>
-	  <li><a href="?r=site/messages"><?php echo Yii::t('navbar', 'nav.messages')."($messageCount)"; ?></a></li>
+	  <li><a href="?r=site/settings#content"><?php echo Yii::t('navbar', 'nav.settings'); ?></a></li>
+	  <li><a href="?r=site/admins#content"><?php echo Yii::t('navbar', 'nav.admins'); ?></a></li>
+	  <li><a href="?r=site/messages#content"><?php echo Yii::t('navbar', 'nav.messages')."($messageCount)"; ?></a></li>
 	  <li><a href="?r=site/logout"><?php echo Yii::t('navbar', 'nav.logout'); ?></a></li>
 <?php } else { ?>
-	<li><a href="?r=site/login"><?php echo Yii::t('links', 'login3'); ?></a></li>
+	<li><a href="?r=site/login#content"><?php echo Yii::t('links', 'login3'); ?></a></li>
 <?php } ?>
      </ul>
    </li>
@@ -113,18 +110,72 @@ endif;
 	</select>
 </div>
 
+<div class="informers">
+
+<div id="yaweather">
+<font><?php echo Yii::t('pages','layout.weather'); ?><i class="icon-remove" onclick="$('#yaweather').hide();"></i></font>
+<a href="http://clck.yandex.ru/redir/dtype=stred/pid=7/cid=1228/*http://pogoda.yandex.ru/dushanbe"><img src="http://info.weather.yandex.net/dushanbe/1.ru.png" border="0" alt=""/><img width="1" height="1" src="http://clck.yandex.ru/click/dtype=stred/pid=7/cid=1227/*http://img.yandex.ru/i/pix.gif" alt="" border="0"/></a>
+</div>
+
+<div class="exrate">
+<p>
+<?php echo Yii::t('pages','layout.exrate'); ?>
+<?php echo Yii::t('pages','layout.exrate.on'); ?>
+<?php
+
+$nbt_html = Yii::app()->basePath . '/../www/cache/nbt.html';
+
+if (file_exists($nbt_html)) {
+	echo date("m/d/Y", filemtime($nbt_html));
+} else {
+	echo "404";
+}
+
+?>
+</p>
+<i class="icon-remove" onclick="$('.exrate').hide();"></i>
+  <div id="USD"></div>
+  <div id="EUR"></div>
+  <div id="RUS"></div>
+</div>
+
+</div><!-- .informers -->
+
 <div class="loginpan">
   <ul>
     <li><a href="#"><?php echo Yii::t('links', 'login1'); ?></a></li>
     <li><a href="#"><?php echo Yii::t('links', 'login2'); ?></a></li>
 <?php if (Yii::app()->user->isGuest) { ?>
-	<li><a href="?r=site/login"><?php echo Yii::t('links', 'login3'); ?></a></li>
+	<li><a href="?r=site/login#content"><?php echo Yii::t('links', 'login3'); ?></a></li>
 <?php } else { ?>
 	<li><a href="?r=site/logout"><?php echo Yii::t('links', 'logout')."($ME)"; ?></a></li>
 <?php } ?>
   </ul>
 </div>
 
+<div class="poll">
+<p class="poll-title"><?php echo Yii::t('pages','sitepoll'); ?></p>
+<p class="poll-subject"><?php echo Yii::t('pages','sitepoll1.subject'); ?></p>
+<form method="POST" action="?r=site/sitepoll">
+
+<div class="option"><input type="radio" name="vote_id" value="1" id="option1"/></div>
+<label for="option1"><div class="option-label">&nbsp;<?php echo Yii::t('pages', 'sitepoll1.option1'); ?></div></label>
+
+<div class="option"><input type="radio" name="vote_id" value="2" id="option2"/></div>
+<label for="option2"><div class="option-label">&nbsp;<?php echo Yii::t('pages', 'sitepoll1.option2'); ?></div></label>
+
+<div class="option"><input type="radio" name="vote_id" value="3" id="option3"/></div>
+<label for="option3"><div class="option-label">&nbsp;<?php echo Yii::t('pages', 'sitepoll1.option3'); ?></div></label>
+
+<input type="hidden" name="poll_id" value="1"/>
+<input type="submit" class="btn btn-mini btn-primary" value="vote"/>
+
+<a id="pollHide" class="btn btn-mini btn-danger"><i class="icon-remove"></i></a>
+
+</form>
+</div><!-- poll -->
+
+<a name="content"></a>
 <div class="container-fluid" id="page">
 
 	<div class="content-wrap">
@@ -201,6 +252,13 @@ $(document).ready(function(){
 		window.location = "?r=site/locale/" + ln;
 	});
 
+	var locale = document.cookie.search('_lang');
+	if (locale == -1) {
+		window.location = "?r=site/locale/ru";
+	}
+	var lang = document.cookie.slice(locale).split('=')[1];
+	$('#langset').val(lang);
+
 	$.get('/etc/chat/win.php?state=wat', function(r){
 		if (r == 'open')
 			switchChat();
@@ -229,6 +287,26 @@ $(document).ready(function(){
 	}
 	
 	setInterval(adminState, 5 * 1000);
+
+
+	// exchange rate
+	$.get('/cache/nbt.html', function(resp) {
+		var html = resp;
+		var tds = $(html).find('td#k_kurs');
+
+		var USD = $(tds[1]).text();
+		var EUR = $(tds[2]).text();
+		var RUS = $(tds[3]).text();
+
+		$('#USD').html(USD);
+		$('#EUR').html(EUR);
+		$('#RUS').html(RUS);
+	});
+
+
+	$('#pollHide').click(function(){
+		$('.poll').hide();
+	});
 });
 </script>
 </body>

@@ -80,6 +80,7 @@ class SiteController extends Controller
 			// redirect user here after loggin successfully
 			Yii::app()->user->returnUrl = $this->createUrl('site/admins');
 
+
 			$loginUrl = $this->createUrl('site/login');
 			$this->redirect($loginUrl);
 			return;
@@ -377,4 +378,74 @@ class SiteController extends Controller
 		$this->render('simcards');
 	}
 
+	public function actionSitepoll()
+       	{
+		$sp = new SitePoll();
+		$vote = null;
+		$poll = null;
+
+		$guest_id = null;
+		$guest_ip = null;
+
+		$err = false;
+		$voted = false;
+
+		if (isset($_POST['vote_id'])) {
+			$post = $_POST['vote_id'];
+			if ($post && $post != '') {
+				// we got a vote, check where it goes now
+				$vote = $post;
+			}
+		}
+
+		if (isset($_POST['poll_id'])) {
+			$post = $_POST['poll_id'];
+			if ($post && $post != '') {
+				// we got a poll for vote
+				$poll = $post;
+			}
+		}
+
+		//check against bot
+		if (isset($_COOKIE['PHPSESSID'])) {
+			$guest_id = $_COOKIE['PHPSESSID'];
+			$guest_ip = $_SERVER['REMOTE_ADDR'];
+
+			if (!isset($_SESSION['poll_voted_id']))
+				$voted = false;
+			else if ($_SESSION['poll_voted_id'] == $guest_id)
+				$voted = true;
+
+			if (!isset($_SESSION['poll_voted_ip']))
+				$voted = false;
+			else if ($_SESSION['poll_voted_ip'] == $guest_ip)
+				$voted = true;
+
+			if (!$voted) {
+				$_SESSION['poll_voted_id'] = $guest_id;
+				$_SESSION['poll_voted_ip'] = $guest_ip;
+			}
+
+		} else {
+			$err = true;
+		}
+
+		if (!$err && $poll && !$voted) {
+			if ($vote && $poll) {
+				$sp->postVote($vote, $poll);
+			}
+		}
+
+		if ($poll) {
+			$this->render('sitepoll', array(
+				'poll'=>$poll,
+				'voted'=>$voted
+			));
+		}
+
+		if (!$poll || $err) {
+			$p = $this->createUrl('site/index');
+			$this->redirect($p);
+		}
+	}
 }

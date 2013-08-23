@@ -8,6 +8,7 @@ body {
 	margin-left: 50px;
 	background-color: rgba(0,0,0, 0.5);
 	border-radius: 16px;
+	border: 1px solid #f00;
 	height: 100px;
 	width: 90%;
 }
@@ -113,10 +114,94 @@ ul.tab-wide {
 .span3.content-sidebar {
 }
 
+.informers {
+	position: absolute;
+	top: 300px;
+}
+
+.exrate i.icon-remove:hover {
+	background-color: #f00;
+	border-radius: 60px;
+	color: #fff;
+}
+.exrate i.icon-remove {
+	font-size: 11px;
+	cursor: pointer;
+	float: right;
+	padding: 3px;
+	padding-left: 3px;
+	padding-right: 3px;
+	margin-top: -29px;
+	margin-right: 1px;
+	color: #666;
+}
+
+.exrate p {
+	font-size: 11px;
+	color: #000;
+}
+
+.exrate > div {
+	background-color: #fff;
+	width: 130px;
+	padding-left: 10px;
+	border-radius: 6px;
+	margin-bottom: 3px;
+}
+
+.exrate {
+	margin-left: 20px;
+	color: #f00;
+	background-color: #977;
+	width: 165px;
+	padding-left: 10px;
+	border-radius: 6px;
+	border: 1px solid #f00;
+	box-shadow: 1px 1px 10px #000;	
+	overflow: hidden;
+}
+
+#yaweather font {
+	color: #000;
+	margin-left: 10px;
+	font-size: 11px;
+}
+
+#yaweather i.icon-remove:hover {
+	background-color: #f00;
+	border-radius: 60px;
+	color: #fff;
+}
+
+#yaweather i.icon-remove {
+	font-size: 11px;
+	cursor: pointer;
+	float: right;
+	padding: 3px;
+	padding-left: 3px;
+	padding-right: 3px;
+	margin-top: 1px;
+	margin-right: 1px;
+	color: #666;
+}
+
+#yaweather {
+	background-color: #977;
+	margin-top: -30px;
+	margin-bottom: 20px;
+	margin-left: 20px;
+	width: 175px;
+	border: 1px solid #f00;
+	border-radius: 6px;
+	height: 115px;
+	box-shadow: 1px 1px 10px #000;	
+	overflow: hidden;
+}
+
 /*-----------------*/
 .loginpan {
 	margin-left: 70%;
-	margin-top: -170px;
+	margin-top: -200px;
 	z-index: 1;
 }
 
@@ -182,6 +267,104 @@ ul.tab-wide {
 	padding-left: 10px;
 	margin-top: 8px;
 }
+/*@poll*/
+#pollbox {
+	width: 300px;
+	height: 110px;
+	background-color: pink;
+	padding-top: 10px;
+	padding-right: 15px;
+	margin-left: 30%;
+	border-radius: 6px;
+	border: 1px solid red;	
+	box-shadow: 0px 1px 10px #f00;
+}
+
+.poll-popup {
+	margin-top: 50px;
+	text-align: center;
+}
+
+.poll-popup.hero {
+	color: red;
+}
+
+.poll-title-hero {
+	margin-bottom: 30px;
+	margin-left: 30px;
+}
+
+.poll-value {
+	border-radius: 6px;
+	height: 20px;
+	background-color: #f88;
+	width: 0%;	
+	margin: 5px;
+	color: #fff;
+	padding: 3px;
+	transition: all 0.7s linear;
+}
+
+.poll {
+	margin-top: 20px;
+	margin-left: 20px;
+	background-color: rgba(0,0,0,0.5);
+	width: 175px;
+	padding-bottom: 10px;
+	border-radius: 6px;
+	border: 1px solid #f00;
+	height: 180px;
+}
+
+.poll input[type="submit"] {
+	float: left;
+	margin-left: 3px;
+	margin-top: 2px;
+	width: 60px;
+}
+
+.poll #pollHide {
+	margin-top: 2px;
+	float: right;
+	margin-right: 3px;
+	width: 20px;
+}
+
+
+.poll .option {
+	float: left;
+	margin-left: 10px;
+}
+
+.poll .option-label:hover {
+	background-color: #fbb;
+}
+
+.poll .option-label {
+	color: #f00;
+	background-color: #fff;
+	margin-bottom: 2px;
+	padding: 1px;
+	margin-right: 3px;
+	margin-left: 3px;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+.poll > p.poll-title {
+	color: #f00;
+	font-size: 15px;
+	font-family: FontAwesome;
+	text-shadow: 5px 2px 5px #f00;
+	text-align: center;
+}
+
+.poll > p.poll-subject {
+	color: #fff;
+	font-size: 15px;
+	margin-left: 10px;
+}
+
 .news {
 	padding-bottom: 10px;
 	padding-left: 10px;
@@ -199,7 +382,7 @@ ul.tab-wide {
 }
 
 #langset {
-	width: 59px;
+	width: 79px;
 	height: 20px;
 	margin-top: 10px;
 	font-size: 10px;

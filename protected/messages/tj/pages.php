@@ -1,6 +1,20 @@
 <?php
 
 return array(
+
+	'layout.exrate' => '<a href="http://nbt.tj">Қурби асъор</a>',
+	'layout.exrate.on' => ' ба ',
+	'layout.weather' => 'Обу ҳаво',
+	'sitepoll' => 'Назарсанҷӣи сайт',
+
+	'sitepoll1.subject' => 'Кадом қисми сайт ба Шумо маъқул аст?',
+
+	'sitepoll1.option1' => 'Ҳамааш',
+	'sitepoll1.option2' => 'Дизайн',
+	'sitepoll1.option3' => 'Контент',
+
+	'voted.thank' => 'Ба иштироҳатон ташакур!',
+
 	'home.welcometo' => 'Хуш Омадед бо ',
 	'home.services' => 'Хизматрасониҳои Мо',
 	'about.header' => 'Оиди Мо',

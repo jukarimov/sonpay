@@ -1,5 +1,29 @@
 <?php
 
+
+if (isset($_COOKIE['_lang'])) {
+	if ($_COOKIE['_lang'] != 'en') {
+		$cats = array(
+			'обычный',
+			'золотой',
+			'серебряный',
+			'зеркальный',
+			'красивый',
+		);
+	}
+}
+
+if (!$cats) {
+	$cats = array(
+			'normal',
+			'golden',
+			'silver',
+			'symmetric',
+			'pretty',
+	);
+}
+
+
 $ops = array();
 
 $oplist = array(
@@ -50,10 +74,13 @@ $ops []= 'Tcell';
 				$op = $myop;
 			else
 				$op = $ops[rand() % count($ops)];
+
+			$cat = $cats[rand() % count($cats)];
+
 			$myrows[]=array(
 				'id'=>$i,
 				'operator'=>$op,
-				'category'=>'category'.$i,
+				'category'=>$cat,
 				'tarif'=>'tarif'.$i,
 				'number'=>$i.'112233',
 			);

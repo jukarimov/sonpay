@@ -144,7 +144,6 @@ $(document).ready(function (){
     },
     scrollable: true,
     toolbar: [
-      { name: "home", text: "Home" },
       { template: '<input id="operator_list" value="'+tr('select operator')+'"/>' },
       { template: '<input id="category_list" value="'+tr('select category')+'"/>' },
     ],
@@ -156,7 +155,7 @@ $(document).ready(function (){
       { field: "number",   title: tr("Number"),   width: 60 },
     ],
   });
-  $('.k-grid-home').click(function(){
+  $('.link-home').click(function(){
   	window.location = '/';
   });
   $("#operator_list").kendoDropDownList({
@@ -239,7 +238,6 @@ function onResize() {
   var height = $(window).height();
   $('#grid').height(height - (height/9));
   $('#grid').find(".k-grid-content").height(height - height/9 - 115);
-  console.log('resize');
 }
 
 $(window).resize(function(){
