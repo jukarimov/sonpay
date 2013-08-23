@@ -430,20 +430,18 @@ class SiteController extends Controller
 			$err = true;
 		}
 
-		if (!$err && $poll && !$voted) {
-			if ($vote && $poll) {
-				$sp->postVote($vote, $poll);
-			}
+		if (!$err && ($poll && $vote) && !$voted) {
+			$sp->postVote($vote, $poll);
 		}
 
-		if ($poll) {
+		if ($poll && $vote) {
 			$this->render('sitepoll', array(
 				'poll'=>$poll,
 				'voted'=>$voted
 			));
 		}
 
-		if (!$poll || $err) {
+		if (!$poll || !$vote || $err) {
 			$p = $this->createUrl('site/index');
 			$this->redirect($p);
 		}

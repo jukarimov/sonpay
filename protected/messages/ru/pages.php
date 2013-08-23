@@ -14,6 +14,7 @@ return array(
 	'sitepoll1.option3' => 'Контент',
 
 	'voted.thank' => 'Спасибо за участие!',
+	'votes.empty' => 'Пока нет голосов',
 
 	'home.welcometo' => 'Добро пожаловать в ',
 	'home.services' => 'Наши Услуги',

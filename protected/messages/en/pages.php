@@ -14,6 +14,7 @@ return array(
 	'sitepoll1.option3' => 'Content',
 
 	'voted.thank' => 'Thanks for voting!',
+	'votes.empty' => 'No votes yet',
 
 	'home.welcometo' => 'Welcome to ',
 	'home.services' => 'Our Services',

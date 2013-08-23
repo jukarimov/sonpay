@@ -24,16 +24,21 @@ $this->pageTitle=Yii::app()->name . ' - '. Yii::t('pages', 'sitepoll');
 
 	<div id="pollbox">
 <?php
+	$readRows = 0;
 	while (($row = $data->read()) != false) {
 		echo '<div class="poll-value" width="'.$row['hits'].'%">';
 		echo Yii::t('pages', $row['title']) . '</div>';
+		$readRows++;
 	}
 	if ($voted) {
 ?>
 	</div><!-- pollbox -->
 	<div class="poll-popup hero">
 <?php
-		echo Yii::t('pages', 'voted.thank');
+		if ($readRows == 0)
+			echo Yii::t('pages', 'votes.empty');
+		else
+			echo Yii::t('pages', 'voted.thank');
 ?>
 	</div>
 <?php

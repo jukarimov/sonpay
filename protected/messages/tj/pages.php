@@ -14,6 +14,7 @@ return array(
 	'sitepoll1.option3' => 'Контент',
 
 	'voted.thank' => 'Ба иштироҳатон ташакур!',
+	'votes.empty' => 'Назарсанҷӣи ҳоло сар нашудаст',
 
 	'home.welcometo' => 'Хуш Омадед бо ',
 	'home.services' => 'Хизматрасониҳои Мо',
