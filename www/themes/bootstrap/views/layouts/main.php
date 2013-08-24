@@ -291,12 +291,11 @@ $(document).ready(function(){
 
 	// exchange rate
 	$.get('/cache/nbt.html', function(resp) {
-		var html = resp;
-		var tds = $(html).find('td#k_kurs');
+		var row = resp.split('\n');
 
-		var USD = $(tds[1]).text();
-		var EUR = $(tds[2]).text();
-		var RUS = $(tds[3]).text();
+		var USD = row[0].trim();
+		var EUR = row[1].trim();
+		var RUS = row[2].trim();
 
 		$('#USD').html(USD);
 		$('#EUR').html(EUR);
