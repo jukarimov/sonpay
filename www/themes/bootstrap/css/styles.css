@@ -117,6 +117,7 @@ ul.tab-wide {
 .informers {
 	position: absolute;
 	top: 300px;
+	z-index: -1;
 }
 
 .exrate i.icon-remove:hover {
