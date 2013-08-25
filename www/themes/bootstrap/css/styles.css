@@ -117,7 +117,6 @@ ul.tab-wide {
 .informers {
 	position: absolute;
 	top: 300px;
-	z-index: -1;
 }
 
 .exrate i.icon-remove:hover {
@@ -258,6 +257,11 @@ ul.tab-wide {
 /*--------------*/
 
 .banner {
+	margin-left: 300px;
+	width: 40%;
+}
+
+.banner > img {
 	border-radius: 6px;
 	margin-top: 75px;
 	width: 40%;
@@ -649,4 +653,25 @@ p[class="chatlabel"]:hover {
 }
 #AdminsForm_user_name {
 	margin-bottom: 10px;
+}
+
+#footer .btn-top:hover {
+	opacity: 0.5;
+}
+
+#footer .btn-top {
+	background: none repeat scroll 0 0 #2E3339;
+	opacity: 0.1;
+	bottom: 0;
+	left: 0;
+	top: 0;
+	position: fixed;
+	width: 40px;
+	height: 100%;
+	color: #f00;
+	display: block;
+	padding-top: 10px;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
 }

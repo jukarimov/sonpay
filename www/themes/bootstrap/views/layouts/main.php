@@ -99,7 +99,7 @@ endif;
   </ul>
 </div>
 
-<center><a href="/"><img class="banner" src="images/logo.png" /></a></center>
+<a href="/" class="banner"><img src="images/logo.png" /></a>
 
 <div class="langbar">
 	<select id="langset" class="input-medium bfh-languages">
@@ -203,8 +203,10 @@ if (file_exists($nbt_html)) {
 <iframe id="iframechat" height="440" width="440" src=""></iframe>
 </div>
 
-
 <div id="footer">
+
+<a class="btn-top" href="#top" title="<?php echo Yii::t('links','btn-top.title'); ?>">▲</a>
+
 </div><!-- footer -->
 
 <script>
@@ -306,6 +308,35 @@ $(document).ready(function(){
 	$('#pollHide').click(function(){
 		$('.poll').hide();
 	});
+
+	// fix z-index with nav and informers
+	$('.nav').hover(
+		function(Eover) {
+			$('.informers').css('z-index', '-1');
+		},
+		function(Eout) {
+			$('.informers').css('z-index', '1');
+		}
+	);
+
+
+	// chat pullover
+	$('#chat').hover(
+		function() {
+			$('#chat').width('150px');
+			$('p.chatlabel').css('-webkit-transform', 'rotate(0deg)');
+			$('p.chatlabel').css('color', '#000');
+			$('p.chatlabel').css('text-shadow', '1px 1px 10px #000');
+			$('p.chatlabel').css('margin-left', '10px');
+		},
+		function() {
+			$('#chat').width('80px');
+			$('p.chatlabel').css('-webkit-transform', 'rotate(90deg)');
+			$('p.chatlabel').css('color', '#500');
+			$('p.chatlabel').css('text-shadow', '1px 1px 10px #f00');
+			$('p.chatlabel').css('margin-left', '0px');
+		}
+	)
 });
 </script>
 </body>

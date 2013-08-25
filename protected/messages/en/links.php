@@ -5,4 +5,6 @@ return array(
 	'login2' => 'Login(subdealer)',
 	'login3' => 'Login(site)',
 
+	'btn-top.title' => 'Up',
+
 );
