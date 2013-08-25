@@ -159,13 +159,13 @@ if (file_exists($nbt_html)) {
 <form method="POST" action="?r=site/sitepoll">
 
 <div class="option"><input type="radio" name="vote_id" value="1" id="option1"/></div>
-<label for="option1"><div class="option-label">&nbsp;<?php echo Yii::t('pages', 'sitepoll1.option1'); ?></div></label>
+<label for="option1"><div class="option-label"><b class="tick">&check;</b>&nbsp;<?php echo Yii::t('pages', 'sitepoll1.option1'); ?></div></label>
 
 <div class="option"><input type="radio" name="vote_id" value="2" id="option2"/></div>
-<label for="option2"><div class="option-label">&nbsp;<?php echo Yii::t('pages', 'sitepoll1.option2'); ?></div></label>
+<label for="option2"><div class="option-label"><b class="tick">&check;</b>&nbsp;<?php echo Yii::t('pages', 'sitepoll1.option2'); ?></div></label>
 
 <div class="option"><input type="radio" name="vote_id" value="3" id="option3"/></div>
-<label for="option3"><div class="option-label">&nbsp;<?php echo Yii::t('pages', 'sitepoll1.option3'); ?></div></label>
+<label for="option3"><div class="option-label"><b class="tick">&check;</b>&nbsp;<?php echo Yii::t('pages', 'sitepoll1.option3'); ?></div></label>
 
 <input type="hidden" name="poll_id" value="1"/>
 <input type="submit" class="btn btn-mini btn-primary" value="vote"/>
@@ -309,6 +309,29 @@ $(document).ready(function(){
 		$('.poll').hide();
 	});
 
+	$('.poll form input[type="radio"]').each(function(k,v) {
+		$(v).change(function() {
+			if ($(this).is(':checked')) {
+				tick = $('.poll .tick')[k];
+				$(tick).css('color','#fff');
+
+				e = $('.poll .option-label')[k];
+				e.style.color = '#fff';
+				e.style.backgroundColor = '#e00';
+			}
+			for (i=0; i < 3; i++) {
+				if (i!=k) {
+					tick = $('.poll .tick')[i];
+					$(tick).css('color','#999');
+
+					e = $('.poll .option-label')[i];
+					e.style.color = '#333';
+					e.style.backgroundColor = '#fff';
+				}
+			}
+		});
+	});
+
 	// fix z-index with nav and informers
 	$('.nav').hover(
 		function(Eover) {
@@ -336,7 +359,8 @@ $(document).ready(function(){
 			$('p.chatlabel').css('text-shadow', '1px 1px 10px #f00');
 			$('p.chatlabel').css('margin-left', '0px');
 		}
-	)
+	);
+
 });
 </script>
 </body>

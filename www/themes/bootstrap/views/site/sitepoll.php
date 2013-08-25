@@ -1,4 +1,5 @@
 <?
+
 Yii::app()->user->returnUrl = $this->createUrl('/site/sitepoll');
 require('locale.php');
 
@@ -26,8 +27,11 @@ $this->pageTitle=Yii::app()->name . ' - '. Yii::t('pages', 'sitepoll');
 <?php
 	$readRows = 0;
 	while (($row = $data->read()) != false) {
+		echo '<div class="poll-value-wrap">';
 		echo '<div class="poll-value" width="'.$row['hits'].'%">';
-		echo Yii::t('pages', $row['title']) . '</div>';
+		echo Yii::t('pages', $row['title']);
+		echo '</div>';
+		echo '</div>';
 		$readRows++;
 	}
 	if ($voted) {
