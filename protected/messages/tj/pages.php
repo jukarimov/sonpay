@@ -7,6 +7,9 @@ return array(
 	'layout.weather' => 'Обу ҳаво',
 	'sitepoll' => 'Назарсанҷӣи сайт',
 
+	'about.location' => 'Оффиси мо',
+	'about.address' => 'ш. Душанбе, к. Пулоди 28',
+
 	'sitepoll1.subject' => 'Кадом қисми сайт ба Шумо маъқул аст?',
 
 	'sitepoll1.option1' => 'Ҳамааш',

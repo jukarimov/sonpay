@@ -4,6 +4,7 @@ return array(
 	'nav.home' => 'Асоси',
 	'nav.about' => 'Оиди Мо',
 	'nav.contact' => 'Алоқа',
+	'nav.vacancy' => 'Вакансия',
 	'nav.service' => 'Хизматҳо',
 	'nav.wrw' => 'Оид ба Ширкат',
 	'nav.tickets' => 'Чиптаҳо',

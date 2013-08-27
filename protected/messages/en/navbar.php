@@ -4,6 +4,7 @@ return array (
 	'nav.home' => 'Home',
 	'nav.about' => 'About',
 	'nav.contact' => 'Contact',
+	'nav.vacancy' => 'Vacancy',
 	'nav.login' => 'Login',
 	'nav.logout' => 'Logout',
 	'nav.messages' => 'Messages',

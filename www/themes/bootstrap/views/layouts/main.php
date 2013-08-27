@@ -63,7 +63,7 @@ endif;
   <li><a href="?r=site/page&view=about#content"><?php echo Yii::t('navbar', 'nav.about'); ?></a>
 	<ul>
 	  <li><a href="#"><?php echo Yii::t('navbar', 'nav.wrw'); ?></a></li>
-	  <li><a href="?r=site/contact#content"><?php echo Yii::t('navbar', 'nav.contact'); ?></a></li>
+	  <li><a href="?r=site/page&view=vacancy#content"><?php echo Yii::t('navbar', 'nav.vacancy'); ?></a></li>
 	  <li><a href="/etc/chat/"><?echo Yii::t('widgets', 'live_chat');?></a></li>
 	</ul>
     </li>
@@ -72,6 +72,7 @@ endif;
 	  <li><a href="#"><?php echo Yii::t('navbar', 'nav.tickets'); ?></a></li>
 	  <li><a href="#"><?php echo Yii::t('navbar', 'nav.payment'); ?></a></li>
 	  <li><a href="#"><?php echo Yii::t('navbar', 'nav.mobiles'); ?></a></li>
+	  <li><a href="#"><?php echo Yii::t('navbar', 'nav.simcard'); ?></a></li>
 	</ul>
     </li>
     <li><?php echo Yii::t('navbar', 'nav.partners'); ?>

@@ -4,6 +4,7 @@ return array(
 	'nav.home' => 'Главная',
 	'nav.about' => 'О Нас',
 	'nav.contact' => 'Контакты',
+	'nav.vacancy' => 'Вакансия',
 	'nav.login' => 'Войти',
 	'nav.logout' => 'Выйти',
 	'nav.messages' => 'Сообщений',

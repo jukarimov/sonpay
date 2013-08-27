@@ -104,6 +104,7 @@ $(document).ready(function (){
   $("#grid").kendoGrid({
     dataSource: dataSource,
     navigatable: true,
+    selectable: true,
     pageable: {
 	refresh: true,
 	pageSizes: [10,20,50,100],

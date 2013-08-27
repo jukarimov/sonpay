@@ -7,6 +7,9 @@ return array(
 	'layout.weather' => 'Прогноз погоды',
 	'sitepoll' => 'Сайт опросник',
 
+	'about.location' => 'Наш оффис',
+	'about.address' => 'г. Душанбе, ул. Пулоди 28',
+
 	'sitepoll1.subject' => 'Что Вам нравится на нашем сайте?',
 
 	'sitepoll1.option1' => 'Всё',

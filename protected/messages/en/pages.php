@@ -7,6 +7,9 @@ return array(
 	'layout.weather' => 'Weather forecast',
 	'sitepoll' => 'Site poll',
 
+	'about.location' => 'Our office',
+	'about.address' => 'Dushanbe, Pulody St. 28',
+
 	'sitepoll1.subject' => 'What do you like most at our site?',
 
 	'sitepoll1.option1' => 'Everything',
