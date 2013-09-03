@@ -250,6 +250,11 @@ if (!Yii::app()->user->isGuest)
 }
 ?>
 $(document).ready(function(){
+
+	$('.btn-top').click(function(){
+		$('body').animate({scrollTop:0},1200);
+	});
+
 	$('#langset').change(function(){
 		var ln = $('#langset').val();
 		window.location = "?r=site/locale/" + ln;
@@ -362,6 +367,8 @@ $(document).ready(function(){
 		}
 	);
 
+	atContent = $('a[name="content"]').position()['top'];
+	$('body').animate({scrollTop:atContent},1200);
 });
 </script>
 </body>
